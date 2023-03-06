@@ -54,7 +54,8 @@ public class ZepetoImportManager : EditorWindow
             
             if (GUILayout.Button("Import Sample", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
             {
-                EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(selectedData.DownloadPath), this);
+                string path = selectedData.Title.Replace(" ", ""); 
+                EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(path), this);
             }
 
             GUILayout.EndHorizontal();
@@ -78,9 +79,10 @@ public class ZepetoImportManager : EditorWindow
 
     private static IEnumerator DownloadFileCoroutine(string downloadPath)
     {
-        string mainPath = "https://github.com/JasperGame/zepeto-world-sync-component/raw/dev/";
-        string downloadUrl = Path.Combine(mainPath, downloadPath);
-
+        string mainPath = "https://github.com/JasperGame/zepeto-modules/raw/main/release/";
+        string version = "v1.0.0.unitypackage";
+        string downloadUrl = Path.Combine(mainPath, downloadPath, version);
+        Debug.Log(downloadUrl);
         string tempFilePath = Path.Combine(Application.temporaryCachePath, downloadPath);
 
         using (var webClient = new WebClient())

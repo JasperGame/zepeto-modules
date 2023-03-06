@@ -1,0 +1,41 @@
+fileFormatVersion: 2
+guid: 5c4dd9d7cd5c951449227ab92e924dd9
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nclass
+    ITM_LeaderBoard extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    SetGroup(rank)
+    {\r\n        if (this._rankCache?.member != rank.member) {\r\n            if
+    (rank.name != null) {\r\n                // Set player''s ProfileTexture\r\n               
+    ZEPETO_World_1.ZepetoWorldHelper.GetProfileTexture(rank.member, (texture) =>
+    {\r\n                    if (texture != null)\r\n                        this.playerImage.sprite
+    = this.GetSprite(texture);\r\n                }, (error) => {\r\n                   
+    console.warn(\"GetProfileTexture Error : \" + error);\r\n                });\r\n           
+    }\r\n            else {\r\n                console.warn(rank.rank + \" member
+    null : \" + rank.name);\r\n            }\r\n            this.playerNameText.text
+    = rank.name ?? \"withdrawn user.\";\r\n        }\r\n        // Set player''s
+    rank, and score\r\n        this.playerRankText.text = rank.rank.toString();\r\n       
+    this.playerScoreText.text = rank.score.toString();\r\n        this._rankCache
+    = rank;\r\n    }\r\n    GetSprite(texture) {\r\n        let rect = new UnityEngine_1.Rect(0,
+    0, texture.width, texture.height);\r\n        return UnityEngine_1.Sprite.Create(texture,
+    rect, new UnityEngine_1.Vector2(0.5, 0.5));\r\n    }\r\n}\r\nexports.default
+    = ITM_LeaderBoard;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSVRNX0xlYWRlckJvYXJkLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiSVRNX0xlYWRlckJvYXJkLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBRXJELDZDQUFtRjtBQUNuRiwrQ0FBdUQ7QUFJdkQsTUFBcUIsZUFBZ0IsU0FBUSxxQ0FBcUI7SUFRdkQsUUFBUSxDQUFDLElBQVc7UUFDdkIsSUFBRyxJQUFJLENBQUMsVUFBVSxFQUFFLE1BQU0sSUFBSSxJQUFJLENBQUMsTUFBTSxFQUFDO1lBQ3RDLElBQUcsSUFBSSxDQUFDLElBQUksSUFBSSxJQUFJLEVBQUU7Z0JBQ2xCLDhCQUE4QjtnQkFDOUIsZ0NBQWlCLENBQUMsaUJBQWlCLENBQUMsSUFBSSxDQUFDLE1BQU0sRUFBRSxDQUFDLE9BQWdCLEVBQUUsRUFBRTtvQkFDbEUsSUFBRyxPQUFPLElBQUUsSUFBSTt3QkFDWixJQUFJLENBQUMsV0FBVyxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxDQUFDO2dCQUMxRCxDQUFDLEVBQUUsQ0FBQyxLQUFLLEVBQUUsRUFBRTtvQkFDVCxPQUFPLENBQUMsSUFBSSxDQUFDLDRCQUE0QixHQUFHLEtBQUssQ0FBQyxDQUFDO2dCQUN2RCxDQUFDLENBQUMsQ0FBQzthQUNOO2lCQUNHO2dCQUNBLE9BQU8sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksR0FBQyxpQkFBaUIsR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7YUFDekQ7WUFDRCxJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsSUFBSSxJQUFJLGlCQUFpQixDQUFDO1NBQzdEO1FBQ0QsK0JBQStCO1FBQy9CLElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7UUFDaEQsSUFBSSxDQUFDLGVBQWUsQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxRQUFRLEVBQUUsQ0FBQztRQUVsRCxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQztJQUMzQixDQUFDO0lBRUQsU0FBUyxDQUFDLE9BQWU7UUFDckIsSUFBSSxJQUFJLEdBQVEsSUFBSSxrQkFBSSxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsT0FBTyxDQUFDLEtBQUssRUFBRSxPQUFPLENBQUMsTUFBTSxDQUFDLENBQUM7UUFDOUQsT0FBTyxvQkFBTSxDQUFDLE1BQU0sQ0FBQyxPQUFvQixFQUFFLElBQUksRUFBRSxJQUFJLHFCQUFPLENBQUMsR0FBRyxFQUFFLEdBQUcsQ0FBQyxDQUFDLENBQUM7SUFDNUUsQ0FBQztDQUVKO0FBcENELGtDQW9DQyJ9","assetPath":"Assets/ZepetoLeaderBoard/Script/ITM_LeaderBoard.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"playerImage","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"playerRankText","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"playerNameText","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"playerScoreText","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"ITM_LeaderBoard","description":""},"isCompiled":true}'
+  typescriptHash: a4870baaf0ac106ac58c42d87358f901
+  onlyWriteTrigger: 0
