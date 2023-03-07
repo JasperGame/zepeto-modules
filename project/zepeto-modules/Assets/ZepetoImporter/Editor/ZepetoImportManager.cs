@@ -11,8 +11,9 @@ using UnityEngine;
 
 public class ZepetoImportManager : EditorWindow
 {
-    MyData selectedData;
-
+    private MyData selectedData;
+    private ItemArray dataUrlArray;
+    
     [MenuItem("ZEPETO/ImportManager")]
     public static void ShowWindow()
     {
@@ -21,12 +22,34 @@ public class ZepetoImportManager : EditorWindow
     
     void OnGUI()
     {
-        string assetPath = Application.dataPath;
-        string jsonString = System.IO.File.ReadAllText(assetPath+"/ZepetoImporter/Data/urlPath.json");
-        ItemArray dataUrlArray = JsonUtility.FromJson<ItemArray>(jsonString);
-        
+        if (dataUrlArray == null)
+        {
+            string assetPath = Application.dataPath;
+            string jsonString = System.IO.File.ReadAllText(assetPath + "/ZepetoImporter/Data/urlPath.json");
+            dataUrlArray = JsonUtility.FromJson<ItemArray>(jsonString);
+        }
         GUILayout.BeginHorizontal();
+        DoSideButton();
 
+        if (selectedData != null)
+        {       
+            GUILayout.BeginVertical();
+
+            DoTopButton();
+            DoVersionInfo();
+            DoDependencyInfo();
+            DoDescription();
+
+            GUILayout.EndVertical();
+        }
+
+        GUILayout.EndHorizontal();
+
+
+    }
+    
+    private void DoSideButton()
+    {
         // 좌측에 버튼을 생성합니다.
         GUILayout.BeginVertical(GUILayout.Width(200));
         foreach (MyData data in dataUrlArray.Items)
@@ -37,44 +60,57 @@ public class ZepetoImportManager : EditorWindow
         }
         GUILayout.EndVertical();
         GUILayout.Box("", GUILayout.ExpandHeight(true), GUILayout.Width(3));
+    }
 
-
-        // 우측에 선택한 버튼의 설명을 표시합니다.
-        GUILayout.BeginVertical();
-
+    private void DoTopButton()
+    {
         GUILayout.BeginHorizontal();
-        if (selectedData != null)
+        GUILayout.Label(selectedData.Title, EditorStyles.boldLabel);
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("Docs", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            GUILayout.Label(selectedData.Title, EditorStyles.boldLabel);
-            GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Docs", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
-            {
-                Application.OpenURL(selectedData.DocsUrl);
-            }
-            
-            if (GUILayout.Button("Import Sample", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
-            {
-                string path = selectedData.Title.Replace(" ", ""); 
-                EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(path), this);
-            }
-
-            GUILayout.EndHorizontal();
-            GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
-            GUILayout.Label(selectedData.Description);
-            string filePath = Application.dataPath + "/ZepetoImporter/Data/Image/"+selectedData.Title+".png";
-            if (File.Exists(filePath))
-            {
-                Texture2D image = new Texture2D(2, 2);
-                image.LoadImage(File.ReadAllBytes(filePath));
-                GUILayout.Box(image, GUILayout.Height(500), GUILayout.Width(500));
-            }
-
-            GUILayout.EndVertical();
+            Application.OpenURL(selectedData.DocsUrl);
         }
-
+            
+        if (GUILayout.Button("Import Sample", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        {
+            string path = selectedData.Title.Replace(" ", ""); 
+            EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(path), this);
+        }
         GUILayout.EndHorizontal();
-
-
+        
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
+    }
+    private void DoVersionInfo()
+    {
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(100));
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("downloaded version : ", EditorStyles.boldLabel);
+        GUILayout.Label("v1.0.0", EditorStyles.boldLabel);
+        GUILayout.FlexibleSpace();
+        GUILayout.Label("latest version : ", EditorStyles.boldLabel);
+        GUILayout.Label("v1.0.0", EditorStyles.boldLabel);
+        GUILayout.EndHorizontal();
+    }
+    private void DoDependencyInfo()
+    {
+        GUILayout.Label("Dependency : ", EditorStyles.boldLabel);
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Zepeto World : ", EditorStyles.boldLabel);
+        GUILayout.Label("v1.0.0 or higher", EditorStyles.boldLabel);
+        GUILayout.EndHorizontal();
+    }
+    
+    private void DoDescription()
+    {
+        GUILayout.Label(selectedData.Description);
+        string filePath = Application.dataPath + "/ZepetoImporter/Data/Image/"+selectedData.Title+".png";
+        if (File.Exists(filePath))
+        {
+            Texture2D image = new Texture2D(2, 2);
+            image.LoadImage(File.ReadAllBytes(filePath));
+            GUILayout.Box(image, GUILayout.Height(500), GUILayout.Width(500));
+        }
     }
 
     private static IEnumerator DownloadFileCoroutine(string downloadPath)
@@ -111,7 +147,6 @@ public class ZepetoImportManager : EditorWindow
         public string Title;
         public string Description;
         public string DocsUrl;
-        public string DownloadPath;
     }
     
     [System.Serializable]
