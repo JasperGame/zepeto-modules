@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Networking;
 
 
 public class ZepetoImportManager : EditorWindow
@@ -18,6 +20,22 @@ public class ZepetoImportManager : EditorWindow
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(ZepetoImportManager));
+    }
+    
+    IEnumerator GetData()
+    {
+        string url = "https://raw.githubusercontent.com/JasperGame/zepeto-modules/main/project/zepeto-modules/Assets/ZepetoImporter/Data/urlPath.json";
+        UnityWebRequest www = UnityWebRequest.Get(url);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            dataUrlArray = JsonUtility.FromJson<ItemArray>(www.downloadHandler.text);
+        }
     }
     
     void OnGUI()
@@ -50,7 +68,6 @@ public class ZepetoImportManager : EditorWindow
     
     private void DoSideButton()
     {
-        // 좌측에 버튼을 생성합니다.
         GUILayout.BeginVertical(GUILayout.Width(200));
         foreach (MyData data in dataUrlArray.Items)
         {
@@ -67,15 +84,21 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.BeginHorizontal();
         GUILayout.Label(selectedData.Title, EditorStyles.boldLabel);
         GUILayout.FlexibleSpace();
-        if (GUILayout.Button("Docs", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        if (GUILayout.Button("API Docs", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        {
+            Application.OpenURL(selectedData.DocsUrl);
+        }
+        
+        if (GUILayout.Button("Guide Book", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
             Application.OpenURL(selectedData.DocsUrl);
         }
             
-        if (GUILayout.Button("Import Sample", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        if (GUILayout.Button("Import Latest Sample", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            string path = selectedData.Title.Replace(" ", ""); 
-            EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(path), this);
+            string title = selectedData.Title.Replace(" ", ""); 
+            string version = selectedData.LatestVersion; 
+            EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(title, version), this);
         }
         GUILayout.EndHorizontal();
         
@@ -83,22 +106,56 @@ public class ZepetoImportManager : EditorWindow
     }
     private void DoVersionInfo()
     {
-        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(100));
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("downloaded version : ", EditorStyles.boldLabel);
-        GUILayout.Label("v1.0.0", EditorStyles.boldLabel);
-        GUILayout.FlexibleSpace();
-        GUILayout.Label("latest version : ", EditorStyles.boldLabel);
-        GUILayout.Label("v1.0.0", EditorStyles.boldLabel);
-        GUILayout.EndHorizontal();
+        string downloadedVersion = "UKNOWN";
+        
+        string className = "InteractionAPIManager";
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        Type type = assembly.GetType(className);
+        if (type != null)
+        {                
+
+            FieldInfo field = type.GetField("VERSION", BindingFlags.Static | BindingFlags.Public);
+
+            if (field != null)
+            {
+                string version = (string)field.GetValue(null);
+                Debug.Log("VERSION: " + version);
+            }
+            else
+            {
+            }
+        }
+        else
+        {
+            Debug.Log("VERSION: empty");
+        }
+        
+        //GUILayout.BeginHorizontal();
+        GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
+        labelStyle.alignment = TextAnchor.MiddleLeft;
+        labelStyle.fontSize = 12;
+        GUILayout.Box($"downloaded version : {downloadedVersion}\t" +
+                       $"latest version : {selectedData.LatestVersion}", labelStyle);
     }
+    
     private void DoDependencyInfo()
     {
-        GUILayout.Label("Dependency : ", EditorStyles.boldLabel);
+        GUILayout.Label("Dependencies : ", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Zepeto World : ", EditorStyles.boldLabel);
-        GUILayout.Label("v1.0.0 or higher", EditorStyles.boldLabel);
+        
+        GUILayout.BeginVertical();
+        GUILayout.Label("\t ZEPETO.World : ", EditorStyles.label);
+        GUILayout.Label("\t ZEPETO.Product : ", EditorStyles.label);
+        GUILayout.EndVertical();
+
+        GUILayout.BeginVertical();
+        GUILayout.Label("1.12.0+", EditorStyles.boldLabel);        
+        GUILayout.Label("1.0.0+", EditorStyles.boldLabel);
+        GUILayout.EndVertical();
+        
         GUILayout.EndHorizontal();
+        
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
     }
     
     private void DoDescription()
@@ -109,17 +166,18 @@ public class ZepetoImportManager : EditorWindow
         {
             Texture2D image = new Texture2D(2, 2);
             image.LoadImage(File.ReadAllBytes(filePath));
-            GUILayout.Box(image, GUILayout.Height(500), GUILayout.Width(500));
+            GUILayout.Box(image,GUILayout.Width(500), GUILayout.ExpandHeight(true));
         }
     }
 
-    private static IEnumerator DownloadFileCoroutine(string downloadPath)
+    private static IEnumerator DownloadFileCoroutine(string title, string version)
     {
         string mainPath = "https://github.com/JasperGame/zepeto-modules/raw/main/release/";
-        string version = "v1.0.0.unitypackage";
-        string downloadUrl = Path.Combine(mainPath, downloadPath, version);
+        string fileName = ".unitypackage";
+        string downloadUrl = Path.Combine(mainPath, title, version,fileName);
         Debug.Log(downloadUrl);
-        string tempFilePath = Path.Combine(Application.temporaryCachePath, downloadPath);
+        
+        string tempFilePath = Path.Combine(Application.temporaryCachePath, title);
 
         using (var webClient = new WebClient())
         {
@@ -147,6 +205,7 @@ public class ZepetoImportManager : EditorWindow
         public string Title;
         public string Description;
         public string DocsUrl;
+        public string LatestVersion;
     }
     
     [System.Serializable]

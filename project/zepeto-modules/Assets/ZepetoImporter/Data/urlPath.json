@@ -4,43 +4,43 @@
       "Title": "Multiplay Component",
       "Description": "Component for synchronizing data between devices.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
-      "DownloadPath": "MultiplayComponent.unitypackage"
+      "LatestVersion": "v1.0.0"
     },
     {
       "Title": "Interaction API",
       "Description": "System for handling user interactions with the application.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/docs/interacting-with-an-object",
-      "DownloadPath": "InteractionAPI.unitypackage"
+      "LatestVersion": "v1.0.0"
     },
     {
       "Title": "Gesture API",
       "Description": "API for recognizing and processing user gestures.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/docs/gesture",
-      "DownloadPath": "GestureAPI.unitypackage"
+      "LatestVersion": "v1.0.0"
     },
     {
       "Title": "ScreenShot API",
       "Description": "Utility for capturing and saving screenshots of the application.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/docs/screenshot",
-      "DownloadPath": "ScreenShotAPI.unitypackage"
+      "LatestVersion": "v1.0.0"
     },
     {
       "Title": "LeaderBoard API",
       "Description": "API for managing and displaying leaderboard data.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-ko/docs/leaderboard",
-      "DownloadPath": "LeaderBoardAPI.unitypackage"
+      "LatestVersion": "v1.0.0"
     },
     {
       "Title": "Mannequin API",
       "Description": "API for Mannequin.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/docs/zepeto_mannequin",
-      "DownloadPath": "MannequinAPI.unitypackage"
+      "LatestVersion": "v1.0.0"
     },
     {
       "Title": "Product API",
       "Description": "API for Product, you need server code",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/docs/zepeto_product",
-      "DownloadPath": "ProductAPI.unitypackage"
+      "LatestVersion": "v1.0.0"
     }
   ]
 }
