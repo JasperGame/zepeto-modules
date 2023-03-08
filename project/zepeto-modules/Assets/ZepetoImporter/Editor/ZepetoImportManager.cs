@@ -12,8 +12,10 @@ using UnityEngine.Networking;
 
 public class ZepetoImportManager : EditorWindow
 {
-    private MyData selectedData;
-    private ItemArray dataUrlArray;
+    private Content _selectedData;
+    private ContentList _contentList;
+    private string[] _languages = new string[] { "English", "Korean" };
+    private int _selectedLanguage = 0;
     
     [MenuItem("ZEPETO/ImportManager")]
     public static void ShowWindow()
@@ -33,22 +35,29 @@ public class ZepetoImportManager : EditorWindow
         }
         else
         {
-            if (dataUrlArray == null)
+            if (_contentList == null)
             {
-                dataUrlArray = JsonUtility.FromJson<ItemArray>(www.downloadHandler.text);
-                Debug.Log(www.downloadHandler.text);
-                Debug.Log("ASDASD");
+                _contentList = JsonUtility.FromJson<ContentList>(www.downloadHandler.text);
             }
         }
     }
     
     void OnGUI()
     {
-        if (dataUrlArray == null)
+        string assetPath = Application.dataPath;
+        string jsonString = System.IO.File.ReadAllText(assetPath + "/ZepetoImporter/Data/urlPath.json");
+        _contentList = JsonUtility.FromJson<ContentList>(jsonString);
+        if (_contentList == null)
         {
             EditorCoroutineUtility.StartCoroutine(GetData(), this);
+            GUILayout.BeginArea(new Rect(position.width * 0.5f - 100, (position.height) * 0.5f - 50, 400, 100));
+            EditorGUILayout.BeginHorizontal();
+            {
+                GUILayout.Label("Wait...");
+            }
+            EditorGUILayout.EndHorizontal();
+            GUILayout.EndArea();
         }
-        else
         {
             DrawAll();
         }
@@ -56,11 +65,12 @@ public class ZepetoImportManager : EditorWindow
 
     private void DrawAll()
     {
+        DoTopBarGUI();
         GUILayout.BeginHorizontal();
 
         DoSideButtonGUI();
 
-        if (selectedData != null)
+        if (_selectedData != null)
         {       
             GUILayout.BeginVertical();
 
@@ -74,13 +84,40 @@ public class ZepetoImportManager : EditorWindow
 
         GUILayout.EndHorizontal();
     }
+    private void DoTopBarGUI()
+    {        
+        GUILayout.BeginHorizontal();
+        
+        GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
+        labelStyle.alignment = TextAnchor.MiddleLeft;
+        labelStyle.fontSize = 24;
+        
+        GUILayout.Label("Zepeto Import Manager", labelStyle);
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
+        
+        GUILayout.FlexibleSpace();
+        _selectedLanguage = EditorGUILayout.Popup(_selectedLanguage, _languages, GUILayout.Width(150), GUILayout.Height(30));
+
+        GUILayout.EndHorizontal();
+
+    }
     private void DoSideButtonGUI()
     {
         GUILayout.BeginVertical(GUILayout.Width(200));
-        foreach (MyData data in dataUrlArray.Items)
+        foreach (Content data in _contentList.Items)
         {
-            if (GUILayout.Button (data.Title, GUILayout.Height(50))) {
-                selectedData = data;
+            if (GUILayout.Button (data.Title, GUILayout.Height(30))) {
+                _selectedData = data;
+            }
+        }
+        
+        using (new EditorGUILayout.HorizontalScope(GUILayout.Height(30)))
+        {
+            GUILayout.Label("Refresh");
+            if (GUILayout.Button(EditorGUIUtility.FindTexture("d_Refresh"), GUILayout.Width(30), GUILayout.Height(30)) == true)
+            {
+                EditorCoroutineUtility.StartCoroutine(GetData(), this);
+                DrawAll();
             }
         }
         GUILayout.EndVertical();
@@ -90,32 +127,33 @@ public class ZepetoImportManager : EditorWindow
     private void DoTopButtonGUI()
     {
         GUILayout.BeginHorizontal();
-        GUILayout.Label(selectedData.Title, EditorStyles.boldLabel);
+        GUILayout.Label(_selectedData.Title, EditorStyles.boldLabel);
         GUILayout.FlexibleSpace();
         if (GUILayout.Button("API Docs", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            Application.OpenURL(selectedData.DocsUrl);
+            Application.OpenURL(_selectedData.DocsUrl);
         }
         
         if (GUILayout.Button("Import Guide", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            Application.OpenURL(selectedData.DocsUrl);
+            Application.OpenURL(_selectedData.ImportGuideUrl);
         }
             
         if (GUILayout.Button("Import", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            string title = selectedData.Title.Replace(" ", ""); 
-            string version = selectedData.LatestVersion; 
+            string title = _selectedData.Title.Replace(" ", ""); 
+            string version = _selectedData.LatestVersion; 
             EditorCoroutineUtility.StartCoroutine(DownloadFileCoroutine(title, version), this);
         }
         GUILayout.EndHorizontal();
         
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
     }
+    
     private void DoVersionInfoGUI()
     {
         string downloadedVersion = "UNKNOWN";
-        string className = selectedData.Title.Replace(" ","")+"Manager";
+        string className = _selectedData.Title.Replace(" ","")+"Manager";
 
         Type type = GetTypeByName(className);
 
@@ -134,7 +172,7 @@ public class ZepetoImportManager : EditorWindow
         labelStyle.alignment = TextAnchor.MiddleLeft;
         labelStyle.fontSize = 12;
         GUILayout.Box($"downloaded version : {downloadedVersion}\t" +
-                       $"latest version : {selectedData.LatestVersion}", labelStyle);
+                       $"latest version : {_selectedData.LatestVersion}", labelStyle);
     }
     
     private void DoDependencyInfoGUI()
@@ -143,13 +181,10 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.BeginHorizontal();
         
         GUILayout.BeginVertical();
-        GUILayout.Label("\t ZEPETO.World : ", EditorStyles.label);
-        GUILayout.Label("\t ZEPETO.Product : ", EditorStyles.label);
-        GUILayout.EndVertical();
-
-        GUILayout.BeginVertical();
-        GUILayout.Label("1.12.0+", EditorStyles.boldLabel);        
-        GUILayout.Label("1.0.0+", EditorStyles.boldLabel);
+        foreach (string dependency in _selectedData.Dependencies)
+        {
+            GUILayout.Label("\t"+dependency, EditorStyles.label);
+        }
         GUILayout.EndVertical();
         
         GUILayout.EndHorizontal();
@@ -159,13 +194,13 @@ public class ZepetoImportManager : EditorWindow
     
     private void DoDescriptionGUI()
     {
-        GUILayout.Label(selectedData.Description);
-        string filePath = Application.dataPath + "/ZepetoImporter/Data/Image/"+selectedData.Title+".png";
+        GUILayout.Label(_selectedLanguage == 0 ? _selectedData.Description : _selectedData.Description_ko);
+        string filePath = Application.dataPath + "/ZepetoImporter/Data/Image/"+_selectedData.Title+".png";
         if (File.Exists(filePath))
         {
             Texture2D image = new Texture2D(2, 2);
             image.LoadImage(File.ReadAllBytes(filePath));
-            GUILayout.Box(image,GUILayout.Width(500), GUILayout.ExpandHeight(true));
+            GUILayout.Box(image,GUILayout.Width(500),GUILayout.MaxHeight(300));
         }
     }
 
@@ -213,18 +248,21 @@ public class ZepetoImportManager : EditorWindow
     }
     
     [System.Serializable]
-    public class MyData
+    public class Content
     {
         public string Title;
         public string Description;
+        public string Description_ko;
         public string DocsUrl;
+        public string ImportGuideUrl;
         public string LatestVersion;
+        public string[] Dependencies;
     }
     
     [System.Serializable]
-    public class ItemArray
+    public class ContentList
     {
-        public List<MyData> Items;
+        public List<Content> Items;
     }
     
 }
