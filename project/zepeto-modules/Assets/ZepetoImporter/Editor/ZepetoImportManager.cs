@@ -6,7 +6,6 @@ using System.Net;
 using System.Reflection;
 using Unity.EditorCoroutines.Editor;
 using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -34,7 +33,12 @@ public class ZepetoImportManager : EditorWindow
         }
         else
         {
-            dataUrlArray = JsonUtility.FromJson<ItemArray>(www.downloadHandler.text);
+            if (dataUrlArray == null)
+            {
+                dataUrlArray = JsonUtility.FromJson<ItemArray>(www.downloadHandler.text);
+                Debug.Log(www.downloadHandler.text);
+                Debug.Log("ASDASD");
+            }
         }
     }
     
@@ -42,31 +46,35 @@ public class ZepetoImportManager : EditorWindow
     {
         if (dataUrlArray == null)
         {
-            string assetPath = Application.dataPath;
-            string jsonString = System.IO.File.ReadAllText(assetPath + "/ZepetoImporter/Data/urlPath.json");
-            dataUrlArray = JsonUtility.FromJson<ItemArray>(jsonString);
+            EditorCoroutineUtility.StartCoroutine(GetData(), this);
         }
+        else
+        {
+            DrawAll();
+        }
+    }
+
+    private void DrawAll()
+    {
         GUILayout.BeginHorizontal();
-        DoSideButton();
+
+        DoSideButtonGUI();
 
         if (selectedData != null)
         {       
             GUILayout.BeginVertical();
 
-            DoTopButton();
-            DoVersionInfo();
-            DoDependencyInfo();
-            DoDescription();
+            DoTopButtonGUI();
+            DoVersionInfoGUI();
+            DoDependencyInfoGUI();
+            DoDescriptionGUI();
 
             GUILayout.EndVertical();
         }
 
         GUILayout.EndHorizontal();
-
-
     }
-    
-    private void DoSideButton()
+    private void DoSideButtonGUI()
     {
         GUILayout.BeginVertical(GUILayout.Width(200));
         foreach (MyData data in dataUrlArray.Items)
@@ -79,7 +87,7 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.Box("", GUILayout.ExpandHeight(true), GUILayout.Width(3));
     }
 
-    private void DoTopButton()
+    private void DoTopButtonGUI()
     {
         GUILayout.BeginHorizontal();
         GUILayout.Label(selectedData.Title, EditorStyles.boldLabel);
@@ -89,12 +97,12 @@ public class ZepetoImportManager : EditorWindow
             Application.OpenURL(selectedData.DocsUrl);
         }
         
-        if (GUILayout.Button("Guide Book", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        if (GUILayout.Button("Import Guide", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
             Application.OpenURL(selectedData.DocsUrl);
         }
             
-        if (GUILayout.Button("Import Latest Sample", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        if (GUILayout.Button("Import", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
             string title = selectedData.Title.Replace(" ", ""); 
             string version = selectedData.LatestVersion; 
@@ -104,30 +112,21 @@ public class ZepetoImportManager : EditorWindow
         
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
     }
-    private void DoVersionInfo()
+    private void DoVersionInfoGUI()
     {
-        string downloadedVersion = "UKNOWN";
-        
-        string className = "InteractionAPIManager";
-        Assembly assembly = Assembly.GetExecutingAssembly();
-        Type type = assembly.GetType(className);
-        if (type != null)
-        {                
+        string downloadedVersion = "UNKNOWN";
+        string className = selectedData.Title.Replace(" ","")+"Manager";
 
+        Type type = GetTypeByName(className);
+
+        if (type != null)
+        {
             FieldInfo field = type.GetField("VERSION", BindingFlags.Static | BindingFlags.Public);
 
             if (field != null)
             {
-                string version = (string)field.GetValue(null);
-                Debug.Log("VERSION: " + version);
+                downloadedVersion = (string)field.GetValue(null);
             }
-            else
-            {
-            }
-        }
-        else
-        {
-            Debug.Log("VERSION: empty");
         }
         
         //GUILayout.BeginHorizontal();
@@ -138,7 +137,7 @@ public class ZepetoImportManager : EditorWindow
                        $"latest version : {selectedData.LatestVersion}", labelStyle);
     }
     
-    private void DoDependencyInfo()
+    private void DoDependencyInfoGUI()
     {
         GUILayout.Label("Dependencies : ", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal();
@@ -158,7 +157,7 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
     }
     
-    private void DoDescription()
+    private void DoDescriptionGUI()
     {
         GUILayout.Label(selectedData.Description);
         string filePath = Application.dataPath + "/ZepetoImporter/Data/Image/"+selectedData.Title+".png";
@@ -174,7 +173,7 @@ public class ZepetoImportManager : EditorWindow
     {
         string mainPath = "https://github.com/JasperGame/zepeto-modules/raw/main/release/";
         string fileName = ".unitypackage";
-        string downloadUrl = Path.Combine(mainPath, title, version,fileName);
+        string downloadUrl = Path.Combine(mainPath, title, version+fileName);
         Debug.Log(downloadUrl);
         
         string tempFilePath = Path.Combine(Application.temporaryCachePath, title);
@@ -198,6 +197,20 @@ public class ZepetoImportManager : EditorWindow
         }
     }
     
+    Type GetTypeByName(string className)
+    {
+        Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+        foreach (Assembly assembly in assemblies)
+        {
+            Type type = assembly.GetType(className);
+            if (type != null)
+            {
+                return type;
+            }
+        }
+
+        return null;
+    }
     
     [System.Serializable]
     public class MyData
