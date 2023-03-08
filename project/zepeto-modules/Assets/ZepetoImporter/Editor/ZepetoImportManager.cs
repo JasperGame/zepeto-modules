@@ -110,10 +110,19 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.BeginVertical(GUILayout.Width(200));
         foreach (Content data in _contentList.Items)
         {
+            GUILayout.BeginHorizontal();
             if (GUILayout.Button(data.Title, GUILayout.Height(30)))
             {
                 _selectedData = data;
             }
+
+            string version = VersionHandler.VersionCheck(GetRemoveSpace(data.Title) + "Manager");
+            GUILayout.Label(version == "UNKNOWN" ? "" : version);
+            Texture2D statusTexture = version == data.LatestVersion
+                ? EditorGUIUtility.FindTexture("d_winbtn_mac_max")
+                : EditorGUIUtility.FindTexture("d_winbtn_mac_min");
+            GUILayout.Label(statusTexture,GUILayout.Width(30), GUILayout.Height(30));
+            GUILayout.EndHorizontal();
         }
 
         using (new EditorGUILayout.HorizontalScope(GUILayout.Height(30)))
@@ -151,11 +160,11 @@ public class ZepetoImportManager : EditorWindow
 
         if (GUILayout.Button("Import Guide", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
-            string url = Path.Combine(ConstantManager.MAIN_PATH, GetRemoveSpace(_selectedData.Title), "README.md");
+            string url = Path.Combine(ConstantManager.README_PATH, GetRemoveSpace(_selectedData.Title), "README.md");
             Application.OpenURL(url);
         }
 
-        if (GUILayout.Button("Import", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        if (GUILayout.Button("Import "+_selectedData.LatestVersion, GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
             string title = GetRemoveSpace(_selectedData.Title);
             string version = _selectedData.LatestVersion;
@@ -172,11 +181,7 @@ public class ZepetoImportManager : EditorWindow
         string className = GetRemoveSpace(_selectedData.Title) + "Manager";
         string downloadedVersion = VersionHandler.VersionCheck(className);
 
-        GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
-        labelStyle.alignment = TextAnchor.MiddleLeft;
-        labelStyle.fontSize = 14;
-        GUILayout.Box($"Downloaded version : {downloadedVersion}\t" +
-                      $"Latest version : {_selectedData.LatestVersion}", labelStyle);
+        GUILayout.Label($"Version : {downloadedVersion}", EditorStyles.boldLabel);
     }
 
     private void DoDependencyInfoGUI()

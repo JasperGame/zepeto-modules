@@ -8,7 +8,7 @@ public class ImportHandler
 {
     public static IEnumerator ImportPackage(string title, string version)
     {
-        string downloadUrl = Path.Combine(ConstantManager.MAIN_PATH, title,
+        string downloadUrl = Path.Combine(ConstantManager.DOWNLOAD_PATH, title,
             version + ConstantManager.EXTENSION_UNITYPACKAGE);
         Debug.Log(downloadUrl);
 
