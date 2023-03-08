@@ -204,9 +204,19 @@
       "dependencies": {},
       "url": "https://upm.zepeto.run"
     },
+    "zepeto.mannequin": {
+      "version": "1.1.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "zepeto.character": "3.1.13",
+        "zepeto.script": "1.5.0"
+      },
+      "url": "https://upm.zepeto.run"
+    },
     "zepeto.multiplay": {
-      "version": "1.6.1",
-      "depth": 1,
+      "version": "1.6.2",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "2.0.0"
@@ -214,14 +224,14 @@
       "url": "https://upm.zepeto.run"
     },
     "zepeto.multiplay.script": {
-      "version": "1.6.0",
+      "version": "1.6.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://upm.zepeto.run"
     },
     "zepeto.script": {
-      "version": "1.7.1",
+      "version": "1.7.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -235,26 +245,26 @@
       "url": "https://upm.zepeto.run"
     },
     "zepeto.script.unityengine.typings": {
-      "version": "1.0.5",
+      "version": "1.0.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://upm.zepeto.run"
     },
     "zepeto.world": {
-      "version": "1.11.1",
+      "version": "1.12.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "zepeto.world.common": "1.0.1",
-        "zepeto.world.shared": "1.6.1",
-        "zepeto.script": "1.7.1",
-        "zepeto.multiplay": "1.6.1",
-        "zepeto.multiplay.script": "1.6.0",
+        "zepeto.world.shared": "1.6.3",
+        "zepeto.script": "1.7.2",
+        "zepeto.multiplay": "1.6.2",
+        "zepeto.multiplay.script": "1.6.2",
         "zepeto.chat": "1.0.1",
         "zepeto.character": "3.1.13",
         "zepeto.character.controller": "1.4.2",
-        "zepeto.script.unityengine.typings": "1.0.5",
+        "zepeto.script.unityengine.typings": "1.0.6",
         "zepeto.iwp": "1.2.1",
         "zepeto.script.leaderboard": "1.1.8",
         "com.unity.scriptablebuildpipeline": "1.15.2",
@@ -274,7 +284,7 @@
       "url": "https://upm.zepeto.run"
     },
     "zepeto.world.shared": {
-      "version": "1.6.1",
+      "version": "1.6.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {

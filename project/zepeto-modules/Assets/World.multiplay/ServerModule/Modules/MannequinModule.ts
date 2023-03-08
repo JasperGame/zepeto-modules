@@ -4,8 +4,8 @@ import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { IModule } from "../IModule";
 
 export default class MannequinModule extends IModule {
-    private ChangedItems:Map<string,Map<string,string>>;
-    
+    private ChangedItems:Map<string,Map<string,string>> = new Map<string,Map<string,string>>();
+
     async OnCreate() {
         this.ChangedItems = new Map<string, Map<string, string>>();
 
@@ -16,23 +16,23 @@ export default class MannequinModule extends IModule {
                 for (const characterItem of message) {
                     //드레스(22)인 경우 상의(19)와 하의(20)를 제거
                     if(characterItem.property == Cloth.DRESS){
-                        if(changedItemMap.has(Cloth.TOP))
+                        if(changedItemMap?.has(Cloth.TOP))
                         {
                             changedItemMap.delete(Cloth.TOP);
                         }
-                        if(changedItemMap.has(Cloth.BOTTOM)){
+                        if(changedItemMap?.has(Cloth.BOTTOM)){
                             changedItemMap.delete(Cloth.BOTTOM);
                         }
                     }
                     //상의(19) 또는 하의(20)인 경우  드레스를 제거
                     else if(characterItem.property ==Cloth.TOP || characterItem.property == Cloth.BOTTOM){
-                        if(changedItemMap.has(Cloth.DRESS))
+                        if(changedItemMap?.has(Cloth.DRESS))
                         {
                             changedItemMap.delete(Cloth.DRESS);
                         }
                     }
 
-                    changedItemMap.set(characterItem.property,characterItem.id);
+                    changedItemMap?.set(characterItem.property,characterItem.id);
                     console.log(`OnChangedItem old ${client.userId} : ${characterItem.property} // ${characterItem.id}`);
                 }
             }
@@ -68,8 +68,8 @@ export default class MannequinModule extends IModule {
 
             for (const property of this.ChangedItems.get(message).keys()) {
                 const characterItem: CharacterItem = {
-                    property : property,
-                    id : this.ChangedItems.get(message).get(property)
+                    property: property,
+                    id: this.ChangedItems.get(message)?.get(property)
                 };
                 changedItem.characterItems.push(characterItem);
             }
