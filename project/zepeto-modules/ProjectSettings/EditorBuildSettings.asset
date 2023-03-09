@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ZepetoMultiplaySync/Scene/Demo.unity
-    guid: 0b62b70c0a74947afa3f78db49d5de07
+    path: Assets/Scenes/AllComponent.unity
+    guid: c3959bec745464934bff8ac216b4418c
   m_configObjects: {}
