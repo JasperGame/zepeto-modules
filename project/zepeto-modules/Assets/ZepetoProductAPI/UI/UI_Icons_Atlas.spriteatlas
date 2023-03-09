@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_Icons_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: iPhone
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 48
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: a4093a06b7537458b9b4af58c150fe6d, type: 3}
+    totalSpriteSurfaceArea: 183200
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ef2b94d0761254236bd8505d90b93021, type: 3}
+  - {fileID: 21300000, guid: 10e0e623abe4b4b71b11b9e78a241afd, type: 3}
+  - {fileID: 21300000, guid: ecb8a8b3f282c493d8d9f0378ce89cff, type: 3}
+  - {fileID: 21300000, guid: 03f3ca757b69c4d7e80394f6c093f0b7, type: 3}
+  - {fileID: 21300000, guid: aa514ed5ea2b14895bac0654902d3d02, type: 3}
+  - {fileID: 21300000, guid: 8b1866d64c20240569dd36afd02fdfc3, type: 3}
+  - {fileID: 21300000, guid: b92cb5e6c17bd4f1195fa68408cb555e, type: 3}
+  - {fileID: 21300000, guid: d43c8fd71062e4ee6b2482984a06f9cf, type: 3}
+  - {fileID: 21300000, guid: a30e40f71e50a420080966754797ac92, type: 3}
+  - {fileID: 21300000, guid: 2b2e31792bafb42de969353e3dfcfdb0, type: 3}
+  - {fileID: 21300000, guid: 1582f13d9125544a2ad2f6435521522a, type: 3}
+  - {fileID: 21300000, guid: 3a6db22e01765427e960afade05b09ed, type: 3}
+  - {fileID: 21300000, guid: d47b6b5e992234c17a4f820d7207ba93, type: 3}
+  - {fileID: 21300000, guid: e74f6e6ea8051494c9cb2ba6c3e73060, type: 3}
+  - {fileID: 21300000, guid: 924e510f8dd5e420fab6629d4f267c89, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - energy
+  - invenitem_potion03
+  - shopitem_energy04
+  - item_note01
+  - zem
+  - star
+  - invenitem_potion01
+  - shopitem_energy01
+  - shopitem_energy02
+  - item_note02
+  - invenitem_potion02
+  - shopitem_energy03
+  - invenitem_potion04
+  - coin
+  - item_ticket
+  m_RenderDataMap: {}
+  m_Tag: UI_Icons_Atlas
+  m_IsVariant: 0

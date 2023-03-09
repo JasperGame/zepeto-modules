@@ -1,4 +1,4 @@
-/* version info 1.0.0 */
+/2* version info 1.0.0 */
 /* release 2022.03.03 */
 import { SandboxPlayer } from "ZEPETO.Multiplay";
 import { IModule } from "../IModule";

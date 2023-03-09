@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEngine;
@@ -12,9 +13,10 @@ public class ZepetoImportManager : EditorWindow
 {
     private Content _selectedData;
     private ContentList _contentList;
-    private string[] _languages = new string[] { "English", "Korean" };
-    private int _selectedLanguage = 0;
     private string _lastUpdateTime = "";
+
+    private Language _selectedLanguage = Language.English;
+    private readonly string[] _languages = Enum.GetNames(typeof(Language));
 
     [MenuItem("ZEPETO/ImportManager")]
     public static void ShowWindow()
@@ -101,7 +103,7 @@ public class ZepetoImportManager : EditorWindow
 
         GUILayout.FlexibleSpace();
         _selectedLanguage =
-            EditorGUILayout.Popup(_selectedLanguage, _languages, GUILayout.Width(150), GUILayout.Height(30));
+            (Language)EditorGUILayout.Popup((int)_selectedLanguage, _languages, GUILayout.Width(150), GUILayout.Height(30));
 
         GUILayout.EndHorizontal();
         GUILayout.Label(" Easily add frequently used modules.", EditorStyles.label);
@@ -212,6 +214,10 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.Label("-");
         if (GUILayout.Button("API Docs", linkStyle))
         {
+            string docsUrl = _selectedData.DocsUrl;
+            if(_selectedLanguage == Language.Korean)
+                docsUrl = Regex.Replace(docsUrl, "lang-en", "lang-ko");
+            
             Application.OpenURL(_selectedData.DocsUrl);
         }
 
@@ -280,5 +286,11 @@ public class ZepetoImportManager : EditorWindow
     public class ContentList
     {
         public List<Content> Items;
+    }
+
+    public enum Language
+    {
+        English = 0,
+        Korean = 1
     }
 }

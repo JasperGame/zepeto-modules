@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 63531623b478843418caf48c23144d8b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nclass ITM_Information extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.destroyDelay
+    = 0.7;\r\n    }\r\n    Start() {\r\n        this.StartCoroutine(this.DestoryInformation());\r\n   
+    }\r\n    *DestoryInformation() {\r\n        yield new UnityEngine_1.WaitForSeconds(this.destroyDelay);\r\n       
+    UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n    }\r\n}\r\nexports.default
+    = ITM_Information;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSVRNX0luZm9ybWF0aW9uLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiSVRNX0luZm9ybWF0aW9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBQ3JELDZDQUF1RDtBQUV2RCxNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQUFsRTs7UUFDVyxpQkFBWSxHQUFVLEdBQUcsQ0FBQztJQVlyQyxDQUFDO0lBVlcsS0FBSztRQUNULElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLGtCQUFrQixFQUFFLENBQUMsQ0FBQztJQUNuRCxDQUFDO0lBRU8sQ0FBRSxrQkFBa0I7UUFDeEIsTUFBTSxJQUFJLDRCQUFjLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1FBQzVDLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUN4QyxDQUFDO0NBR0o7QUFiRCxrQ0FhQyJ9","assetPath":"Assets/ProductSystem/Script/UI/ITM_Information.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"destroyDelay","type":"System.Single","isArray":false,"initValue":["0.7"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ITM_Information","description":""},"isCompiled":true}'
+  typescriptHash: c1611e517bd46792ace634aaf2443cc1
+  onlyWriteTrigger: 0

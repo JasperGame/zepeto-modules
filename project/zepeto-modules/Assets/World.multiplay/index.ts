@@ -2,6 +2,7 @@ import {Sandbox, SandboxOptions, SandboxPlayer} from "ZEPETO.Multiplay";
 import { Player } from "ZEPETO.Multiplay.Schema";
 import { IModule } from "./ServerModule/IModule";
 import SyncComponentModule from "./ServerModule/Modules/SyncComponentModule";
+import MannequinModule from "./ServerModule/Modules/MannequinModule";
 
 export default class extends Sandbox {
 
@@ -10,18 +11,18 @@ export default class extends Sandbox {
     
     async onCreate(options: SandboxOptions) {
         this._modules.push(new SyncComponentModule(this));
+        this._modules.push(new MannequinModule(this));
         for (const module of this._modules) {
             await module.OnCreate();
         }
         this._isCreated = true;
-        
     }
 
     async onJoin(client: SandboxPlayer) {
         for (const module of this._modules) {
             await module.OnJoin(client);
         }
-        
+
         const player = new Player();
         player.sessionId = client.sessionId;
         if (client.hashCode) {
@@ -40,7 +41,7 @@ export default class extends Sandbox {
             await module.OnLeave(client);
         }
         this.state.players.delete(client.userId);
-        
+
         console.log(`leave player, ${client.sessionId}`);
     }
 

@@ -237,6 +237,15 @@
       "dependencies": {},
       "url": "https://upm.zepeto.run"
     },
+    "zepeto.product": {
+      "version": "1.0.1-preview",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "zepeto.world.gui": "1.0.0-preview"
+      },
+      "url": "https://upm.zepeto.run"
+    },
     "zepeto.script": {
       "version": "1.7.2",
       "depth": 1,
@@ -285,6 +294,13 @@
     },
     "zepeto.world.common": {
       "version": "1.0.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.zepeto.run"
+    },
+    "zepeto.world.gui": {
+      "version": "1.0.0-preview",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
