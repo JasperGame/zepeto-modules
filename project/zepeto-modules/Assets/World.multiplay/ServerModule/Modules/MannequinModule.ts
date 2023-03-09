@@ -66,14 +66,19 @@ export default class MannequinModule extends IModule {
                 characterItems : []
             };
 
-            for (const property of this.ChangedItems.get(message).keys()) {
-                const characterItem: CharacterItem = {
-                    property: property,
-                    id: this.ChangedItems.get(message)?.get(property)
-                };
-                changedItem.characterItems.push(characterItem);
+            const values = this.ChangedItems.get(message);
+            if (values !== null && values !== undefined) {
+                for (const property of values.keys()) {
+                    const id = values.get(property);
+                    if (id === null || id === undefined) continue;
+                    
+                    const characterItem: CharacterItem = {
+                        property,
+                        id
+                    };
+                    changedItem.characterItems.push(characterItem);
+                }
             }
-
             client.send<ChangedItem>(MESSAGE.SyncChangedItem, changedItem );
         });
     }

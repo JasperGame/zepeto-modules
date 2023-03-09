@@ -7,7 +7,7 @@ import {sVector3, sQuaternion, SyncTransform, PlayerAdditionalValue, ZepetoAnima
 export default class SyncComponentModule extends IModule {
     private sessionIdQueue: string[] = [];
     private InstantiateObjCaches : InstantiateObj[] = [];
-    private masterClient = () => this.server.loadPlayer(this.sessionIdQueue[0]);
+    private masterClient: Function = (): SandboxPlayer | undefined => this.server.loadPlayer(this.sessionIdQueue[0]);
     
     async OnCreate() {
         /**Zepeto Player Sync**/
@@ -46,8 +46,8 @@ export default class SyncComponentModule extends IModule {
                 const syncTransform = new SyncTransform();
                 this.server.state.SyncTransforms.set(message.Id.toString(), syncTransform);
             }
-            const syncTransform:SyncTransform = this.server.state.SyncTransforms.get(message.Id);
-            if(syncTransform) {
+            const syncTransform = this.server.state.SyncTransforms.get(message.Id);
+            if(syncTransform !== undefined) {
                 syncTransform.Id = message.Id;
                 syncTransform.position = new sVector3();
                 syncTransform.position.x = message.position.x;
@@ -74,8 +74,8 @@ export default class SyncComponentModule extends IModule {
             }
         });
         this.server.onMessage(MESSAGE.SyncTransformStatus, (client, message) => {
-            const syncTransform:SyncTransform = this.server.state.SyncTransforms.get(message.Id);
-            if(syncTransform)
+            const syncTransform = this.server.state.SyncTransforms.get(message.Id);
+            if(syncTransform !== undefined)
                 syncTransform.status = message.Status;
         });
 
@@ -108,7 +108,10 @@ export default class SyncComponentModule extends IModule {
                 loopCount: message.loopCount,
                 sendTime: message.sendTime,
             };
-            this.server.broadcast(MESSAGE.ResponsePosition + message.Id, tween, {except: this.masterClient()});
+            const masterClient = this.masterClient();
+            if (masterClient !== null && masterClient !== undefined) {
+                this.server.broadcast(MESSAGE.ResponsePosition + message.Id, tween, {except: masterClient});
+            }
         });
 
         /**Common**/

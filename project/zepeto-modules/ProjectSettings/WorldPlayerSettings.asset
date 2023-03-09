@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxClients: 8
-  orientation: 0
+  orientation: 1
   useVoiceChat: 0
   useProductSettings: 1
   disableInvite: 0

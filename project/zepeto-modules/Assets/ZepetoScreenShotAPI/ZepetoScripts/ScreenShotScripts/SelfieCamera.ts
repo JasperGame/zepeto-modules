@@ -130,7 +130,7 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
         if (this.currentTarget == null || this.targetLookAt == null)
             return;
 
-        this.CameraInput();
+        //this.CameraInput();
         this.CameraMovement();
     }
 }
