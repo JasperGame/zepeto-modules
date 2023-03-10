@@ -1,6 +1,14 @@
 {
   "Items": [
     {
+      "Title": "Zepeto Import Manager",
+      "Description": "this is Zepeto Import Manager",
+      "Description_ko": "다양한 모듈을 쉽게 임폴트 할 수 있습니다.",
+      "DocsUrl": "https://github.com/JasperGame/zepeto-modules",
+      "LatestVersion": "v1.0.0",
+      "Dependencies": ["none"]
+    },
+    {
       "Title": "Multiplay Component",
       "Description": "Component for synchronizing data between devices.",
       "Description_ko": "Multiplay Component 입니다. 꼭 가이드를 먼저 봐주세요.",
