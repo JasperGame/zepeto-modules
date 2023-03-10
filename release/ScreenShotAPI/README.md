@@ -1,3 +1,3 @@
-# LeaderBoard API Import Guide
+# ScreenShot API Import Guide
 
 [English](./README.md) | [Korean](./README_KR.md)

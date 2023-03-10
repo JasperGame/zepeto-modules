@@ -1,3 +1,3 @@
-# LeaderBoard API Import Guide
+# Multiplay Component Import Guide
 
 [English](./README.md) | [Korean](./README_KR.md)

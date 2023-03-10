@@ -1,3 +1,3 @@
-# LeaderBoard API Import Guide
+# Product API Import Guide
 
 [English](./README.md) | [Korean](./README_KR.md)
