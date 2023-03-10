@@ -3,9 +3,9 @@
     {
       "Title": "Multiplay Component",
       "Description": "Component for synchronizing data between devices.",
-      "Description_ko": "Multiplay Component 입니다.",
+      "Description_ko": "Multiplay Component 입니다. 꼭 가이드를 먼저 봐주세요.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "v1.0.2",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
@@ -52,7 +52,7 @@
     {
       "Title": "Product API",
       "Description": "API for Product, you need server code",
-      "Description_ko": "Product API 입니다.",
+      "Description_ko": "Product API 입니다. 꼭 가이드를 봐주세요.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_product",
       "LatestVersion": "v1.0.0",
       "Dependencies": ["ZEPETO.World : 1.12.2+",
