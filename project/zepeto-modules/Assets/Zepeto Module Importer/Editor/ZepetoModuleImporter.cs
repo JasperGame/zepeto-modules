@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
-public class ZepetoImportManager : EditorWindow
+public class ZepetoModuleImporter : EditorWindow
 {
     private Content _selectedData;
     private ContentList _contentList;
@@ -18,11 +18,11 @@ public class ZepetoImportManager : EditorWindow
     private Language _selectedLanguage = Language.English;
     private readonly string[] _languages = Enum.GetNames(typeof(Language));
 
-    [MenuItem("ZEPETO/ImportManager")]
+    [MenuItem("ZEPETO/Module Importer")]
     public static void ShowWindow()
     {
         Rect windowRect = new Rect(0, 0, 800, 800);
-        EditorWindow.GetWindowWithRect(typeof(ZepetoImportManager), windowRect, true);
+        EditorWindow.GetWindowWithRect(typeof(ZepetoModuleImporter), windowRect, true);
     }
 
     private void OnGUI()
@@ -98,7 +98,7 @@ public class ZepetoImportManager : EditorWindow
         labelStyle.alignment = TextAnchor.MiddleLeft;
         labelStyle.fontSize = 24;
 
-        GUILayout.Label("Zepeto Import Manager", labelStyle);
+        GUILayout.Label("Zepeto Module Importer", labelStyle);
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
 
         GUILayout.FlexibleSpace();
@@ -182,7 +182,7 @@ public class ZepetoImportManager : EditorWindow
                 GUILayout.ExpandWidth(false)))
         {
             string title = GetRemoveSpace(_selectedData.Title);
-            string version = _selectedData.LatestVersion;
+            string version = "v"+_selectedData.LatestVersion;
             EditorCoroutineUtility.StartCoroutine(ImportHandler.ImportPackage(title, version), this);
         }
 

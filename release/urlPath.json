@@ -5,7 +5,7 @@
       "Description": "this is Zepeto Module Importer",
       "Description_ko": "다양한 모듈을 쉽게 임폴트 할 수 있습니다.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-modules",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["none"]
     },
     {
@@ -13,7 +13,7 @@
       "Description": "Component for synchronizing data between devices.",
       "Description_ko": "Multiplay Component 입니다. 꼭 가이드를 먼저 봐주세요.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
-      "LatestVersion": "v1.0.2",
+      "LatestVersion": "1.0.2",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
@@ -21,7 +21,7 @@
       "Description": "System for handling user interactions with the application.",
       "Description_ko": "Interaction sample 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/interacting-with-an-object",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
@@ -29,23 +29,23 @@
       "Description": "API for recognizing and processing user gestures.",
       "Description_ko": "Gesture API 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/gesture",      
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
       "Title": "ScreenShot",
       "Description": "Utility for capturing and saving screenshots of the application.",
-      "Description_ko": "ScreenShot API 입니다.",
+      "Description_ko": "ScreenShot sample 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/screenshot",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
-      "Title": "LeaderBoard API",
-      "Description": "API for managing and displaying leaderboard data.",
-      "Description_ko": "LeaderBoard API 입니다.",
+      "Title": "LeaderBoard",
+      "Description": "sample for managing and displaying leaderboard data.",
+      "Description_ko": "LeaderBoard sample 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/leaderboard",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
@@ -53,7 +53,7 @@
       "Description": "sample for Mannequin.",
       "Description_ko": "Mannequin sample 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_mannequin",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.7.0+",
         "ZEPETO.Mannequin : 1.0.0+"]
     },
@@ -62,7 +62,7 @@
       "Description": "sample for Product, you need server code",
       "Description_ko": "Product sample 입니다. 꼭 가이드를 봐주세요.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_product",
-      "LatestVersion": "v1.0.0",
+      "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.12.2+",
         "ZEPETO.Product : 1.0.1-preview+"]
     }
