@@ -1,8 +1,8 @@
 {
   "Items": [
     {
-      "Title": "Zepeto Import Manager",
-      "Description": "this is Zepeto Import Manager",
+      "Title": "Zepeto Module Importer",
+      "Description": "this is Zepeto Module Importer",
       "Description_ko": "다양한 모듈을 쉽게 임폴트 할 수 있습니다.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-modules",
       "LatestVersion": "v1.0.0",
@@ -17,15 +17,15 @@
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
-      "Title": "Interaction API",
+      "Title": "Interaction",
       "Description": "System for handling user interactions with the application.",
-      "Description_ko": "Interaction API 입니다.",
+      "Description_ko": "Interaction sample 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/interacting-with-an-object",
       "LatestVersion": "v1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
-      "Title": "Gesture API",
+      "Title": "Gesture",
       "Description": "API for recognizing and processing user gestures.",
       "Description_ko": "Gesture API 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/gesture",      
@@ -33,7 +33,7 @@
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
-      "Title": "ScreenShot API",
+      "Title": "ScreenShot",
       "Description": "Utility for capturing and saving screenshots of the application.",
       "Description_ko": "ScreenShot API 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/screenshot",
@@ -49,18 +49,18 @@
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
-      "Title": "Mannequin API",
-      "Description": "API for Mannequin.",
-      "Description_ko": "Mannequin API 입니다.",
+      "Title": "Mannequin",
+      "Description": "sample for Mannequin.",
+      "Description_ko": "Mannequin sample 입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_mannequin",
       "LatestVersion": "v1.0.0",
       "Dependencies": ["ZEPETO.World : 1.7.0+",
         "ZEPETO.Mannequin : 1.0.0+"]
     },
     {
-      "Title": "Product API",
-      "Description": "API for Product, you need server code",
-      "Description_ko": "Product API 입니다. 꼭 가이드를 봐주세요.",
+      "Title": "Product",
+      "Description": "sample for Product, you need server code",
+      "Description_ko": "Product sample 입니다. 꼭 가이드를 봐주세요.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_product",
       "LatestVersion": "v1.0.0",
       "Dependencies": ["ZEPETO.World : 1.12.2+",

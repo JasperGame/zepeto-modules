@@ -128,7 +128,7 @@ public class ZepetoImportManager : EditorWindow
             Rect satusRect = new Rect(guiRect.x + (guiRect.width * 0.9f), guiRect.y, guiRect.width, guiRect.height);
 
             GUI.Label(titleRect, data.Title);
-            string version = VersionHandler.VersionCheck(GetRemoveSpace(data.Title) + "Manager");
+            string version = VersionHandler.VersionCheck(GetRemoveSpace(data.Title) + "Version");
             if (version != "UNKNOWN")
             {
                 GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
@@ -193,7 +193,7 @@ public class ZepetoImportManager : EditorWindow
 
     private void DoVersionInfoGUI()
     {
-        string className = GetRemoveSpace(_selectedData.Title) + "Manager";
+        string className = GetRemoveSpace(_selectedData.Title) + "Version";
         string downloadedVersion = VersionHandler.VersionCheck(className);
 
         GUILayout.Label($"Version : {downloadedVersion}", EditorStyles.boldLabel);

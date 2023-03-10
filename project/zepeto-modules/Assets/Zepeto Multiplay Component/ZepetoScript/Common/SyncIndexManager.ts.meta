@@ -23,6 +23,7 @@ ScriptedImporter:
     SyncIndexManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n}\r\nexports.default
     = SyncIndexManager;\r\n/** This is used to give a unique ID to synchronization
     objects that do not have a separate ID. */\r\nSyncIndexManager.SyncIndex = 0;\r\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3luY0luZGV4TWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlN5bmNJbmRleE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFFckQsTUFBcUIsZ0JBQWlCLFNBQVEscUNBQXFCOztBQUFuRSxtQ0FJQztBQUhHLGtHQUFrRztBQUNwRiwwQkFBUyxHQUFVLENBQUMsQ0FBQyJ9","assetPath":"Assets/ZepetoMultiplayComponent/ZepetoScript/Common/SyncIndexManager.ts","manifest":{"properties":[],"name":"SyncIndexManager","description":""},"isCompiled":true}'
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3luY0luZGV4TWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlN5bmNJbmRleE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFFckQsTUFBcUIsZ0JBQWlCLFNBQVEscUNBQXFCOztBQUFuRSxtQ0FJQztBQUhHLGtHQUFrRztBQUNwRiwwQkFBUyxHQUFVLENBQUMsQ0FBQyJ9","assetPath":"Assets/Zepeto
+    Multiplay Component/ZepetoScript/Common/SyncIndexManager.ts","manifest":{"properties":[],"name":"SyncIndexManager","description":""},"isCompiled":true}'
   typescriptHash: 286713e1c9cac7b415727099cc0befaa
   onlyWriteTrigger: 0
