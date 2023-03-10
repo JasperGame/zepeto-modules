@@ -172,7 +172,7 @@ public class ZepetoImportManager : EditorWindow
         GUILayout.Label(_selectedData.Title, labelStyle);
         GUILayout.FlexibleSpace();
 
-        if (GUILayout.Button("View Guide", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
+        if (GUILayout.Button("View Import Guide", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
         {
             string url = Path.Combine(ConstantManager.REPO_PATH, GetRemoveSpace(_selectedData.Title), _selectedLanguage == Language.Korean ? "README_KR.md" : "README.md");
             Application.OpenURL(url);
