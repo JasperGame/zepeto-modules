@@ -116,11 +116,21 @@ export default class UIController extends ZepetoScriptBehaviour {
         
         // 1. Btn: Select Screenshot Mode
         this.screenShotModeButton.onClick.AddListener(() => {
-            this.screenShotPanel.gameObject.SetActive(true);
+            const isScreenShotState = this.screenShotPanel.gameObject.activeSelf;
+            this.screenShotPanel.gameObject.SetActive(!isScreenShotState);
             //Initialize the camera view to the default ZEPETO camera
-            this.isThirdPersonView = true;
-            this.backgroundCanvas.worldCamera = this.screenShotModeManager.GetZepetoCamera();
-            this.screenShotModeManager.StartScreenShotMode();
+            if(!isScreenShotState) {
+                this.isThirdPersonView = true;
+                this.backgroundCanvas.worldCamera = this.screenShotModeManager.GetZepetoCamera();
+                this.screenShotModeManager.StartScreenShotMode();
+            }
+            else{
+                if (!this.isBackgroundOn) {
+                    this.SetBackgroundActive(true);
+                    this.isBackgroundOn = true;
+                }
+                this.screenShotModeManager.ExitScreenShotMode(this.isThirdPersonView);
+            }
         });
 
 

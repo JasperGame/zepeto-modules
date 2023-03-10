@@ -124,7 +124,7 @@ public class ZepetoModuleImporter : EditorWindow
 
             Rect guiRect = GUILayoutUtility.GetLastRect();
             Rect titleRect = new Rect(guiRect.x + (guiRect.width * 0.05f), guiRect.y, guiRect.width, guiRect.height);
-            Rect versionRect = new Rect(guiRect.x + (guiRect.width * 0.73f), guiRect.y, guiRect.width, guiRect.height);
+            Rect versionRect = new Rect(guiRect.x + (guiRect.width * 0.77f), guiRect.y, guiRect.width, guiRect.height);
             Rect satusRect = new Rect(guiRect.x + (guiRect.width * 0.9f), guiRect.y, guiRect.width, guiRect.height);
 
             GUI.Label(titleRect, data.Title);

@@ -12986,7 +12986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841441732781842180, guid: fdfbf7777178f4193a6a0ea198365842, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6841441732781842180, guid: fdfbf7777178f4193a6a0ea198365842, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13366,6 +13366,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4572340244531671819, guid: 6f68bf3b5a17344ff8cf4dccaf63fd73, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 8874434826424249927, guid: 6f68bf3b5a17344ff8cf4dccaf63fd73, type: 3}
       propertyPath: m_Name
       value: ZepetoScreenShot_Horizontal
@@ -13425,7 +13429,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8938187928391984170, guid: 983578afae44d459d92e89fe01392623, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8938187928391984170, guid: 983578afae44d459d92e89fe01392623, type: 3}
       propertyPath: m_LocalPosition.x
