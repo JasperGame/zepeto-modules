@@ -5649,7 +5649,7 @@ GameObject:
   - component: {fileID: 5092851280930375792}
   - component: {fileID: 5092851280930375793}
   m_Layer: 5
-  m_Name: ProductCanvas
+  m_Name: ZepetoProductCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
