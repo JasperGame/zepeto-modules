@@ -7,8 +7,6 @@ using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
-using ZEPETO.Product;
-using ZEPETO.World.Shared;
 
 
 public class ZepetoModuleImporter : EditorWindow

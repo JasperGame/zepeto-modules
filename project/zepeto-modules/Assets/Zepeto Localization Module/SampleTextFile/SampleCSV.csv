@@ -1,0 +1,63 @@
+Key,EN,KR,JP,TH,ID
+camera_feed,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ
+emoji_title,Emoji,Emoji,Emoji,Emoji,Emoji
+gesture_title,Gesture,Gesture,Gesture,Gesture,Gesture
+photo_save,Save,저장,保存,บันทึก,Simpan
+photo_share,Share,공유,シェア,แชร์,Bagikan
+photo_post,Post,게시물등록,投稿する,อัปโหลดโพสต์,Posting
+photo_uploading,Uploading...,업로드 중...,投稿中…,กำลังอัปโหลด...,Mengunggah ...
+photo_done,Done,완료,完了,สำเร็จ,Selesai
+photo_fail,FAIL,FAIL,FAIL,FAIL,GAGAL
+photo_saved,Saved!,저장 완료!,保存成功！,บันทึกสำเร็จ!,Disimpan!
+photo_shared,Shared!,공유 완료!,シェア完了！,แชร์สำเร็จ!,Dibagikan!
+notice_earphones,"A party isn't a party without good music!
+Turn up your volume! Put in your earphones!","파티에 음악이 빠질 수 없죠?
+볼륨을 높여주세요! 이어폰도 OK!","NO MUSIC NO PARTY！
+音量上げて！パーティーを楽しもう！","งานปาร์ตี้ขาดดนตรีไม่ได้ใช่มั้ยล่ะ?
+กรุณาเพิ่มเสียง! หูฟังก็ OK นะ!","Pesta tanpa musik, bukanlah pesta!
+Naikkan volumenya! Pakai earphonenya!"
+warning_momory,"You can't enjoy the party if you don't have enough storage on your device.
+Do you still want to attend the party?","기기 메모리가 부족하면, 파티를 즐기기 어려워요.
+그래도 파티장으로 가볼까요?",モバイル端末のメモリが不足だとパーティーを楽しめないよ..それでもパーティー会場に移動する？,"หากเมมโมรี่อุปกรณ์ไม่เพียงพอเข้าร่วมปาร์ตี้คงยาก
+ยังไปงานปาร์ตี้หรือไม่?","Jika perangkat kekurangan memori, sulit untuk menikmati pesta.
+Apakah masih ingin pergi ke pesta?"
+settings_title,Settings,설정,設定,ตั้งค่า,Pengaturan
+settings_item_npc,NPC,NPC,NPC,NPC,NPC
+settings_item_tutorial,Tutorial,튜토리얼,チュートリアル,โหมดฝึกสอน,Tutorial
+settings_item_tutorial_text,Watch tutorial,튜토리얼 확인하기,チュートリアルを見る,เช็คโหมดฝึกสอน,Lihat tutorial
+tutorial_0_title,DJ Neon Party,DJ Neon Party,DJ Neon Party,DJ Neon Party,DJ Neon Party
+tutorial_0_subtitle_1,Upbeat music and flashy lights,강렬한 음악과 화려한 네온 라이트,華やかな音楽と煌びやかなネオンライト,เพลงเพราะๆและไฟนีออนหลากสีสัน,Musik upbeat dan lampu neon mencolok
+tutorial_0_subtitle_2,Hidden rooms,곳곳에 숨겨진 신비로운 공간,あちこちに隠された神秘的な空間,สถานที่ลึกลับซ่อนอยู่หลายที่,Ruang rahasia tersembunyi
+tutorial_0_subtitle_3,The party's about to get started!,이제 파티가 시작된다!,パーティーが始まるよ！,ปาร์ตี้จะเริ่มตอนนี้เลย!,Pesta akan segera dimulai!
+tutorial_1_title,The Party Room,The Party Room,The Party Room,The Party Room,The Party Room
+tutorial_1_subtitle_1,Express yourself with emojis and gestures,이모지와 제스쳐로기분을 표현하고,絵文字やジェスチャーで気持ちを表して,ใช้อิโมจิและท่าทางเพื่อแสดงความรู้สึก,Ekspresikan dengan emoji dan pose
+tutorial_1_subtitle_2,Dance with friends!,친구들과 함께 현란한 댄스타임!,友達とレッツダンスターイム！,เวลาเต้นรำที่ยอดเยี่ยมกับเพื่อนๆ !,Menari dengan teman-teman!
+tutorial_2_title,Photo Countdown,Photo Countdown,Photo Countdown,Photo Countdown,Photo Countdown
+tutorial_2_subtitle_1,A neon camera will appear when the music starts,특별한 음악이 시작되면 등장하는 네온 카메라,スペシャルミュージックが始まるとネオンカメラが登場！,กล้องนีออนที่ปรากฏขึ้นเมื่อเพลงพิเศษเริ่ม,Kamera neon yang muncul ketika musik dimulai
+tutorial_2_subtitle_2,Follow the neon camera for a photo!,네온 카메라를 따라가 나만의 포즈로 찰칵!,ネオンカメラを追いかけて写真撮ってもらおう！,ทำตามกล้องนีออนและถ่ายภาพใช้ท่าทางตัวเอง!,Ikuti kamera neon untuk berfoto!
+tutorial_2_subtitle_3,See your photo on the main screen!,DJ 스테이지 스크린에서 멋진 내 사진을 구경해요!,DJ台のスクリーンに映される写真を要チェック！,ดูภาพสุดเจ๋งของเราบนหน้าจอเวที DJ!,Lihat fotoku di layar panggung!
+tutorial_3_title,The Social Lounge,The Social Lounge,The Social Lounge,The Social Lounge,The Social Lounge
+tutorial_3_subtitle_1,Check out the neon aquarium with glowing fish,빛나는 물고기가 있는 네온 수족관과,キラキラの魚いっぱいネオン水族館と,พิพิธภัณฑ์สัตว์น้ำที่มีปลานีออน,Lihat akuarium neon dengan ikan mengkilap
+tutorial_3_subtitle_2,admire the neon sculptures,흥미로운 네온 조각상을 구경하고,なにこれ？ネオン彫刻！？,ชมรูปปั้นอันนีออนน่าทึ่ง,dan patung neon
+tutorial_3_subtitle_3,and chat with new friends from the party in front of the fireplace.,파티에서 만난 친구들과 따뜻한 벽난로 앞에서 이야기 나눠요,パーティーで仲良くなった友達と暖炉前でお喋り会！,คุยกับเพื่อนๆที่พบในปาร์ตี้นีออนหน้าเตาผิงอันอบอุ่น,dan mengobrol dengan teman-teman baru dari pesta di depan perapian.
+tutorial_4_title,The Secret Room,The Secret Room,The Secret Room,The Secret Room,The Secret Room
+tutorial_4_subtitle_1,The secret room! Can you find it?!,숨겨진 비밀의 방! 어디에 있을까요? 지금 찾아봐요!,隠された秘密のルーム！どこかな？見つけられるかな？,ห้องลับที่ซ่อน! อยู่ทีไหนเอย? ไปตามหากันเถอะ!,Ruang rahasia! Bisakah kamu menemukannya?!
+warning_connection,You've lost your connection to ZEPETO World.\nTry again?,제페토 월드와의 통신이 끊어졌어요.\n다시 접속할까요?,ZEPETO Worldとの通信が\n切れてしまいました。\nもう一度接続しますか？,การเชื่อมต่อกับ ZEPETO WORLD ถูกตัดขาด\nต้องการเชื่อมต่ออีกครั้งหรือไม่?,Kamu kehilangan koneksi Dunia ZEPETO.\nApakah kamu ingin mencoba untuk terhubung lagi?
+ok,OK,OK,確認,OK,OK
+cancel,Cancel,취소,キャンセル,ยกเลิก,Batalkan
+warning_relocate,You have lost your connection.\nZEPETO World has closed.,제페토 월드와의 통신이 끊어졌어요.\n월드에서 나갑니다.,ZEPETO Worldとの接続が中断されました。\nワールドから退出します。,การเชื่อมต่อกับ ZEPETO WORLD ถูกตัดขาด\nคุณได้ออกจาก ZEPETO WORLD แล้ว,Kamu telah kehilangan koneksi Dunai ZEPETO.\nDunia ZEPETO telah berakhir.
+warning_photogame_npc,You cannot call an NPC during a photo game.,포토게임 중에는 NPC를 불러올 수 없어요.,フォトゲーム中はNPC読み込めないよ,,Anda tidak dapat memanggil NPC selama Photo Game.
+tutorial_url_1,https://cdn-asset.zepeto.me/assets/pve993wK87Pt4chURpl4DhX,https://cdn-asset.zepeto.me/assets/js63W3wK87Lt4cjtFZlaA22,https://cdn-asset.zepeto.me/assets/1UbYV3wK87Pt4cjeClTBIWR,https://cdn-asset.zepeto.me/assets/yO6NX3wK87Lt4cjIaQQ9uKG,https://cdn-asset.zepeto.me/assets/e5Eh03wK87Pt4ciXD24SxlR
+tutorial_url_2,https://cdn-asset.zepeto.me/assets/fF3Dn3wK87Lt4chURqM22gF,https://cdn-asset.zepeto.me/assets/mqxAV3wK87Pt4cjtG0CxFde,https://cdn-asset.zepeto.me/assets/SqgYC3wK884t4cjeCn1cJWr,https://cdn-asset.zepeto.me/assets/7g0Yq3wK87Pt4cjIaSbbzMZ,https://cdn-asset.zepeto.me/assets/1w7SW3wK884t4ciXD09zWuG
+tutorial_url_3,https://cdn-asset.zepeto.me/assets/VrUsd3wK884t4chURs5YoBw,https://cdn-asset.zepeto.me/assets/2cgSP3wK884t4cjtFZNoRX3,https://cdn-asset.zepeto.me/assets/C9qLt3wK87Qt4cjeCoR53m8,https://cdn-asset.zepeto.me/assets/eytTU3wK884t4cjIaQNeP0r,https://cdn-asset.zepeto.me/assets/83dlb3wK87Qt4ciXD1xcHy5
+tutorial_url_4,https://cdn-asset.zepeto.me/assets/4KAk83wK87Qt4chURwHfDLG,https://cdn-asset.zepeto.me/assets/ab9ZL3wK87Qt4cjtFZJtiUT,https://cdn-asset.zepeto.me/assets/rxevm3wK87Lt4cjeCwQ6L4I,https://cdn-asset.zepeto.me/assets/CArUR3wK87Qt4cjIaSzX1ZI,https://cdn-asset.zepeto.me/assets/BlMsd3wK87Lt4ciXD5fzfGF
+tutorial_url_5,https://cdn-asset.zepeto.me/assets/y37c43wK87Qt4chURxD0hVZ,https://cdn-asset.zepeto.me/assets/ew9oa3wK87Qt4cjtFYeiddW,https://cdn-asset.zepeto.me/assets/DS4hq3wK87Lt4cjeCsvKbXF,https://cdn-asset.zepeto.me/assets/uMdw53wK87Qt4cjIaRDwMQI,https://cdn-asset.zepeto.me/assets/2kJS33wK87Lt4ciXD7dXpPc
+screenshot_screenshotShootDone,Photo shoot complete! Upload now?,촬영 완료! 올리시겠습니까?,撮影完了！さっそくアップする？,ถ่ายสำเร็จ! ต้องการอัปโหลดหรือไม่?,Selesai! Unggah?
+screenshot_screenshotEdit,Edit,편집,編集,แก้ไข,Mengedit
+screenshotUpload,Post,게시물 등록,投稿する,อัปโหลดโพสต์,Posting
+screenshot_toastFail,FAIL,FAIL,FAIL,FAIL,GAGAL
+screenshot_toastSuccess,Done,완료,完了,สำเร็จ,Selesai
+screenshot_toastProgress,In progress...,진행 중...,進行中…,กำลังดำเนินการ...,Sedang berlangsung
+screenshot_previewUpload,Post,게시물 등록,投稿する,อัปโหลดโพสต์,Posting
+screenshot_previewDescriptionTitle,Description,설명,説明,คำอธิบาย,Deskripsi
+screenshot_previewFeedMessagePlaceHolder,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ,#ZEPETOWorld #NeonParty #DJ
