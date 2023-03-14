@@ -49,7 +49,7 @@ MonoBehaviour:
     - localSheet
     unityValues:
     - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 4900000, guid: affac82e0b0884be0a51a18fa311c922, type: 3}
     values:
     - '{"type":"System.String, mscorlib","value":"0"}'
     - 

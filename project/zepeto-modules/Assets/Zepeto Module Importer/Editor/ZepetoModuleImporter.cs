@@ -29,8 +29,8 @@ public class ZepetoModuleImporter : EditorWindow
     {
         if (_contentList == null)
         {
+            _selectedLanguage =  Application.systemLanguage == SystemLanguage.Korean ? Language.Korean : Language.English;
             DoTopBarGUI();
-
             EditorCoroutineUtility.StartCoroutine(GetData(), this);
             GUILayout.BeginArea(new Rect(position.width * 0.5f, position.height * 0.5f, 400, 100));
             EditorGUILayout.BeginHorizontal();
@@ -115,6 +115,9 @@ public class ZepetoModuleImporter : EditorWindow
     {
         const int buttonWidth = 200;
         GUILayout.BeginVertical(GUILayout.Width(buttonWidth));
+        if (_selectedData == null)
+            _selectedData = _contentList.Items[0] ?? null;
+        
         foreach (Content data in _contentList.Items)
         {
             if (GUILayout.Button("", GUILayout.Width(buttonWidth), GUILayout.Height(30)))

@@ -61,10 +61,18 @@
       "Title": "Product",
       "Description": "sample for Product, you need server code",
       "Description_ko": "Product sample 입니다. 꼭 가이드를 봐주세요.",
-      "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_product",
+      "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_produc",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.12.2+",
         "ZEPETO.Product : 1.0.1-preview+"]
+    },
+    {
+      "Title": "Localization",
+      "Description": "Feature for multilingual support. Local keys and translations are managed using Google Spreadsheet and can be exported to csv and reflected in the project.",
+      "Description_ko": "다국어 지원을 위한 기능입니다. 로컬키와 번역문은 구글스프레드시트를 이용하여 관리하며,  csv로 export하여 프로젝트에 반영할 수 있습니다.",
+      "DocsUrl": "https://github.com/JasperGame/zepeto-modules/tree/main/project/zepeto-modules/Assets/Zepeto%20Localization%20Module",
+      "LatestVersion": "1.0.0",
+      "Dependencies": ["none"]
     }
   ]
 }
