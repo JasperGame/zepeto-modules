@@ -9,7 +9,7 @@ export default class Localization extends ZepetoScriptBehaviour {
     public localSheet: TextAsset;
     public language: LanguageOption = LanguageOption.DeviceLanguage;
 
-    private readonly _languageOptionChanged:UnityEvent;
+    private readonly _languageOptionChanged:UnityEvent = new UnityEvent();
     private readonly _localizedTextMap = new Map<string, string>();
 
     private _defaultThaiFont: Font;
@@ -17,8 +17,7 @@ export default class Localization extends ZepetoScriptBehaviour {
 
     public get languageOptionChanged(): UnityEvent { return this._languageOptionChanged; }
     public get currentLanguageKey(): string { return this._currentLanguageKey; }
-
-
+    
     private static _instance: Localization = null;
     public static get instance(): Localization {
         if (this._instance === null) {
@@ -54,7 +53,6 @@ export default class Localization extends ZepetoScriptBehaviour {
         text.text = this.GetLocalizedText(key);
     }
 
-    
     public ApplyLocalizationWithParam(text: Text, key: string, args: string[]) {
         if (this.CheckThai()) {
             text.font = this._defaultThaiFont;
@@ -86,6 +84,7 @@ export default class Localization extends ZepetoScriptBehaviour {
     }
 
     private SetLanguage() {
+
         if (this.language == 0) {
             this.SetLanguageFromSystemLanguage();
             console.log(`[Localization] Current Language is set to ${this._currentLanguageKey} by System Language`);
@@ -103,7 +102,7 @@ export default class Localization extends ZepetoScriptBehaviour {
             console.warn("[Localization]: There's no text file to read.");
         } else {
             this.SetLocalizationMapFromCSV(this._localizedTextMap, this.localSheet, this._currentLanguageKey);
-        }
+        }        
     }
 
     private SetLanguageFromSystemLanguage() {

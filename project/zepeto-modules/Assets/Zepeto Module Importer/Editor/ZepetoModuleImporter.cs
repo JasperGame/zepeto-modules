@@ -17,16 +17,22 @@ public class ZepetoModuleImporter : EditorWindow
 
     private Language _selectedLanguage = Language.English;
     private readonly string[] _languages = Enum.GetNames(typeof(Language));
-
+    private static EditorWindow _window;
+    
     [MenuItem("ZEPETO/Module Importer")]
     public static void ShowWindow()
     {
         Rect windowRect = new Rect(0, 0, 800, 800);
-        EditorWindow.GetWindowWithRect(typeof(ZepetoModuleImporter), windowRect, true, "Zepeto Module Importer");
+        _window = EditorWindow.GetWindowWithRect(typeof(ZepetoModuleImporter), windowRect, true, "Zepeto Module Importer");
     }
 
     private void OnGUI()
     {
+        if (!_window)
+        {
+            return;
+        }
+        
         if (_contentList == null)
         {
             _selectedLanguage =  Application.systemLanguage == SystemLanguage.Korean ? Language.Korean : Language.English;
@@ -251,8 +257,12 @@ public class ZepetoModuleImporter : EditorWindow
     }
 
     private void DoDescriptionGUI()
-    {
-        GUILayout.Label(_selectedLanguage == 0 ? _selectedData.Description : _selectedData.Description_ko);
+    {        
+        GUIStyle style = new GUIStyle();
+        style.wordWrap = true;
+        style.normal.textColor = Color.white; 
+        
+        GUILayout.Label(_selectedLanguage == 0 ? _selectedData.Description : _selectedData.Description_ko, style);
         string imagePath = Application.dataPath + ConstantManager.IMAGE_PATH + _selectedData.Title +
                            ConstantManager.EXTENSION_PNG;
         if (File.Exists(imagePath))

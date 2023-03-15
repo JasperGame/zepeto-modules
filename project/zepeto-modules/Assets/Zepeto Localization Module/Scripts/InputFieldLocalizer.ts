@@ -46,7 +46,7 @@ export default class InputFieldLocalizer extends ZepetoScriptBehaviour {
 
         this.UpdateInputFieldPlaceholder();
         Localization.instance.languageOptionChanged.AddListener(()=> {
-            this.UpdateInputFieldPlaceholder;
+            this.UpdateInputFieldPlaceholder();
         });
     }
 

@@ -32,7 +32,7 @@ export default class TextLocalizer extends ZepetoScriptBehaviour {
         this.UpdateTextContent();
 
         Localization.instance.languageOptionChanged.AddListener(()=> {
-            this.UpdateTextContent;
+            this.UpdateTextContent();
         });
     }
 

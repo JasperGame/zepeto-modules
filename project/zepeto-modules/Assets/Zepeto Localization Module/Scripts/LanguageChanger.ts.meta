@@ -19,27 +19,27 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    Localization_1 = require(\"./Localization\");\r\nconst _numberOfLanguage = 17;\r\nclass
-    LanguageChanger extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
-    {\r\n        super(...arguments);\r\n        this._currentLanguageKeyIndex =
-    0;\r\n    }\r\n    Start() {\r\n        this.UpdateCurrnetLangKeyText();\r\n       
+    { value: true });\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst Localization_1 = require(\"./Localization\");\r\nconst
+    _numberOfLanguage = 15;\r\nclass LanguageChanger extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this._currentLanguageKeyIndex
+    = 0;\r\n    }\r\n    Start() {\r\n        this.UpdateCurrnetLangKeyText();\r\n       
     this.GetCurrentLanguageKeyIndex();\r\n        Localization_1.default.instance.languageOptionChanged.AddListener(()
-    => {\r\n            this.UpdateCurrnetLangKeyText();\r\n            this.GetCurrentLanguageKeyIndex();\r\n       
-    });\r\n        this.nextButton.onClick.AddListener(this.Next);\r\n        this.nextButton.onClick.AddListener(this.Prev);\r\n   
-    }\r\n    Next() {\r\n        this._currentLanguageKeyIndex++;\r\n        if (this._currentLanguageKeyIndex
-    >= _numberOfLanguage) {\r\n            this._currentLanguageKeyIndex = 0;\r\n       
-    }\r\n        Localization_1.default.instance.ChangeLanguageOption(this._currentLanguageKeyIndex);\r\n   
-    }\r\n    Prev() {\r\n        this._currentLanguageKeyIndex--;\r\n        if (this._currentLanguageKeyIndex
-    < 0) {\r\n            this._currentLanguageKeyIndex = 15;\r\n        }\r\n       
-    Localization_1.default.instance.ChangeLanguageOption(this._currentLanguageKeyIndex);\r\n   
+    => {\r\n            this.UpdateCurrnetLangKeyText();\r\n        });\r\n       
+    this.nextButton.onClick.AddListener(() => this.NextLanguage());\r\n        this.prevButton.onClick.AddListener(()
+    => this.PrevLanguage());\r\n    }\r\n    NextLanguage() {\r\n        this._currentLanguageKeyIndex++;\r\n       
+    if (this._currentLanguageKeyIndex > _numberOfLanguage) {\r\n            this._currentLanguageKeyIndex
+    = 0;\r\n        }\r\n        Localization_1.default.instance.ChangeLanguageOption(this._currentLanguageKeyIndex);\r\n   
+    }\r\n    PrevLanguage() {\r\n        this._currentLanguageKeyIndex--;\r\n       
+    if (this._currentLanguageKeyIndex < 0) {\r\n            this._currentLanguageKeyIndex
+    = _numberOfLanguage;\r\n        }\r\n        Localization_1.default.instance.ChangeLanguageOption(this._currentLanguageKeyIndex);\r\n   
     }\r\n    GetCurrentLanguageKeyIndex() {\r\n        const key = Localization_1.default.instance.currentLanguageKey;\r\n       
     let targetIndex = 0;\r\n        for (let i = 0; i < _numberOfLanguage; i++) {\r\n           
-    if (Localization_1.LanguageOption[i].toString() == key) {\r\n               
-    targetIndex = i;\r\n            }\r\n        }\r\n        this._currentLanguageKeyIndex
-    = targetIndex;\r\n    }\r\n    UpdateCurrnetLangKeyText() {\r\n        this.currentLangKeyText.text
+    if (Localization_1.LanguageOption[i] == key) {\r\n                targetIndex
+    = i;\r\n            }\r\n        }\r\n        this._currentLanguageKeyIndex =
+    targetIndex;\r\n    }\r\n    UpdateCurrnetLangKeyText() {\r\n        this.currentLangKeyText.text
     = Localization_1.default.instance.currentLanguageKey;\r\n    }\r\n}\r\nexports.default
-    = LanguageChanger;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGFuZ3VhZ2VDaGFuZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTGFuZ3VhZ2VDaGFuZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXNEO0FBQ3RELGlEQUE4RDtBQUU5RCxNQUFNLGlCQUFpQixHQUFHLEVBQUUsQ0FBQztBQUU3QixNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQUFsRTs7UUFLWSw2QkFBd0IsR0FBVyxDQUFDLENBQUM7SUE2Q2pELENBQUM7SUEzQ0csS0FBSztRQUNELElBQUksQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ2hDLElBQUksQ0FBQywwQkFBMEIsRUFBRSxDQUFDO1FBRWxDLHNCQUFZLENBQUMsUUFBUSxDQUFDLHFCQUFxQixDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUU7WUFDeEQsSUFBSSxDQUFDLHdCQUF3QixFQUFFLENBQUM7WUFDaEMsSUFBSSxDQUFDLDBCQUEwQixFQUFFLENBQUM7UUFDdEMsQ0FBQyxDQUFDLENBQUM7UUFFSCxJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQy9DLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbkQsQ0FBQztJQUVNLElBQUk7UUFDUCxJQUFJLENBQUMsd0JBQXdCLEVBQUUsQ0FBQztRQUNoQyxJQUFJLElBQUksQ0FBQyx3QkFBd0IsSUFBSSxpQkFBaUIsRUFBRTtZQUNwRCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsQ0FBQyxDQUFDO1NBQ3JDO1FBQ0Qsc0JBQVksQ0FBQyxRQUFRLENBQUMsb0JBQW9CLENBQUMsSUFBSSxDQUFDLHdCQUF3QixDQUFDLENBQUM7SUFDOUUsQ0FBQztJQUVNLElBQUk7UUFDUCxJQUFJLENBQUMsd0JBQXdCLEVBQUUsQ0FBQztRQUNoQyxJQUFJLElBQUksQ0FBQyx3QkFBd0IsR0FBRyxDQUFDLEVBQUU7WUFDbkMsSUFBSSxDQUFDLHdCQUF3QixHQUFHLEVBQUUsQ0FBQztTQUN0QztRQUNELHNCQUFZLENBQUMsUUFBUSxDQUFDLG9CQUFvQixDQUFDLElBQUksQ0FBQyx3QkFBd0IsQ0FBQyxDQUFDO0lBQzlFLENBQUM7SUFFTywwQkFBMEI7UUFDOUIsTUFBTSxHQUFHLEdBQVcsc0JBQVksQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUM7UUFDN0QsSUFBSSxXQUFXLEdBQVcsQ0FBQyxDQUFDO1FBQzVCLEtBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxpQkFBaUIsRUFBRSxDQUFDLEVBQUUsRUFBRTtZQUN4QyxJQUFJLDZCQUFjLENBQUMsQ0FBQyxDQUFDLENBQUMsUUFBUSxFQUFFLElBQUksR0FBRyxFQUFFO2dCQUNyQyxXQUFXLEdBQUcsQ0FBQyxDQUFDO2FBQ25CO1NBQ0o7UUFDRCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsV0FBVyxDQUFDO0lBQ2hELENBQUM7SUFFTyx3QkFBd0I7UUFDNUIsSUFBSSxDQUFDLGtCQUFrQixDQUFDLElBQUksR0FBRyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQztJQUM1RSxDQUFDO0NBQ0o7QUFsREQsa0NBa0RDIn0=","assetPath":"Assets/Zepeto
+    = LanguageChanger;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGFuZ3VhZ2VDaGFuZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTGFuZ3VhZ2VDaGFuZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsbURBQThDO0FBQzlDLGlEQUFzRDtBQUN0RCxpREFBOEQ7QUFFOUQsTUFBTSxpQkFBaUIsR0FBVSxFQUFFLENBQUM7QUFDcEMsTUFBcUIsZUFBZ0IsU0FBUSxxQ0FBcUI7SUFBbEU7O1FBS1ksNkJBQXdCLEdBQVcsQ0FBQyxDQUFDO0lBNENqRCxDQUFDO0lBMUNHLEtBQUs7UUFDRCxJQUFJLENBQUMsd0JBQXdCLEVBQUUsQ0FBQztRQUNoQyxJQUFJLENBQUMsMEJBQTBCLEVBQUUsQ0FBQztRQUNsQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxxQkFBcUIsQ0FBQyxXQUFXLENBQUMsR0FBRSxFQUFFO1lBQ3hELElBQUksQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ3BDLENBQUMsQ0FBQyxDQUFDO1FBQ0gsSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUUsRUFBRSxDQUFBLElBQUksQ0FBQyxZQUFZLEVBQUUsQ0FBQyxDQUFDO1FBQzdELElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUUsQ0FBQSxJQUFJLENBQUMsWUFBWSxFQUFFLENBQUMsQ0FBQztJQUNqRSxDQUFDO0lBRU0sWUFBWTtRQUNmLElBQUksQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ2hDLElBQUksSUFBSSxDQUFDLHdCQUF3QixHQUFHLGlCQUFpQixFQUFFO1lBQ25ELElBQUksQ0FBQyx3QkFBd0IsR0FBRyxDQUFDLENBQUM7U0FDckM7UUFFRCxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxvQkFBb0IsQ0FBQyxJQUFJLENBQUMsd0JBQXdCLENBQUMsQ0FBQztJQUM3RSxDQUFDO0lBRUssWUFBWTtRQUNmLElBQUksQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ2hDLElBQUksSUFBSSxDQUFDLHdCQUF3QixHQUFHLENBQUMsRUFBRTtZQUNuQyxJQUFJLENBQUMsd0JBQXdCLEdBQUcsaUJBQWlCLENBQUM7U0FDckQ7UUFFRCxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxvQkFBb0IsQ0FBQyxJQUFJLENBQUMsd0JBQXdCLENBQUMsQ0FBQztJQUM5RSxDQUFDO0lBRU8sMEJBQTBCO1FBQzlCLE1BQU0sR0FBRyxHQUFXLHNCQUFZLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDO1FBQzdELElBQUksV0FBVyxHQUFXLENBQUMsQ0FBQztRQUM1QixLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsaUJBQWlCLEVBQUUsQ0FBQyxFQUFFLEVBQUU7WUFDeEMsSUFBSSw2QkFBYyxDQUFDLENBQUMsQ0FBQyxJQUFJLEdBQUcsRUFBRTtnQkFDMUIsV0FBVyxHQUFHLENBQUMsQ0FBQzthQUNuQjtTQUNKO1FBQ0QsSUFBSSxDQUFDLHdCQUF3QixHQUFHLFdBQVcsQ0FBQztJQUNoRCxDQUFDO0lBRU8sd0JBQXdCO1FBQzVCLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLEdBQUcsc0JBQVksQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUM7SUFDNUUsQ0FBQztDQUNKO0FBakRELGtDQWlEQyJ9","assetPath":"Assets/Zepeto
     Localization Module/Scripts/LanguageChanger.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"nextButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"prevButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"currentLangKeyText","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"LanguageChanger","description":""},"isCompiled":true}'
-  typescriptHash: a38aaa72d7cd4ba1de7d14c8d7a6cef0
+  typescriptHash: 84dcf00b5d8fdd6965b06e940394ad26
   onlyWriteTrigger: 0
