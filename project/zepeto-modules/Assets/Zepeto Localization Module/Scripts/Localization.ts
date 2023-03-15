@@ -13,6 +13,7 @@ export default class Localization extends ZepetoScriptBehaviour {
     private readonly _localizedTextMap = new Map<string, string>();
 
     private _defaultThaiFont: Font;
+    private _originFont: Font;
     private _currentLanguageKey: string;
 
     public get languageOptionChanged(): UnityEvent { return this._languageOptionChanged; }
