@@ -253,10 +253,13 @@ public class ZepetoModuleImporter : EditorWindow
     private void DoPreviewImageGUI()
     {
         GUILayout.Label("Preview",EditorStyles.boldLabel);
-        
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
         if(_selectedData.previewImage)
             GUILayout.Box(_selectedData.previewImage, GUILayout.Width(_selectedData.previewImage.width), GUILayout.Height(_selectedData.previewImage.height));
-        
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+
     }
 
     private IEnumerator LoadDataAsync()
@@ -276,7 +279,7 @@ public class ZepetoModuleImporter : EditorWindow
     
     private IEnumerator LoadImageAsync(int i)
     {
-        string url = Path.Combine(ConstantManager.DOWNLOAD_PATH, _contentList.Items[i].Title, "Preview.png");
+        string url = Path.Combine(ConstantManager.DOWNLOAD_PATH, GetRemoveSpace(_contentList.Items[i].Title), "Preview.png");
         yield return DownloadGithubHandler.GetTextureAsync(url,(texture) => {
             if(texture != null)
                 _contentList.Items[i].previewImage = texture;

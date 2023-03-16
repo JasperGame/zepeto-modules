@@ -13,6 +13,8 @@ public class DownloadGithubHandler
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError(www.error);
+            
+            onDataLoaded(null);
         }
         else
         {
@@ -27,20 +29,40 @@ public class DownloadGithubHandler
 
         if (www.result == UnityWebRequest.Result.Success)
         {
+            
             Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
-            float ratio = (float)texture.height / (float)texture.width;
-            int fixedWidth = 550;
-            int height = Mathf.RoundToInt(ratio * fixedWidth);
-            texture = ScaleTexture(texture, fixedWidth, height);
+            int max_width = ConstantManager.PREVIEW_MAX_WIDTH;
+            int max_height = ConstantManager.PREVIEW_MAX_HEIGHT;
+
+            int width = texture.width;
+            int height = texture.height;
+
+            float aspect_ratio = (float)width / (float)height;
+
+            if (width >= max_width)
+            {
+                width = max_width;
+                height = (int)((float)width / aspect_ratio);
+            }
+            else if (height >= max_height)
+            {
+                height = max_height;
+                width = (int)((float)height * aspect_ratio);
+            }
+
+            texture = ScaleTexture(texture, width, height);
+            
             onTextureLoaded(texture);
         }
         else
         {
             Debug.Log("Failed to download image. Error: " + www.error);
+            
+            onTextureLoaded(null);
         }
     }
     
-    public static Texture2D ScaleTexture(Texture2D texture, int targetWidth, int targetHeight)
+    private static Texture2D ScaleTexture(Texture2D texture, int targetWidth, int targetHeight)
     {
         RenderTexture rt = RenderTexture.GetTemporary(targetWidth, targetHeight, 0, RenderTextureFormat.Default, RenderTextureReadWrite.Linear);
 
