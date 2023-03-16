@@ -133,7 +133,7 @@ public class ZepetoModuleImporter : EditorWindow
             }
         }
         DoUpdateButtonGUI();
-
+        DoContibuteButtonGUI();
         GUILayout.EndVertical();
         GUILayout.Box("", GUILayout.ExpandHeight(true), GUILayout.Width(3));
     }
@@ -153,6 +153,21 @@ public class ZepetoModuleImporter : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    private void DoContibuteButtonGUI()
+    {
+        GUILayout.BeginVertical();
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("Contribute", GUILayout.Width(200), GUILayout.Height(30)))
+        {
+            string url = _selectedLanguage == Language.Korean
+                ? ConstantManager.CONTRIBUTE_KR_PATH
+                : ConstantManager.CONTRIBUTE_PATH;
+            Application.OpenURL(url);
+        }
+
+        GUILayout.Space(30);
+        GUILayout.EndVertical();
+    }
 
     private void DoTopButtonGUI()
     {
