@@ -37,7 +37,8 @@ public class ZepetoModuleImporter : EditorWindow
         {
             _selectedLanguage =  Application.systemLanguage == SystemLanguage.Korean ? Language.Korean : Language.English;
             DoTopBarGUI();
-            EditorCoroutineUtility.StartCoroutine(GetData(), this);
+            EditorCoroutineUtility.StartCoroutine(LoadDataAsync(), this);
+            
             GUILayout.BeginArea(new Rect(position.width * 0.5f, position.height * 0.5f, 400, 100));
             EditorGUILayout.BeginHorizontal();
             {
@@ -53,24 +54,6 @@ public class ZepetoModuleImporter : EditorWindow
         }
     }
 
-    private IEnumerator GetData()
-    {
-        UnityWebRequest www = UnityWebRequest.Get(ConstantManager.CONTENT_DATA_PATH);
-        yield return www.SendWebRequest();
-
-        if (www.result != UnityWebRequest.Result.Success)
-        {
-            Debug.LogError(www.error);
-        }
-        else
-        {
-            if (_contentList == null)
-            {
-                _contentList = JsonUtility.FromJson<ContentList>(www.downloadHandler.text);
-                _lastUpdateTime = DateTime.Now.ToString("HH:mm");
-            }
-        }
-    }
 
     private void DrawAll()
     {
@@ -87,7 +70,8 @@ public class ZepetoModuleImporter : EditorWindow
             DoVersionInfoGUI();
             DoDescriptionGUI();
             DoDependencyInfoGUI();
-
+            DoPreviewImageGUI();
+            
             GUILayout.EndVertical();
         }
 
@@ -163,7 +147,7 @@ public class ZepetoModuleImporter : EditorWindow
         if (GUILayout.Button(EditorGUIUtility.FindTexture("d_Refresh"), GUILayout.Width(30), GUILayout.Height(30)))
         {
             _contentList = null;
-            EditorCoroutineUtility.StartCoroutine(GetData(), this);
+            EditorCoroutineUtility.StartCoroutine(LoadDataAsync(), this);
         }
 
         GUILayout.EndHorizontal();
@@ -242,7 +226,6 @@ public class ZepetoModuleImporter : EditorWindow
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
         GUILayout.Label("Dependencies", EditorStyles.boldLabel);
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
-        GUILayout.BeginHorizontal();
         GUILayout.Label("Is Using", EditorStyles.boldLabel);
 
         GUILayout.BeginVertical();
@@ -253,7 +236,8 @@ public class ZepetoModuleImporter : EditorWindow
 
         GUILayout.EndVertical();
 
-        GUILayout.EndHorizontal();
+        
+        GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
     }
 
     private void DoDescriptionGUI()
@@ -263,20 +247,40 @@ public class ZepetoModuleImporter : EditorWindow
         style.normal.textColor = Color.white; 
         
         GUILayout.Label(_selectedLanguage == 0 ? _selectedData.Description : _selectedData.Description_ko, style);
-        string imagePath = Application.dataPath + ConstantManager.IMAGE_PATH + _selectedData.Title +
-                           ConstantManager.EXTENSION_PNG;
-        if (File.Exists(imagePath))
-        {
-            Texture2D image = new Texture2D(2, 2);
-            image.LoadImage(File.ReadAllBytes(imagePath));
+        
+    }
 
-            float maxWidth = 550;
-            float maxHeight = 400f;
-            float imageWidth = Mathf.Min(image.width, maxWidth);
-            float imageHeight = Mathf.Min(image.height, maxHeight);
+    private void DoPreviewImageGUI()
+    {
+        GUILayout.Label("Preview",EditorStyles.boldLabel);
+        
+        if(_selectedData.previewImage)
+            GUILayout.Box(_selectedData.previewImage, GUILayout.Width(_selectedData.previewImage.width), GUILayout.Height(_selectedData.previewImage.height));
+        
+    }
 
-            GUILayout.Box(image, GUILayout.Width(imageWidth), GUILayout.Height(imageHeight));
-        }
+    private IEnumerator LoadDataAsync()
+    {
+        yield return DownloadGithubHandler.GetDataAsync((data) => {
+            if (_contentList == null && data != null)
+            {
+                _contentList = JsonUtility.FromJson<ContentList>(data);
+                _lastUpdateTime = DateTime.Now.ToString("HH:mm");
+                for (int i = 0; i < _contentList.Items.Count; i++)
+                {
+                    EditorCoroutineUtility.StartCoroutine(LoadImageAsync(i),this);
+                }
+            }
+        });
+    }
+    
+    private IEnumerator LoadImageAsync(int i)
+    {
+        string url = Path.Combine(ConstantManager.DOWNLOAD_PATH, _contentList.Items[i].Title, "Preview.png");
+        yield return DownloadGithubHandler.GetTextureAsync(url,(texture) => {
+            if(texture != null)
+                _contentList.Items[i].previewImage = texture;
+        });
     }
 
     private string GetRemoveSpace(string s)
@@ -293,6 +297,7 @@ public class ZepetoModuleImporter : EditorWindow
         public string DocsUrl;
         public string LatestVersion;
         public string[] Dependencies;
+        public Texture2D previewImage;
     }
 
     [System.Serializable]
