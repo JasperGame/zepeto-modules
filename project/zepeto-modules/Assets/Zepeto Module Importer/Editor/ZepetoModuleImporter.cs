@@ -22,7 +22,7 @@ public class ZepetoModuleImporter : EditorWindow
     [MenuItem("ZEPETO/Module Importer")]
     public static void ShowWindow()
     {
-        Rect windowRect = new Rect(0, 0, 800, 800);
+        Rect windowRect = new Rect(0, 0, ConstantManager.RECT_WIDTH, ConstantManager.RECT_HEIGHT);
         _window = EditorWindow.GetWindowWithRect(typeof(ZepetoModuleImporter), windowRect, true, "Zepeto Module Importer");
     }
 
