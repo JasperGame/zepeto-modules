@@ -13,7 +13,7 @@
       "Description": "Component for synchronizing data between devices.",
       "Description_ko": "Multiplay Component 입니다. 꼭 가이드를 먼저 봐주세요.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
-      "LatestVersion": "1.0.2",
+      "LatestVersion": "1.0.3",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {

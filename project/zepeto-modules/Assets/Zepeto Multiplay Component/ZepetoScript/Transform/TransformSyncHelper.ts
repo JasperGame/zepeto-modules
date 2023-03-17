@@ -62,8 +62,6 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
     private prevGet = () => this._bufferedState?.length > 1 ? this._bufferedState[1] : null;
 
     private Start() {
-        this.VersionInfo();
-
         if(!this._Id) {
             SyncIndexManager.SyncIndex++;
             this._Id = SyncIndexManager.SyncIndex.toString();
@@ -390,15 +388,6 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         data.Add("Id", this.Id);
         data.Add("Status", this._objectStatus);
         this._room.Send(MESSAGE.SyncTransformStatus, data.GetObject());
-    }
-
-    @Header("Version 1.0.3")
-    @SerializeField() private seeVersionLog:boolean = false;
-    private VersionInfo(){
-        if(!this.seeVersionLog)
-            return;
-
-        console.warn("TransformSyncHelper VersionInfos\n* Version 1.0.3\n* Github : https://github.com/JasperGame/zepeto-world-sync-component \n* Latest Update Date : 2023.02.28 \n");
     }
 }
 
