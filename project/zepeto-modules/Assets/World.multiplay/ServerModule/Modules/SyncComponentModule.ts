@@ -75,8 +75,9 @@ export default class SyncComponentModule extends IModule {
         });
         this.server.onMessage(MESSAGE.SyncTransformStatus, (client, message) => {
             const syncTransform = this.server.state.SyncTransforms.get(message.Id);
-            if(syncTransform !== undefined)
+            if(syncTransform !== undefined) {
                 syncTransform.status = message.Status;
+            }
         });
 
         this.server.onMessage(MESSAGE.ChangeOwner, (client,message:string) => {
