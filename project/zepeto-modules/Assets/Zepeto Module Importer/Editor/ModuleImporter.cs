@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
-public class ZepetoModuleImporter : EditorWindow
+public class ModuleImporter : EditorWindow
 {
     private Content _selectedData;
     private ContentList _contentList;
@@ -23,7 +23,7 @@ public class ZepetoModuleImporter : EditorWindow
     public static void ShowWindow()
     {
         Rect windowRect = new Rect(0, 0, ConstantManager.RECT_WIDTH, ConstantManager.RECT_HEIGHT);
-        _window = EditorWindow.GetWindowWithRect(typeof(ZepetoModuleImporter), windowRect, true, "Zepeto Module Importer");
+        _window = EditorWindow.GetWindowWithRect(typeof(ModuleImporter), windowRect, true, "ZEPETO Module Importer");
     }
 
     private void OnGUI()
@@ -88,7 +88,7 @@ public class ZepetoModuleImporter : EditorWindow
         labelStyle.alignment = TextAnchor.MiddleLeft;
         labelStyle.fontSize = 24;
 
-        GUILayout.Label("Zepeto Module Importer", labelStyle);
+        GUILayout.Label("ZEPETO Module Importer", labelStyle);
         GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
 
         GUILayout.FlexibleSpace();
@@ -147,6 +147,7 @@ public class ZepetoModuleImporter : EditorWindow
         if (GUILayout.Button(EditorGUIUtility.FindTexture("d_Refresh"), GUILayout.Width(30), GUILayout.Height(30)))
         {
             _contentList = null;
+            _lastUpdateTime = "";
             EditorCoroutineUtility.StartCoroutine(LoadDataAsync(), this);
         }
 
