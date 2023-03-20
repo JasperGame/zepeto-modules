@@ -227,7 +227,7 @@ public class ModuleImporter : EditorWindow
             if(_selectedLanguage == Language.Korean)
                 docsUrl = Regex.Replace(docsUrl, "lang-en", "lang-ko");
             
-            Application.OpenURL(_selectedData.DocsUrl);
+            Application.OpenURL(docsUrl);
         }
 
         GUILayout.FlexibleSpace();
