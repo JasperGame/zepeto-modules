@@ -409,7 +409,7 @@ MonoBehaviour:
     keys:
     - _contentsParent
     - _prefThumb
-    - _count
+    - _loadContentsCount
     unityValues:
     - {fileID: 1280291681600826429}
     - {fileID: 5726397593310087170, guid: be4c5779411af4ba19478deb1f57d7f1, type: 3}
@@ -417,7 +417,7 @@ MonoBehaviour:
     values:
     - 
     - 
-    - '{"type":"System.Single, mscorlib","value":"50"}'
+    - '{"type":"System.Single, mscorlib","value":"100"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 956de2558fee74a0fa08a9adb2f63a37, type: 3}

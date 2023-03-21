@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   ids:
-  - CR_6239727959a533012d12ae5d
-  - CR_632ace3db92dd92e218ad962
+  - CR_
+  - CR_
   icon: {fileID: 21300000, guid: 325c5d6f430514453a55c90cf63550d0, type: 3}
   iconPosition: {fileID: 8337249904299854389}
   onActive:

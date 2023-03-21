@@ -56,7 +56,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   poseId: 2p4MG9n2r7MBV2XVU4JqPo#
-  zepetoId: Maximilian
+  zepetoId: 
   faceTexture: {fileID: 2800000, guid: 4c6f6a1ab1db74a6a84dc8fe35cfdd1b, type: 3}
 --- !u!65 &5151597014682835503
 BoxCollider:

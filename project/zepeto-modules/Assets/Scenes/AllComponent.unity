@@ -12735,7 +12735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280291680740787467, guid: 983578afae44d459d92e89fe01392623, type: 3}
       propertyPath: script.keys.Array.data[2]
-      value: _loadGestureCount
+      value: _loadContentsCount
       objectReference: {fileID: 0}
     - target: {fileID: 1280291680740787467, guid: 983578afae44d459d92e89fe01392623, type: 3}
       propertyPath: script.values.Array.data[2]
