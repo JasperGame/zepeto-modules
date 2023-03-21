@@ -10,7 +10,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
     @HideInInspector() public contents: Content[] = [];
     @HideInInspector() public thumbnails: GameObject[] = [];
 
-    @SerializeField() private _count: number = 50;
+    @SerializeField() private _loadContentsCount: number = 100;
     @SerializeField() private _contentsParent: Transform;
     @SerializeField() private _prefThumb: GameObject;
 
@@ -31,7 +31,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         // All Type Request
         ZepetoWorldContent.RequestOfficialContentList(OfficialContentType.All, contents => {
             this.contents = contents;
-            for (let i = 0; i < this._count; i++) {
+            for (let i = 0; i < this._loadContentsCount; i++) {
                 if (!this.contents[i].IsDownloadedThumbnail) {
                     // Take a thumbnail photo using my character
                     this.contents[i].DownloadThumbnail(this._myCharacter,() =>{

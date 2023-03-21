@@ -3,7 +3,7 @@ import { Button, RawImage, Text, Toggle } from 'UnityEngine.UI';
 import { LocalPlayer, ZepetoCharacter, ZepetoPlayers, ZepetoScreenTouchpad } from 'ZEPETO.Character.Controller';
 import { OfficialContentType, Content } from 'ZEPETO.World';
 import { Object, GameObject, Transform } from 'UnityEngine';
-import GestureLoader from './GestureLodaer';
+import GestureLoader from './GestureLoader';
 import Thumbnail from './Thumbnail';
 
 export default class UIController extends ZepetoScriptBehaviour {
