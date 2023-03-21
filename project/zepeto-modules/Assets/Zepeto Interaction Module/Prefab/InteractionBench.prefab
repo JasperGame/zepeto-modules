@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4564402405903421205}
   - component: {fileID: 4564402405903421204}
   m_Layer: 2
-  m_Name: SeatPoint
+  m_Name: InteractionPoint
   m_TagString: 
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 335612943
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 4564402406936024908}
   - component: {fileID: 4564402406936024907}
   m_Layer: 2
-  m_Name: SeatPoint (1)
+  m_Name: InteractionPoint
   m_TagString: 
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 335612943

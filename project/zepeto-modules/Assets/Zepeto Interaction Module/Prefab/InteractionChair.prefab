@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4501003024625712083}
   - component: {fileID: 4501003024625712082}
   m_Layer: 2
-  m_Name: SeatPoint
+  m_Name: InteractionPoint
   m_TagString: 
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 335612943

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4870071449893279176}
   - component: {fileID: 4870071449893279177}
   m_Layer: 2
-  m_Name: SeatPoint
+  m_Name: InteractionPoint
   m_TagString: 
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 335612943
