@@ -10,48 +10,48 @@
     },
     {
       "Title": "Multiplay Component",
-      "Description": "Component for synchronizing data between devices.",
-      "Description_ko": "Multiplay Component 입니다. 꼭 가이드를 먼저 봐주세요.",
+      "Description": "This component is designed to facilitate easy synchronization of players and objects in ZEPETO multiplayer implementation.\nIt is attached to objects to be synchronized in the form of a component and provides useful sample code for developing multiplayer worlds.",
+      "Description_ko": "ZEPETO 멀티플레이 구현시, 플레이어와 오브젝트를 손쉽게 동기화할 수 있게 해주는 컴포넌트입니다. 컴포넌트 형태로 동기화할 오브젝트에 부착해서 사용하며 멀티플레이 월드 개발에 유용한 샘플 코드를 제공합니다.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
       "LatestVersion": "1.0.3",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
       "Title": "Interaction",
-      "Description": "System for handling user interactions with the application.",
-      "Description_ko": "Interaction sample 입니다.",
+      "Description": "This module implements an interaction button that appears when a ZEPETO character approaches an object in close proximity.",
+      "Description_ko": "ZEPETO 캐릭터가 오브젝트 가까이에 다가갔을 때 나타나는 인터렉션 버튼을 구현한 모듈입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/interacting-with-an-object",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
       "Title": "Gesture",
-      "Description": "API for recognizing and processing user gestures.",
-      "Description_ko": "Gesture API 입니다.",
+      "Description": "This module implements gesture features provided by ZEPETO. When a thumbnail is clicked, it allows users to perform specific gestures/poses.",
+      "Description_ko": "ZEPETO에서 제공하는 제스쳐 기능을 구현한 모듈입니다. 썸네일을 클릭했을 때 특정 제스쳐/포즈를 취하게 할 수 있습니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/gesture",      
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
       "Title": "ScreenShot",
-      "Description": "Utility for capturing and saving screenshots of the application.",
-      "Description_ko": "ScreenShot sample 입니다.",
+      "Description": "This module implements screenshot UI and features provided by ZEPETO.",
+      "Description_ko": "ZEPETO에서 제공하는 스크린샷 UI 및 기능을 구현한 모듈입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/screenshot",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
       "Title": "LeaderBoard",
-      "Description": "sample for managing and displaying leaderboard data.",
-      "Description_ko": "LeaderBoard sample 입니다.",
+      "Description": "This module implements a LeaderBoard UI that displays ranking information and useful management features such as deleting leaderboard data.",
+      "Description_ko": "랭킹 정보를 보여주는 LeaderBoard UI와 리더보드 데이터 삭제 등 유용한 관리 기능을 구현한 모듈입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/leaderboard",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
       "Title": "Mannequin",
-      "Description": "sample for Mannequin.",
-      "Description_ko": "Mannequin sample 입니다.",
+      "Description": "This module implements the Mannequin feature, which requires the itemID of a released item to be used.",
+      "Description_ko": "Mannequin 기능을 구현한 모듈입니다.\n마네킹 기능을 사용하기 위해서는 출시 완료한 아이템의 itemID가 필요합니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_mannequin",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.7.0+",
@@ -59,17 +59,17 @@
     },
     {
       "Title": "Product",
-      "Description": "sample for Product, you need server code",
-      "Description_ko": "Product sample 입니다. 꼭 가이드를 봐주세요.",
-      "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_product",
+      "Description": "This is a sample module provided by ZEPETO that offers UI and features for managing products and currencies in ZEPETO.\nYou must register products and currencies in ZEPETO Studio.",
+      "Description_ko": "ZEPETO에서 상품 및 통화를 관리하는 UI 및 기능을 제공하는 샘플 모듈입니다.\nZEPETO 스튜디오에 상품과 통화를 등록해야 합니다. ",
+      "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_produc",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.12.2+",
         "ZEPETO.Product : 1.0.1-preview+"]
     },
     {
       "Title": "Localization",
-      "Description": "Feature for multilingual support. Local keys and translations are managed using Google Spreadsheet and can be exported to csv and reflected in the project.",
-      "Description_ko": "다국어 지원을 위한 기능입니다. 로컬키와 번역문은 구글스프레드시트를 이용하여 관리하며,  csv로 export하여 프로젝트에 반영할 수 있습니다.",
+      "Description": "This is a sample module that provides multilingual management functionality.\nYou can manage the local key and translation using Google Spreadsheets, and export them as CSV to incorporate into your project.",
+      "Description_ko": "다국어 관리 기능을 제공하는 샘플 모듈입니다.\n로컬키와 번역문은 구글스프레드시트를 이용하여 관리하며, csv로 export하여 프로젝트에 반영할 수 있습니다.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-modules/tree/main/project/zepeto-modules/Assets/Zepeto%20Localization%20Module",
       "LatestVersion": "1.0.0",
       "Dependencies": ["nothing"]
