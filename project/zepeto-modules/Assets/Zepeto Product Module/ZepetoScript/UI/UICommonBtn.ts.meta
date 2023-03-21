@@ -1,0 +1,105 @@
+fileFormatVersion: 2
+guid: f129617f4973e43baad29f7a3b3259dd
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Product_1 = require(\"ZEPETO.Product\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nconst UIBalances_1 = require(\"./UIBalances\");\r\nclass
+    UICommonBtn extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this._itemsCache = [];\r\n       
+    this._itemsPackageCache = [];\r\n    }\r\n    Start() {\r\n        this._multiplay
+    = UnityEngine_1.Object.FindObjectOfType($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\r\n       
+    this._uiBallances = UnityEngine_1.Object.FindObjectOfType($typeof(UIBalances_1.default));\r\n       
+    // button Interval\r\n        let allBtns = this.GetComponentsInChildren($typeof(UnityEngine_UI_1.Button));\r\n       
+    allBtns.forEach(btn => btn.onClick.AddListener(() => this.StartCoroutine(this.BtnInterval(btn))));\r\n       
+    this.StartCoroutine(this.LoadAllItems());\r\n        this._multiplay.add_RoomJoined((room)
+    => {\r\n            this._room = room;\r\n            this.InitMessageHandler();\r\n       
+    });\r\n    }\r\n    InitMessageHandler() {\r\n        //button listener\r\n       
+    this.gainBalanceBtn.onClick.AddListener(() => this.OnClickGainBalance(UIBalances_1.Currency.energy,
+    1));\r\n        this.useBalanceBtn.onClick.AddListener(() => this.OnClickUseBalance(UIBalances_1.Currency.energy,
+    1));\r\n        this.increaseExpBtn.onClick.AddListener(() => this.OnClickIncreaseExp());\r\n       
+    this.acquireRandomItemBtn.onClick.AddListener(() => this.OnClickAcquireRandomItem());\r\n       
+    //sell items with id called potion1.\r\n        this.purchaseImmediatelyBtn.onClick.AddListener(()
+    => this.StartCoroutine(this.OnClickPurchaseItemImmediately(\"potion1\")));\r\n       
+    this.purchaseOfficialUIBtn.onClick.AddListener(() => {\r\n            //The first
+    non-consumable item is sold through the official ui.\r\n            const nonConsumableItem
+    = this._itemsCache.find(ir => ir.PurchaseType === ZEPETO_Product_1.PurchaseType.NonConsumable);\r\n           
+    if (nonConsumableItem) {\r\n                this.OnClickPurchaseItem(nonConsumableItem);\r\n           
+    }\r\n            else {\r\n                this.OpenInformation(`Non-consumable
+    product does not exist.`);\r\n            }\r\n        });\r\n        this.purchaseItemPackageBtn.onClick.AddListener(()
+    => {\r\n            const packageItem = this._itemsPackageCache[0];\r\n           
+    if (packageItem) {\r\n                this.OnClickPurchaseItem(packageItem);\r\n           
+    }\r\n            else {\r\n                this.OpenInformation(`Item package
+    product does not exist.`);\r\n            }\r\n        });\r\n        // log
+    message handler\r\n        this._room.AddMessageHandler(\"SyncBalances\", (message)
+    => {\r\n            this.OpenInformation(`${message.currencyId} a Increase or
+    decrease: ${message.quantity}`);\r\n        });\r\n        this._multiplay.Room.AddMessageHandler(\"SyncInventories\",
+    (message) => {\r\n            this.OpenInformation(`${message.productId} has
+    been ${UIBalances_1.InventoryAction[message.inventoryAction]} in the inventory.`);\r\n           
+    // item use sample\r\n            /*if(message.inventoryAction == InventoryAction.Used){\r\n               
+    if(message.productId == \"potion1\"){\r\n                    console.log(\"potion
+    use!\");\r\n                }\r\n            }*/\r\n        });\r\n        this._room.AddMessageHandler($typeof($typeof(\"System.String\")),
+    \"DebitError\", (message) => {\r\n            this.OpenInformation(message);\r\n       
+    });\r\n        ZEPETO_Product_1.ProductService.OnPurchaseCompleted.AddListener((product,
+    response) => {\r\n            this.OpenInformation(`${response.productId} Purchase
+    Completed`);\r\n        });\r\n        ZEPETO_Product_1.ProductService.OnPurchaseFailed.AddListener((product,
+    response) => {\r\n            this.OpenInformation(response.message);\r\n       
+    });\r\n    }\r\n    *LoadAllItems() {\r\n        const request = ZEPETO_Product_1.ProductService.GetProductsAsync();\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (request.responseData.isSuccess) {\r\n            this._itemsCache = [];\r\n           
+    request.responseData.products.forEach((pr) => {\r\n                if (pr.ProductType
+    == ZEPETO_Product_1.ProductType.Item) {\r\n                    this._itemsCache.push(pr);\r\n               
+    }\r\n                if (pr.ProductType == ZEPETO_Product_1.ProductType.ItemPackage)
+    {\r\n                    this._itemsPackageCache.push(pr);\r\n               
+    }\r\n            });\r\n            if (this._itemsCache.length == 0) {\r\n               
+    console.warn(\"no Item information\");\r\n                return;\r\n           
+    }\r\n        }\r\n        else {\r\n            console.warn(\"Product Load Failed\");\r\n       
+    }\r\n    }\r\n    OpenInformation(message) {\r\n        const inforObj = UnityEngine_1.GameObject.Instantiate(this.informationPref,
+    this.transform.parent);\r\n        inforObj.GetComponentInChildren($typeof(UnityEngine_UI_1.Text)).text
+    = message;\r\n    }\r\n    OnClickGainBalance(currencyId, quantity) {\r\n       
+    const data = new ZEPETO_Multiplay_1.RoomData();\r\n        data.Add(\"currencyId\",
+    currencyId);\r\n        data.Add(\"quantity\", quantity);\r\n        this._multiplay.Room?.Send(\"onCredit\",
+    data.GetObject());\r\n    }\r\n    OnClickUseBalance(currencyId, quantity) {\r\n       
+    const data = new ZEPETO_Multiplay_1.RoomData();\r\n        data.Add(\"currencyId\",
+    currencyId);\r\n        data.Add(\"quantity\", quantity);\r\n        this._multiplay.Room?.Send(\"onDebit\",
+    data.GetObject());\r\n    }\r\n    OnClickIncreaseExp() {\r\n        //This is
+    just a test code that you don''t save.\r\n        this._uiBallances.IncreaseExp(10);\r\n   
+    }\r\n    OnClickAcquireRandomItem() {\r\n        if (this._itemsCache.length
+    == 0) {\r\n            console.warn(\"Item cache has not yet been loaded.\");\r\n           
+    return;\r\n        }\r\n        // Choose one of the consumable items.\r\n       
+    const consumableItem = [];\r\n        this._itemsCache.forEach((pr) => {\r\n           
+    if (pr.PurchaseType == ZEPETO_Product_1.PurchaseType.Consumable)\r\n               
+    consumableItem.push(pr);\r\n        });\r\n        const randNum = Math.floor(Math.random()
+    * consumableItem.length);\r\n        const randItem = consumableItem[randNum];\r\n       
+    const data = new ZEPETO_Multiplay_1.RoomData();\r\n        data.Add(\"productId\",
+    randItem.productId);\r\n        data.Add(\"quantity\", 1);\r\n        this._multiplay.Room?.Send(\"onAddInventory\",
+    data.GetObject());\r\n    }\r\n    // an immediate purchase\r\n    *OnClickPurchaseItemImmediately(productId)
+    {\r\n        const request = ZEPETO_Product_1.ProductService.PurchaseProductAsync(productId);\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (request.responseData.isSuccess) {\r\n            // is purchase success\r\n       
+    }\r\n        else {\r\n            // is purchase fail\r\n        }\r\n    }\r\n   
+    // open offical ui\r\n    OnClickPurchaseItem(productRecord) {\r\n        ZEPETO_Product_1.ProductService.OpenPurchaseUI(productRecord);\r\n   
+    }\r\n    *BtnInterval(btn) {\r\n        btn.interactable = false;\r\n       
+    yield new UnityEngine_1.WaitForSeconds(0.2);\r\n        btn.interactable = true;\r\n   
+    }\r\n}\r\nexports.default = UICommonBtn;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlDb21tb25CdG4uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVSUNvbW1vbkJ0bi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFtRDtBQUNuRCxtREFBMkM7QUFDM0MsNkNBQXlFO0FBQ3pFLG1EQUF3RjtBQUN4RiwrQ0FBa0Q7QUFDbEQsdURBQWdEO0FBQ2hELDZDQUFnRztBQUVoRyxNQUFxQixXQUFZLFNBQVEscUNBQXFCO0lBQTlEOztRQVVZLGdCQUFXLEdBQW9CLEVBQUUsQ0FBQztRQUNsQyx1QkFBa0IsR0FBb0IsRUFBRSxDQUFBO0lBc0twRCxDQUFDO0lBaktXLEtBQUs7UUFDVCxJQUFJLENBQUMsVUFBVSxHQUFHLG9CQUFNLENBQUMsZ0JBQWdCLFNBQUMsbUNBQW9CLEVBQUcsQ0FBQztRQUNsRSxJQUFJLENBQUMsWUFBWSxHQUFHLG9CQUFNLENBQUMsZ0JBQWdCLFNBQUMsb0JBQVcsRUFBRyxDQUFDO1FBRTNELGtCQUFrQjtRQUNsQixJQUFJLE9BQU8sR0FBYyxJQUFJLENBQUMsdUJBQXVCLFNBQUMsdUJBQU0sRUFBRyxDQUFDO1FBQ2hFLE9BQU8sQ0FBQyxPQUFPLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFFbEcsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsWUFBWSxFQUFFLENBQUMsQ0FBQztRQUV6QyxJQUFJLENBQUMsVUFBVSxnQkFBZSxDQUFDLElBQVUsRUFBRSxFQUFFO1lBQ3pDLElBQUksQ0FBQyxLQUFLLEdBQUcsSUFBSSxDQUFDO1lBQ2xCLElBQUksQ0FBQyxrQkFBa0IsRUFBRSxDQUFDO1FBQzlCLENBQUMsRUFBQTtJQUNMLENBQUM7SUFFTyxrQkFBa0I7UUFDdEIsaUJBQWlCO1FB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","assetPath":"Assets/Zepeto
+    Product Module/ZepetoScript/UI/UICommonBtn.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"gainBalanceBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"useBalanceBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"increaseExpBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"acquireRandomItemBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"purchaseImmediatelyBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"purchaseOfficialUIBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"purchaseItemPackageBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"informationPref","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"UICommonBtn","description":""},"isCompiled":true}'
+  typescriptHash: 53ba79222cce6062cbb9323e3b9fb064
+  onlyWriteTrigger: 0

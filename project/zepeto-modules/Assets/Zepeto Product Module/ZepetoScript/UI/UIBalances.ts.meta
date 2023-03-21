@@ -1,0 +1,66 @@
+fileFormatVersion: 2
+guid: 2bb7507bae70644d1a7d8ff84ddf1961
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.Currency = exports.InventoryAction = void 0;\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Currency_1 = require(\"ZEPETO.Currency\");\r\nconst
+    ZEPETO_Product_1 = require(\"ZEPETO.Product\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nclass UIBalances extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    this._myExp = 0;\r\n        this._amountExp = 30;\r\n        this._myLevel =
+    1;\r\n    }\r\n    Start() {\r\n        this.RefreshAllBalanceUI();\r\n       
+    this.RefreshExpUI();\r\n        this._multiplay = UnityEngine_1.Object.FindObjectOfType($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\r\n       
+    this._multiplay.add_RoomJoined((room) => {\r\n            this._room = room;\r\n           
+    this.InitMessageHandler();\r\n        });\r\n    }\r\n    InitMessageHandler()
+    {\r\n        this._room.AddMessageHandler(\"SyncBalances\", (message) => {\r\n           
+    this.RefreshAllBalanceUI();\r\n        });\r\n        ZEPETO_Product_1.ProductService.OnPurchaseCompleted.AddListener((product,
+    response) => {\r\n            this.RefreshAllBalanceUI();\r\n        });\r\n   
+    }\r\n    RefreshAllBalanceUI() {\r\n        this.StartCoroutine(this.RefreshBalanceUI());\r\n       
+    this.StartCoroutine(this.RefreshOfficialCurrencyUI());\r\n    }\r\n    *RefreshBalanceUI()
+    {\r\n        const request = ZEPETO_Currency_1.CurrencyService.GetUserCurrencyBalancesAsync();\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (request.responseData.isSuccess) {\r\n            this.possessionStarTxt.text
+    = request.responseData.currencies?.ContainsKey(Currency.star) ? request.responseData.currencies?.get_Item(Currency.star).toString()
+    : \"0\";\r\n            this.possessionEnergyTxt.text = request.responseData.currencies?.ContainsKey(Currency.energy)
+    ? request.responseData.currencies?.get_Item(Currency.energy).toString() : \"0\";\r\n       
+    }\r\n    }\r\n    *RefreshOfficialCurrencyUI() {\r\n        const request = ZEPETO_Currency_1.CurrencyService.GetOfficialCurrencyBalanceAsync();\r\n       
+    yield new UnityEngine_1.WaitUntil(() => request.keepWaiting == false);\r\n       
+    this.possessionZemTxt.text = request.responseData.currency.quantity.toString();\r\n   
+    }\r\n    IncreaseExp(quantity) {\r\n        this._myExp += quantity;\r\n       
+    if (this._myExp >= this._amountExp) {\r\n            this._myLevel++;\r\n           
+    this._myExp -= this._amountExp;\r\n            this.LevelUpReward();\r\n       
+    }\r\n        this.RefreshExpUI();\r\n    }\r\n    RefreshExpUI() {\r\n       
+    this.possessionExpTxt.text = this._myExp.toString();\r\n        this.possessionLevelTxt.text
+    = this._myLevel.toString();\r\n        this.expSlider.value = this._myExp / this._amountExp;\r\n   
+    }\r\n    LevelUpReward() {\r\n        // Get 5 stars for every level you raise\r\n       
+    const data = new ZEPETO_Multiplay_1.RoomData();\r\n        data.Add(\"currencyId\",
+    Currency.star);\r\n        data.Add(\"quantity\", 5);\r\n        this._multiplay.Room?.Send(\"onCredit\",
+    data.GetObject());\r\n    }\r\n}\r\nexports.default = UIBalances;\r\nvar InventoryAction;\r\n(function
+    (InventoryAction) {\r\n    InventoryAction[InventoryAction[\"Removed\"] = -1]
+    = \"Removed\";\r\n    InventoryAction[InventoryAction[\"Used\"] = 0] = \"Used\";\r\n   
+    InventoryAction[InventoryAction[\"Added\"] = 1] = \"Added\";\r\n})(InventoryAction
+    = exports.InventoryAction || (exports.InventoryAction = {}));\r\nvar Currency;\r\n(function
+    (Currency) {\r\n    Currency[\"star\"] = \"star\";\r\n    Currency[\"energy\"]
+    = \"energy\";\r\n})(Currency = exports.Currency || (exports.Currency = {}));\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlCYWxhbmNlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJQmFsYW5jZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsaURBQXFEO0FBQ3JELG1EQUErRDtBQUMvRCw2Q0FBNkQ7QUFFN0QscURBQW9GO0FBQ3BGLG1EQUE2RDtBQUM3RCwrQ0FBa0Q7QUFDbEQsdURBQWdEO0FBRWhELE1BQXFCLFVBQVcsU0FBUSxxQ0FBcUI7SUFBN0Q7O1FBV1ksV0FBTSxHQUFXLENBQUMsQ0FBQztRQUNuQixlQUFVLEdBQVcsRUFBRSxDQUFDO1FBQ3hCLGFBQVEsR0FBVSxDQUFDLENBQUM7SUFrRWhDLENBQUM7SUFoRVcsS0FBSztRQUNULElBQUksQ0FBQyxtQkFBbUIsRUFBRSxDQUFDO1FBQzNCLElBQUksQ0FBQyxZQUFZLEVBQUUsQ0FBQztRQUNwQixJQUFJLENBQUMsVUFBVSxHQUFHLG9CQUFNLENBQUMsZ0JBQWdCLFNBQUMsbUNBQW9CLEVBQUcsQ0FBQztRQUVsRSxJQUFJLENBQUMsVUFBVSxnQkFBZSxDQUFDLElBQVUsRUFBRSxFQUFFO1lBQ3pDLElBQUksQ0FBQyxLQUFLLEdBQUcsSUFBSSxDQUFDO1lBQ2xCLElBQUksQ0FBQyxrQkFBa0IsRUFBRSxDQUFDO1FBQzlCLENBQUMsRUFBQTtJQUNMLENBQUM7SUFFTyxrQkFBa0I7UUFDdEIsSUFBSSxDQUFDLEtBQUssQ0FBQyxpQkFBaUIsQ0FBYyxjQUFjLEVBQUUsQ0FBQyxPQUFPLEVBQUUsRUFBRTtZQUNsRSxJQUFJLENBQUMsbUJBQW1CLEVBQUUsQ0FBQztRQUMvQixDQUFDLENBQUMsQ0FBQztRQUNILCtCQUFjLENBQUMsbUJBQW1CLENBQUMsV0FBVyxDQUFDLENBQUMsT0FBTyxFQUFFLFFBQVEsRUFBRSxFQUFFO1lBQ2pFLElBQUksQ0FBQyxtQkFBbUIsRUFBRSxDQUFDO1FBQy9CLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVPLG1CQUFtQjtRQUN2QixJQUFJLENBQUMsY0FB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","assetPath":"Assets/Zepeto
+    Product Module/ZepetoScript/UI/UIBalances.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"possessionStarTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"possessionEnergyTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"possessionZemTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"possessionExpTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"possessionAmountExpTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"possessionLevelTxt","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"expSlider","type":"UnityEngine.UI.Slider","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"UIBalances","description":""},"isCompiled":true}'
+  typescriptHash: 1600c9013d8e987f58ee5b221b5e42cf
+  onlyWriteTrigger: 0
