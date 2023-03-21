@@ -3,6 +3,7 @@ import {WaitUntil, HumanBodyBones, Vector3, Quaternion} from "UnityEngine";
 import {ZepetoPlayers} from "ZEPETO.Character.Controller";
 import TransformSyncHelper from '../Transform/TransformSyncHelper';
 import MultiplayManager from '../Common/MultiplayManager';
+import {RoomData} from "ZEPETO.Multiplay";
 
 export default class PackingObject extends ZepetoScriptBehaviour {
     // This is a script that makes the Zepeto player move together by setting the object as a child object.
@@ -14,10 +15,10 @@ export default class PackingObject extends ZepetoScriptBehaviour {
 
     private Start() {    
         this._tfHelper = this.transform.GetComponent<TransformSyncHelper>();
-        this.StartCoroutine(this.PackingObject(this._tfHelper.OwnerSessionId));
+        this.StartCoroutine(this.MountingObject(this._tfHelper.OwnerSessionId));
     }
     
-    private *PackingObject(ownerSessiondId :string){
+    private *MountingObject(ownerSessiondId :string){
         yield new WaitUntil(()=>ZepetoPlayers.instance.HasPlayer(ownerSessiondId));
         const player = ZepetoPlayers.instance.GetPlayer(ownerSessiondId).character;
         this.transform.parent = player.ZepetoAnimator.GetBoneTransform(this.targetBone);
