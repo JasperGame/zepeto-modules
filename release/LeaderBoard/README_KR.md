@@ -3,7 +3,7 @@
 [English](./README.md) | [Korean](./README_KR.md)
 
 
-### Import Guide
+## Import Guide
 1. LeaderBoard 모듈 최신버전을 내 프로젝트로 import합니다.
     <img width="700" alt="image" src="./Image/GuideImage1.png">
 
@@ -22,7 +22,7 @@
     <img width="700" alt="image" src="./Image/GuideImage5.png">
 
 
-### Use Tip
+## Use Tip
 - 플레이어의 점수를 기록하려면 아래 스크립트를 참고해 주세요. 게임이 끝나는 시점, 코인을 획득한 시점 등에서 다음과 같이 스크립트를 사용하세요.
     ```typescript
     if(finish)
