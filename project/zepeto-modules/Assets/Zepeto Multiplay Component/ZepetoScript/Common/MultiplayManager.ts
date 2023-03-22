@@ -86,7 +86,7 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
             const newObj:GameObject = Object.Instantiate(prefabObj, spawnPosition, spawnRotation) as GameObject;
             const tf = newObj?.GetComponent<TransformSyncHelper>();
             if(null == tf) { //Creates an none-sync object.
-                //console.warn(`${tf.name} does not have a TransformSyncHelper script.`);
+                console.warn(`${tf.name} does not have a TransformSyncHelper script.`);
                 return;
             }
 

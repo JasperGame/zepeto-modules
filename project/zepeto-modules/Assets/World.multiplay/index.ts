@@ -37,6 +37,7 @@ export default class extends Sandbox {
         
         console.log(`join player, ${client.sessionId}`);
     }
+    
 
     async onLeave(client: SandboxPlayer, consented?: boolean) {
         for (const module of this._modules) {
