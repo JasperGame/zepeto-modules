@@ -3,17 +3,24 @@
 [English](./README.md) | [Korean](./README_KR.md)
 
 ### Import Guide
-1. 최신버전을 내 프로젝트로 import합니다.
-2. Zepeto LeaderBoard Module/Prefab/ZepetoLeaderBoard_Horizontal.prefab을 내 씬으로 가져옵니다.
-3. Product Settings > Zepeto > Zepeto Leaderboard에서 리더보드를 제작하고 리더보드 ID를 복사합니다. [[참고]](https://docs.zepeto.me/studio-world/lang-ko/docs/leaderboard)
-    <img width="500" alt="image" src="https://user-images.githubusercontent.com/123578202/224616316-43df4b9e-2fed-48e3-9680-d834382263ca.png">
-4. ZepetoLeaderBoard_Horizontal프리팹의 LeaderBoardPanel 오브젝트를 열어 Leaderboard Id에 내 리더보드 Id를 붙여넣고, ResetRule을 설정합니다.   
-    <img width="500" alt="image" src="https://user-images.githubusercontent.com/123578202/224616120-df75fa70-e6d2-45f3-8986-a801927c8600.png">
+1. LeaderBoard 모듈 최신버전을 내 프로젝트로 import합니다.
+    <img width="700" alt="image" src="./Image/GuideImage1.png">
 
+2. Assets / Zepeto LeaderBoard Module / Prefab에 들어있는 화면 모드에 맞는 프리팹을 씬으로 드래그하여 추가해 줍니다. (ZepetoLeaderBoard_Horizontal.prefab : 가로, ZepetoLeaderBoard_Vertical.prefab 세로)
+ > 현재 월드의 화면모드가 가로인지, 세로인지 확인하려면 Open World Setting의 Orientation을 확인하면 됩니다. Vertical은 세로모드, Horizontal은 가로모드 입니다.
+    <img width="700" alt="image" src="./Image/GuideImage2.png">
+
+3. 리더보드 프리팹을 씬에 추가하였다면 Hirachy패널에서 마우스 우클릭을 눌러 ZEPETO / ZepetoPlayers를 씬에 추가해 주세요.
+<font style="color:red"> 주의 : ZepetoPlayers는 런타임에서 Event System을 생성하여 리더보드 버튼이 제대로 활성화 될수 있도록 합니다. Event System이 없다면 리더보드 버튼이 제대로 활성화 되지 않습니다.</font>
+    <img width="700" alt="image" src="./Image/GuideImage3.png">
+    
+4. 다음 가이드를 참고하여 리더보드 설정을 완료하고, 리더보드 ID를 복사합니다. [리더보드가이드](https://docs.zepeto.me/studio-world/lang-ko/docs/leaderboard)
+    <img width="700" alt="image" src="./Image/GuideImage4.png">
 
 ### Use Tip
-- 아래 스크립트를 처럼 점수를 저장할 수 있습니다. 게임이 끝나는 시점, 코인을 획득한 시점 등에서 다른 스크립트에서 사용하세요.
-```typescript
-if(finish)
-    LeaderBoardManager.instance.SendScore(this.TimeRecord);
-```
+- 플레이어의 점수를 기록하려면 아래 스크립트를 참고해 주세요. 게임이 끝나는 시점, 코인을 획득한 시점 등에서 다음과 같이 스크립트를 사용하세요.
+    ```typescript
+    if(finish)
+        LeaderBoardManager.instance.SendScore(this.TimeRecord);
+    ```
+
