@@ -21,9 +21,6 @@ export default class SyncComponentModule extends IModule {
                     player.playerAdditionalValue = Object.assign(pAdditionalValue, message.playerAdditionalValue);
                 }
             }
-            else{
-                console.log("ASDASDASD");
-            }
         });
 
         /**Transform Sync**/

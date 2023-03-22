@@ -33,8 +33,8 @@ export default class extends Sandbox {
         if (client.userId) {
             player.zepetoUserId = client.userId;
         }
-        const players = this.state.players;
-        players.set(client.sessionId, player);
+        this.state.players.set(client.sessionId, player);
+        
         console.log(`join player, ${client.sessionId}`);
     }
 
