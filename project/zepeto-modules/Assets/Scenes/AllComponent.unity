@@ -1397,7 +1397,7 @@ Transform:
   m_Children:
   - {fileID: 2009019873}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &287281026
 MonoBehaviour:
@@ -3853,9 +3853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4564402405903421205, guid: f2416319949504160a9929c374a89384, type: 3}
       propertyPath: script.values.Array.data[2]
-      value: '{"type":"UnityEngine.Events.UnityEvent, UnityEngine.CoreModule","value":"{\"m_PersistentCalls\":{\"m_Calls\":[{\"m_Target\":{\"instanceID\":-90352},\"m_TargetAssemblyTypeName\":\"ZEPETO.Script.ZepetoScriptBehaviourComponent,
-        ZEPETO.Script\",\"m_MethodName\":\"Invoke\",\"m_Mode\":5,\"m_Arguments\":{\"m_ObjectArgument\":{\"instanceID\":0},\"m_ObjectArgumentAssemblyTypeName\":\"UnityEngine.Object,
-        UnityEngine\",\"m_IntArgument\":0,\"m_FloatArgument\":0.0,\"m_StringArgument\":\"HI\",\"m_BoolArgument\":false},\"m_CallState\":2}]}}"}'
+      value: '{"type":"UnityEngine.Events.UnityEvent, UnityEngine.CoreModule","value":"{\"m_PersistentCalls\":{\"m_Calls\":[]}}"}'
       objectReference: {fileID: 0}
     - target: {fileID: 4564402406870089648, guid: f2416319949504160a9929c374a89384, type: 3}
       propertyPath: m_RootOrder
@@ -13012,7 +13010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7925915731742355100, guid: 3f386064faded4b9ebc2fb43d66a8f64, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7925915731742355100, guid: 3f386064faded4b9ebc2fb43d66a8f64, type: 3}
       propertyPath: m_AnchorMax.x

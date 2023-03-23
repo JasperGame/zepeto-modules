@@ -61,7 +61,7 @@
       "Title": "Product",
       "Description": "This is a sample module provided by ZEPETO that offers UI and features for managing products and currencies in ZEPETO.\nYou must register products and currencies in ZEPETO Studio.",
       "Description_ko": "ZEPETO에서 상품 및 통화를 관리하는 UI 및 기능을 제공하는 샘플 모듈입니다.\nZEPETO 스튜디오에 상품과 통화를 등록해야 합니다. ",
-      "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_produc",
+      "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/zepeto_product",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.12.2+",
         "ZEPETO.Product : 1.0.1-preview+"]
