@@ -13,10 +13,10 @@
 - Double-click the prefab and select BTN_ScreenShot to reposition it.
          <img width="700" alt="image" src="./Image/GuideImage2.png">
 #### Screenshot module screen function
-⓵ This button captures the current screen.
-⓶ Selfie mode/3rd person mode conversion button.
-⓷ Background removal mode button. When activated, only ZEPETO characters will be captured.
+⓵ This button captures the current screen.   
+⓶ Selfie mode/3rd person mode conversion button.   
+⓷ Background removal mode button. When activated, only ZEPETO characters will be captured.   
          <img width="700" alt="image" src="./Image/GuideImage3.png">
-⓸ Image save button. Save the captured image. It works inside the ZEPETO app.
-⓹ Image share button. Share captured images. It works inside the ZEPETO app.
+⓸ Image save button. Save the captured image. It works inside the ZEPETO app.   
+⓹ Image share button. Share captured images. It works inside the ZEPETO app.   
          <img width="700" alt="image" src="./Image/GuideImage4.png">

@@ -1,30 +1,35 @@
-# ZEPETO-Modules
+#ZEPETO-Modules
 
 [English](./README.md) | [Korean](./README_KR.md)
-#### ZEPETO-Modules는 ZEPETO World에서 사용할 수 있는 여러 가지 모듈들을 손쉽게 다운로드하고 적용할 수 있도록 제공하는 오픈소스 프로젝트입니다.
-   <img width="600" alt="image" src="https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png">
+#### ZEPETO-Modules is an open source project that provides easy download and application of various modules that can be used in ZEPETO World.
+    <img width="600" alt="image" src="https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png">
 
-## 다운로드 및 설치 방법
-1. 다음 [[링크]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1)에서 최신 릴리즈된 .unitypackage파일을 다운로드 하세요.   
-   ![image](https://user-images.githubusercontent.com/123578202/227116208-f687e8d7-a5c6-4aac-bbf7-2d63d4b247e0.png)
-2. 유니티 제페토 월드 템플릿을 열고 다운로드 한 .unitypackage를 드래그하고 Import 버튼을 누릅니다.
-3. 유니티 화면 상단의 ZEPETO > Module Importer 버튼을 클릭하세요.
-4. 모듈이 성공적으로 적용되었습니다. 모듈을 다운로드 하기 전 Import Guide에 명시된 내용을 숙지하고 Import하세요
+## How to download and install
+1. You can download the latest released .unitypackage file from [[link]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1).
+    ![image](https://user-images.githubusercontent.com/123578202/227116208-f687e8d7-a5c6-4aac-bbf7-2d63d4b247e0.png)
+2. Open the Unity Zepeto World template, drag the downloaded .unitypackage and click the Import button.
+     > **Note**: If you want to apply it to the ZEPETO template project under construction, you can apply it by selecting .unitypackage from the Assets>Import Package>Custom Package menu.
+3. Click the ZEPETO > Module Importer button at the top of the Unity screen.
+4. The ZEPETO Module Importer window will open and you will see a list of available modules.
+5. Be sure to familiarize yourself with the contents specified in the Import Guide before downloading each module.
+6. Click the Import button at the top right of the selected module to apply it to the project.
 
-## 사용 가능한 모듈
-현재 ZEPETO-Modules에서 사용 가능한 모듈은 다음과 같습니다.
-- [Module Importer](https://github.com/JasperGame/zepeto-modules/blob/main/release/ModuleImporter/README_KR.md)
-- [Multiplay Component](https://github.com/JasperGame/zepeto-modules/blob/main/release/MultiplayComponent/README_KR.md)
-- [Interaction](https://github.com/JasperGame/zepeto-modules/blob/main/release/Interaction/README_KR.md)
-- [Gesture](https://github.com/JasperGame/zepeto-modules/blob/main/release/Gesture/README_KR.md)
-- [ScreenShot](https://github.com/JasperGame/zepeto-modules/blob/main/release/ScreenShot/README_KR.md)
-- [LeaderBoard](https://github.com/JasperGame/zepeto-modules/blob/main/release/LeaderBoard/README_KR.md)
-- [Mannequin](https://github.com/JasperGame/zepeto-modules/blob/main/release/Mannequin/README_KR.md)
-- [Product](https://github.com/JasperGame/zepeto-modules/blob/main/release/Product/README_KR.md)
-- [Localization](https://github.com/JasperGame/zepeto-modules/blob/main/release/Localization/README_KR.md)
+## available modules
+The modules currently available in ZEPETO-Modules are:
+- [Module Importer](https://github.com/JasperGame/zepeto-modules/blob/main/release/ModuleImporter/README.md)
+- [Multiplay Component](https://github.com/JasperGame/zepeto-modules/blob/main/release/MultiplayComponent/README.md)
+- [Interaction](https://github.com/JasperGame/zepeto-modules/blob/main/release/Interaction/README.md)
+- [Gesture](https://github.com/JasperGame/zepeto-modules/blob/main/release/Gesture/README.md)
+- [ScreenShot](https://github.com/JasperGame/zepeto-modules/blob/main/release/ScreenShot/README.md)
+- [LeaderBoard](https://github.com/JasperGame/zepeto-modules/blob/main/release/LeaderBoard/README.md)
+- [Mannequin](https://github.com/JasperGame/zepeto-modules/blob/main/release/Mannequin/README.md)
+- [Product](https://github.com/JasperGame/zepeto-modules/blob/main/release/Product/README.md)
+- [Localization](https://github.com/JasperGame/zepeto-modules/blob/main/release/Localization/README.md)
 
-## 기여 방법
-Zepeto-Modules는 오픈소스 프로젝트입니다. 여러분의 기여는 이 프로젝트를 더욱 발전시키는 데 큰 도움이 됩니다. 버그 제보, 새로운 모듈 제안, 코드 개선 등 여러분의 기여를 기다리고 있습니다. [[How To Contribute]](./HowToContribute_KR.md)
+## How to contribute
+Zepeto-Modules is an open source project. Your contributions will help us further develop this project.
 
-## 라이선스
-ZEPETO-Modules는 MIT 라이선스를 따릅니다.
+We look forward to your contributions, whether it be reporting bugs, suggesting new modules, or improving the code. [[How To Contribute]](./HowToContribute.md)
+
+## license
+ZEPETO-Modules are licensed under the MIT license.
