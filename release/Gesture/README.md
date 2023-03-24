@@ -1,3 +1,22 @@
-# Gesture API Import Guide
+# Gesture Module Import Guide
 
 [English](./README.md) | [Korean](./README_KR.md)
+
+## Import Guide
+1. Import the latest version of the Gesture module into your project.
+2. Drag ZepetoGestureModule/Prefab/ZepetoGesture_Horizontal.prefab into Scene.
+     <img width="700" alt="image" src="./Image/GuideImage1.png">
+3. After adding the ZepetoPlayers component to the scene and implementing the character creation script, you can test the gesture function by pressing the [▶︎(play)] button.
+
+## Use Tips
+#### How to change button icon position
+- Adjust the location of BTN_Gesture inside ZepetoGesture_Horizontal.prefab.
+         <img width="700" alt="image" src="./Image/GuideImage2.png">
+
+#### How to change the number of gesture loads
+- You can control the number of gestures to be exposed by adjusting the number of Load Contents Count in the GestureLoader script inside ZepetoGesture_Horizontal.prefab.
+         <img width="700" alt="image" src="./Image/GuideImage3.png">
+
+#### How to sync multiplayer
+- For multiplayer synchronization, after downloading [[Sync Component]](../MultiplayComponent/), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.
+         <img width="700" alt="image" src="./Image/GuideImage4.png">
