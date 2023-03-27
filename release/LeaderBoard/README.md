@@ -4,9 +4,10 @@
 
 ## Import Guide
 1. Import the latest version of the LeaderBoard module into your project.   
-     <img width="700" alt="image" src="./Image/GuideImage1.png">   
+
      ​
 2. From the Assets/Zepeto LeaderBoard Module/Prefab folder, add a prefab by dragging it to the scene.
+     <img width="700" alt="image" src="./Image/GuideImage1.png">   
 - ZepetoLeaderBoard_Horizontal.prefab : Horizontal    
 - ZepetoLeaderBoard_Vertical.prefab : Vertical    
      > **Note**: To check whether the screen mode of the current world is horizontal or vertical, check Orientation in Open World Setting. Vertical is portrait mode, Horizontal is landscape mode.   
