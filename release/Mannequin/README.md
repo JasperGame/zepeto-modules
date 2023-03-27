@@ -24,4 +24,4 @@
 
 ## Use Tips
 - You can interact with the mannequin within the desired range by adjusting the collider size of the mannequin object.
-         <img width="700" alt="image" src="./Image/GuideImage2.png">
+         <img width="700" alt="image" src="./Image/GuideImage4.png">
