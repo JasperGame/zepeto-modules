@@ -4,6 +4,8 @@
 #### ZEPETO-Modules is an open source project that provides easy download and application of various modules that can be used in ZEPETO World.   
 ![image](https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png)
 
+   <img width="600" alt="image" src="https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png">
+
 ## How to download and install
 1. You can download the latest released .unitypackage file from [[link]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1).
     ![image](https://user-images.githubusercontent.com/123578202/227116208-f687e8d7-a5c6-4aac-bbf7-2d63d4b247e0.png)
