@@ -41,5 +41,5 @@
      }
      ```
 
-#### ignore formatting text
+#### Ignore formatting text
 - You can ignore rich text formatting by checking Disable Rich Text.
