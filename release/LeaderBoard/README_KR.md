@@ -5,11 +5,13 @@
 
 ## Import Guide
 1. LeaderBoard 모듈 최신버전을 내 프로젝트로 import합니다.
-    <img width="700" alt="image" src="./Image/GuideImage1.png">
+
 
 2. Assets/Zepeto LeaderBoard Module/Prefab 폴더에서 화면 모드에 맞는 프리팹을 씬으로 드래그하여 추가해 줍니다.
+    <img width="700" alt="image" src="./Image/GuideImage1.png">
 - ZepetoLeaderBoard_Horizontal.prefab : 가로
 - ZepetoLeaderBoard_Vertical.prefab : 세로
+
      > **Note**: 현재 월드의 화면모드가 가로인지, 세로인지 확인하려면 Open World Setting의 Orientation을 확인하면 됩니다. Vertical은 세로모드, Horizontal은 가로모드 입니다.   
         <img width="700" alt="image" src="./Image/GuideImage2.png">
 
