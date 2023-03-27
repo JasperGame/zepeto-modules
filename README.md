@@ -16,9 +16,9 @@
 4. The ZEPETO Module Importer window will open and you will see a list of available modules.
    <img width="600" alt="image" src="https://github.com/JasperGame/zepeto-modules/blob/main/Image/GuideImage0.png">
 5. Be sure to familiarize yourself with the contents specified in the Import Guide before downloading each module.
-   <img width="700" alt="image" src="https://github.com/JasperGame/zepeto-modules/blob/main/Image/GuideImage6.png">
-6. Click the Import button at the top right of the selected module to apply it to the project.
    <img width="700" alt="image" src="https://github.com/JasperGame/zepeto-modules/blob/main/Image/GuideImage7.png">
+6. Click the Import button at the top right of the selected module to apply it to the project.
+   <img width="700" alt="image" src="https://github.com/JasperGame/zepeto-modules/blob/main/Image/GuideImage8.png">
 
 ## Available modules
 The modules currently available in ZEPETO-Modules are:
