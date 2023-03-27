@@ -24,4 +24,4 @@
 
 ## Use Tip
 - 마네킹 오브젝트의 Collider Size를 조정해 원하는 범위에서 마네킹을 인터렉션 할 수 있습니다.   
-        <img width="700" alt="image" src="./Image/GuideImage2.png">   
+        <img width="700" alt="image" src="./Image/GuideImage4.png">   
