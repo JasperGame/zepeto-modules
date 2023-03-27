@@ -2,8 +2,6 @@
 
 [English](./README.md) | [Korean](./README_KR.md)
 #### ZEPETO-Modules is an open source project that provides easy download and application of various modules that can be used in ZEPETO World.   
-![image](https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png)
-
    <img width="600" alt="image" src="https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png">
 
 ## How to download and install
