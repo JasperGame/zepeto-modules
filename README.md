@@ -1,8 +1,8 @@
-#ZEPETO-Modules
+# ZEPETO-Modules
 
 [English](./README.md) | [Korean](./README_KR.md)
-#### ZEPETO-Modules is an open source project that provides easy download and application of various modules that can be used in ZEPETO World.
-    <img width="600" alt="image" src="https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png">
+#### ZEPETO-Modules is an open source project that provides easy download and application of various modules that can be used in ZEPETO World.   
+![image](https://user-images.githubusercontent.com/123578202/227114873-be5a21d8-6515-48cd-8bdc-d73deaabdf95.png)
 
 ## How to download and install
 1. You can download the latest released .unitypackage file from [[link]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1).
@@ -14,7 +14,7 @@
 5. Be sure to familiarize yourself with the contents specified in the Import Guide before downloading each module.
 6. Click the Import button at the top right of the selected module to apply it to the project.
 
-## available modules
+## Available modules
 The modules currently available in ZEPETO-Modules are:
 - [Module Importer](https://github.com/JasperGame/zepeto-modules/blob/main/release/ModuleImporter/README.md)
 - [Multiplay Component](https://github.com/JasperGame/zepeto-modules/blob/main/release/MultiplayComponent/README.md)
