@@ -9,21 +9,22 @@
 
 ### Import Guide
 1. Product 모듈 최신버전을 내 프로젝트로 import합니다.
- ![product_img1](https://user-images.githubusercontent.com/123578202/224613221-35e22f74-841a-46fc-9388-943cf5ebd153.png)
 2. World.multiplay > Index.ts파일에 다음과 같이 추가합니다.
     > **Note**: 다른 모듈을 더 추가했다면 아래 이미지보다 더 많은 모듈이 있을 수 있습니다.
- ![product_img2](https://user-images.githubusercontent.com/123578202/224613036-803cf372-92c6-4bd8-90ae-39537180cf4e.png)
+    >    <img width="700" alt="image" src="./Image/GuideImage1.png">
 3. ZepetoProductModule/Prefab/ZepetoProductCanvas.prefab을 드래그해서 Scene으로 가져옵니다.
+     <img width="700" alt="image" src="./Image/GuideImage2.png">
 4. 월드 ID 세팅과, 로그인, 스튜디오를 통해 등록한 Currency와 Item이 모두 올바르게 되어 있는지 확인해주세요. 
 4-1. 정상적으로 세팅이 되었다면 에디터 상단 ZEPETO > Setting > Product에 다음과 같이 표시됩니다.
+     <img width="700" alt="image" src="./Image/GuideImage3.png">
     > **Note**: Product가 보이지 않는다면 유니티에 로그인한 제페토 계정을 로그아웃 후 재로그인 진행하고 다시 창을 띄워보세요.
 4-2. 각 상품 및 통화의 섬네일 이미지를 등록하여 주세요.
-    <img width="500" alt="product_img4" src="https://user-images.githubusercontent.com/123578202/224614665-80d54306-83bd-40c4-b0db-21932f126a61.png">   
-  
+    
 5. UI_Common_Btn의 버튼들을 눌러 동작을 확인합니다.
     > **Note**: 이 버튼들은 테스트용 입니다. 실제 출시엔 버튼을 비활성 상태로 변경하세요.
+    >    <img width="700" alt="image" src="./Image/GuideImage4.png">
 6. Product 테스트를 위해서는 멀티플레이 서버가 항상 켜져있어야 합니다. 간혹 오류가 발생한다면 서버를 재실행 해주세요.
- ![product_img3](https://user-images.githubusercontent.com/123578202/224615407-f0c2efc2-c6d8-4403-878c-a0929eed9fa2.png)
+     <img width="700" alt="image" src="./Image/GuideImage5.png">
 
 
 ### Use Tip
