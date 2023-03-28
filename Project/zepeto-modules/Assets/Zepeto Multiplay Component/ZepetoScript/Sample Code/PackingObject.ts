@@ -1,5 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import {WaitUntil, HumanBodyBones, Vector3, Quaternion, Object} from "UnityEngine";
+import {WaitUntil, HumanBodyBones, Vector3, Quaternion, Object, WaitForEndOfFrame} from "UnityEngine";
 import {ZepetoPlayers} from "ZEPETO.Character.Controller";
 import TransformSyncHelper from '../Transform/TransformSyncHelper';
 import MultiplayManager from '../Common/MultiplayManager';
@@ -14,11 +14,14 @@ export default class PackingObject extends ZepetoScriptBehaviour {
 
     private Start() {    
         this._tfHelper = this.transform.GetComponent<TransformSyncHelper>();
-        this.StartCoroutine(this.MountingObject(this._tfHelper.OwnerSessionId));
+        if(this._tfHelper.OwnerSessionId)
+            this.StartCoroutine(this.MountingObject(this._tfHelper.OwnerSessionId));
     }
 
     private *MountingObject(ownerSessiondId :string){
-        const user = MultiplayManager.instance.room.State.players.get_Item(ownerSessiondId);
+        yield new WaitForEndOfFrame();
+        
+        const user = MultiplayManager.instance?.room?.State?.players?.get_Item(ownerSessiondId) ?? null;
         if(user !== null) {
             yield new WaitUntil(() => ZepetoPlayers.instance.HasPlayer(ownerSessiondId));
             const player = ZepetoPlayers.instance.GetPlayer(ownerSessiondId).character;
