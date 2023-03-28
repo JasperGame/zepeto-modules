@@ -15,8 +15,8 @@
 5. Demo Scene을 플레이 하기 위해서는 Start Multiplayer server 버튼을 눌러서 서버를 활성화 시켜줍니다.
 6. 그리고 Play 버튼을 눌러 데모씬을 실행합니다.    
     <img width="700" alt="image" src="./images/GuideImage4.png">
-    > **Note** : ZepetoMultiplayComponent/Scene/DemoMovingBlock.unity 예제씬을 정상적으로 실행하려면 추가로 ZEPETO.Buildit.Loader 패키지를 임포트 해야합니다.  
-        <img width="700" alt="image" src="./Image/GuideImage5.png">
+    > **Note** : ZepetoMultiplayComponent/Scene/DemoMovingBlock.unity 예제씬을 정상적으로 실행하려면 추가로 ZEPETO.Buildit.Loader 패키지를 임포트 해야합니다.    
+        <img width="700" alt="image" src="./images/GuideImage5.png">
 
 ## Use Tip
  멀티플레이 컴퍼넌트에 사용된 함수는 다음 [[링크](https://github.com/JasperGame/zepeto-world-sync-component/blob/main/README_KR.md)를 통해 확인할 수 있습니다.

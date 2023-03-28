@@ -29,9 +29,9 @@
 1. Click the InteractionPoint prefab under the object whose animation you want to change.
 2. Replace the Animation Clip of the GestureInteraction script on the right with the desired animation clip.
      <img width="700" alt="image" src="./images/GuideImage5.png">
-     > **Note**: You can add any animation you want.
-         - Import ZEPETO official animation file [[Guide]](https://docs.zepeto.me/studio-world/docs/animation_faq)
-         - Import custom animations you want in Mixamo [[Guide]](https://docs.zepeto.me/studio-world/docs/custom_animation)
+     > **Note**: You can add any animation you want.   
+         - Import ZEPETO official animation file [[Guide]](https://docs.zepeto.me/studio-world/docs/animation_faq)   
+         - Import custom animations you want in Mixamo [[Guide]](https://docs.zepeto.me/studio-world/docs/custom_animation)   
 
 #### How to sync multiplayer
 1. For multiplayer synchronization, first download [[Sync Component]](https://github.com/JasperGame/zepeto-modules/tree/main/release/MultiplayComponent).

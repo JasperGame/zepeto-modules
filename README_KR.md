@@ -2,7 +2,7 @@
 
 [English](./README.md) | [Korean](./README_KR.md)
 #### ZEPETO-Modules는 ZEPETO World에서 사용할 수 있는 여러 가지 모듈들을 손쉽게 다운로드하고 적용할 수 있도록 제공하는 오픈소스 프로젝트입니다.
-   <img width="700" alt="image" src="./docs/images/GuideImage0.png">
+   <img width="700" alt="image" src="./docs/images/GuideImage1.png">
 
 ## 다운로드 및 설치 방법
 1. 다음 [[링크]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1)에서 최신 릴리즈된 .unitypackage파일을 다운로드 할 수 있습니다. 
@@ -10,9 +10,9 @@
 2. 유니티 제페토 월드 템플릿을 열고 다운로드 한 .unitypackage를 드래그하고 Import 버튼을 클릭하세요.
    <img width="700" alt="image" src="./docs/images/GuideImage3.png">
     > **Note**: 만약 제작 중인 제페토 템플릿 프로젝트에 적용하려면 Assets>Import Package>Custom Package 메뉴에서 .unitypackage를 선택하여 적용할 수 있습니다.  
-    >    <img width="700" alt="image" src="./docs/images/GuideImage3.png">
+    >    <img width="700" alt="image" src="./docs/images/GuideImage4.png">
 3. 유니티 화면 상단의 ZEPETO > Module Importer 버튼을 클릭하세요.
-   <img width="700" alt="image" src="./docs/images/GuideImage58.png">
+   <img width="700" alt="image" src="./docs/images/GuideImage5.png">
 4. ZEPETO Module Importer 창이 열리고 사용 가능한 모듈 리스트가 보여질 것입니다.
    <img width="700" alt="image" src="./docs/images/GuideImage6.png">
 5. 각 모듈을 다운로드 하기 전 Import Guide에 명시된 내용을 반드시 숙지하여 주세요. 

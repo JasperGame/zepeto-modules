@@ -13,11 +13,11 @@
 - ZepetoLeaderBoard_Vertical.prefab : 세로
 
      > **Note**: 현재 월드의 화면모드가 가로인지, 세로인지 확인하려면 Open World Setting의 Orientation을 확인하면 됩니다. Vertical은 세로모드, Horizontal은 가로모드 입니다.   
-        <img width="700" alt="image" src="./Image/GuideImage2.png">
+        <img width="700" alt="image" src="./images/GuideImage2.png">
 
 3. 만약 씬 내에서 제페토 캐릭터를 사용하지 않는다면 EventSystem을 추가해주세요.   
     > **Note**: ZepetoPlayers는 런타임에서 Event System을 생성하여 리더보드 버튼이 제대로 활성화 될수 있도록 합니다. Event System이 없다면 리더보드 버튼이 제대로 활성화 되지 않습니다.  
-        <img width="700" alt="image" src="./Image/GuideImage3.png">
+        <img width="700" alt="image" src="./images/GuideImage3.png">
     
 4. 다음 가이드를 참고하여 리더보드 설정을 완료하고, 리더보드 ID를 복사합니다. [[리더보드 가이드]](https://docs.zepeto.me/studio-world/lang-ko/docs/leaderboard)   
     <img width="700" alt="image" src="./images/GuideImage4.png">

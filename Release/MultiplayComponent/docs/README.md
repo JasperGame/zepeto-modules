@@ -15,8 +15,8 @@
 5. To play the Demo Scene, click the Start Multiplayer server button to activate the server.
 6. Then click the Play button to run the demo scene.
      <img width="700" alt="image" src="./images/GuideImage4.png">
-     > **Note** : In order to run the ZepetoMultiplayComponent/Scene/DemoMovingBlock.unity example scene normally, you must additionally import the ZEPETO.Buildit.Loader package.
-         <img width="700" alt="image" src="./Image/GuideImage5.png">
+     > **Note** : In order to run the ZepetoMultiplayComponent/Scene/DemoMovingBlock.unity example scene normally, you must additionally import the ZEPETO.Buildit.Loader package.   
+         <img width="700" alt="image" src="./images/GuideImage5.png">
 
 ## Use Tips
   The functions used in the multiplayer component can be found through the following [[link](https://github.com/JasperGame/zepeto-world-sync-component/blob/main/README.md).

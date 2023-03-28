@@ -29,9 +29,9 @@
 1. 애니메이션을 변경할 오브젝트 하위에 있는 InteractionPoint 프리팹을 클릭해 주세요.
 2. 우측의 GestureInteraction 스크립트의 Animation Clip을 원하는 애니메이션 클립으로 교체하여 주세요.   
     <img width="700" alt="image" src="./images/GuideImage5.png">  
-    > **Note**: 원하는 애니메이션을 추가할 수 있습니다.
-        - 제페토 공식 애니메이션 파일 가져오기 [[가이드]](https://docs.zepeto.me/studio-world/lang-ko/docs/animation_faq)
-        - Mixamo에서 원하는 커스텀 애니메이션 가져오기 [[가이드]](https://docs.zepeto.me/studio-world/lang-ko/docs/custom_animation)
+    > **Note**: 원하는 애니메이션을 추가할 수 있습니다.   
+        - 제페토 공식 애니메이션 파일 가져오기 [[가이드]](https://docs.zepeto.me/studio-world/lang-ko/docs/animation_faq)   
+        - Mixamo에서 원하는 커스텀 애니메이션 가져오기 [[가이드]](https://docs.zepeto.me/studio-world/lang-ko/docs/custom_animation)   
 
 #### 멀티플레이 동기화 방법
 1. 멀티플레이 동기화를 위해서는 먼저 [[동기화 컴포넌트]](https://github.com/JasperGame/zepeto-modules/tree/main/release/MultiplayComponent)를 다운로드 합니다.

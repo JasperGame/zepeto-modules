@@ -10,13 +10,13 @@
 
 ## Use Tips
 #### How to change button icon position
-- Adjust the location of BTN_Gesture inside ZepetoGesture_Horizontal.prefab.
+- Adjust the location of BTN_Gesture inside ZepetoGesture_Horizontal.prefab.   
          <img width="700" alt="image" src="./images/GuideImage2.png">
 
 #### How to change the number of gesture loads
-- You can control the number of gestures to be exposed by adjusting the number of Load Contents Count in the GestureLoader script inside ZepetoGesture_Horizontal.prefab.
+- You can control the number of gestures to be exposed by adjusting the number of Load Contents Count in the GestureLoader script inside ZepetoGesture_Horizontal.prefab.   
          <img width="700" alt="image" src="./images/GuideImage3.png">
 
 #### How to sync multiplayer
-- For multiplayer synchronization, after downloading [[Sync Component]](../MultiplayComponent/), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.
+- For multiplayer synchronization, after downloading [[Multiplay Component]](../MultiplayComponent/), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.   
          <img width="700" alt="image" src="./images/GuideImage4.png">

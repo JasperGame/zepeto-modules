@@ -2,7 +2,7 @@
 
 [English](./README.md) | [Korean](./README_KR.md)
 #### ZEPETO-Modules is an open source project that provides easy download and application of various modules that can be used in ZEPETO World.   
-   <img width="700" alt="image" src="./docs/images/GuideImage0.png">
+   <img width="700" alt="image" src="./docs/images/GuideImage1.png">
 
 ## How to download and install
 1. You can download the latest released .unitypackage file from [[link]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1).

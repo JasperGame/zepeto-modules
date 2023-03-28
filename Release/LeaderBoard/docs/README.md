@@ -11,11 +11,11 @@
 - ZepetoLeaderBoard_Horizontal.prefab : Horizontal    
 - ZepetoLeaderBoard_Vertical.prefab : Vertical    
      > **Note**: To check whether the screen mode of the current world is horizontal or vertical, check Orientation in Open World Setting. Vertical is portrait mode, Horizontal is landscape mode.   
-         <img width="700" alt="image" src="./Image/GuideImage2.png">   
+         <img width="700" alt="image" src="./images/GuideImage2.png">   
 
 3. If the ZEPETO character is not used in the scene, add an EventSystem.
      > **Note**: ZepetoPlayers creates an Event System at runtime to ensure that the leaderboard buttons are activated properly. Without the Event System, the leaderboard button does not activate properly.   
-         <img width="700" alt="image" src="./Image/GuideImage3.png">   
+         <img width="700" alt="image" src="./images/GuideImage3.png">   
 
 4. Refer to the following guide to complete the leaderboard setup and copy the leaderboard ID. [[Leaderboard Guide]](https://docs.zepeto.me/studio-world/docs/leaderboard)   
      <img width="700" alt="image" src="./images/GuideImage4.png">    
