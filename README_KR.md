@@ -10,7 +10,7 @@
 2. 유니티 제페토 월드 템플릿을 열고 다운로드 한 .unitypackage를 드래그하고 Import 버튼을 클릭하세요.
    <img width="700" alt="image" src="./docs/images/GuideImage3.png">
     > **Note**: 만약 제작 중인 제페토 템플릿 프로젝트에 적용하려면 Assets>Import Package>Custom Package 메뉴에서 .unitypackage를 선택하여 적용할 수 있습니다.  
-    >    <img width="700" alt="image" src="./docs/images/GuideImage4.png">
+    >    <img width="600" alt="image" src="./docs/images/GuideImage4.png">
 3. 유니티 화면 상단의 ZEPETO > Module Importer 버튼을 클릭하세요.
    <img width="700" alt="image" src="./docs/images/GuideImage5.png">
 4. ZEPETO Module Importer 창이 열리고 사용 가능한 모듈 리스트가 보여질 것입니다.
@@ -27,7 +27,7 @@
 - [Interaction](./Release/Interaction/docs/README_KR.md)
 - [Gesture](./Release/Gesture/docs/README_KR.md)
 - [ScreenShot](./Release/ScreenShot/docs/README_KR.md)
-- [LeaderBoard](./Release/LeaderBoard/README_KR.md)
+- [LeaderBoard](./Release/LeaderBoard/docs/README_KR.md)
 - [Mannequin](./Release/Mannequin/docs/README_KR.md)
 - [Product](./Release/Product/docs/README_KR.md)
 - [Localization](./Release/Localization/docs/README_KR.md)

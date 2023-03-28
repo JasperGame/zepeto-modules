@@ -18,7 +18,7 @@
         <img width="700" alt="image" src="./images/GuideImage3.png">   
 
 #### 멀티플레이 동기화 하는 방법
-- 멀티플레이 동기화를 위해서는 [[Multiplay Component]](../MultiplayComponent/)를 다운로드 한 후, 씬에 배치한 ZepetoPlayersManager의 **Use Zepeto Gesture API**를 체크합니다.   
+- 멀티플레이 동기화를 위해서는 [[Multiplay Component]](../../MultiplayComponent/)를 다운로드 한 후, 씬에 배치한 ZepetoPlayersManager의 **Use Zepeto Gesture API**를 체크합니다.   
         <img width="700" alt="image" src="./images/GuideImage4.png">   
 
 

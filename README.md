@@ -10,11 +10,11 @@
 2. Open the Unity Zepeto World template, drag the downloaded .unitypackage and click the Import button.
    <img width="700" alt="image" src="./docs/images/GuideImage3.png">
      > **Note**: If you want to apply it to the ZEPETO template project under construction, you can apply it by selecting .unitypackage from the Assets>Import Package>Custom Package menu.
-     >    <img width="700" alt="image" src="./docs/images/GuideImage4.png">
+     >    <img width="600" alt="image" src="./docs/images/GuideImage4.png">
 3. Click the ZEPETO > Module Importer button at the top of the Unity screen.   
    <img width="700" alt="image" src="./docs/images/GuideImage5.png">
 4. The ZEPETO Module Importer window will open and you will see a list of available modules.   
-   <img width="600" alt="image" src="./docs/images/GuideImage6.png">
+   <img width="700" alt="image" src="./docs/images/GuideImage6.png">
 5. Be sure to familiarize yourself with the contents specified in the Import Guide before downloading each module.   
    <img width="700" alt="image" src="./docs/images/GuideImage7.png">
 6. Click the Import button at the top right of the selected module to apply it to the project.    
@@ -27,7 +27,7 @@ The modules currently available in ZEPETO-Modules are:
 - [Interaction](./Release/Interaction/docs/README.md)
 - [Gesture](./Release/Gesture/docs/README.md)
 - [ScreenShot](./Release/ScreenShot/docs/README.md)
-- [LeaderBoard](./Release/LeaderBoard/README.md)
+- [LeaderBoard](./Release/LeaderBoard/docs/README.md)
 - [Mannequin](./Release/Mannequin/docs/README.md)
 - [Product](./Release/Product/docs/README.md)
 - [Localization](./Release/Localization/docs/README.md)

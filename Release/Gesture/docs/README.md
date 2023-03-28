@@ -18,5 +18,5 @@
          <img width="700" alt="image" src="./images/GuideImage3.png">
 
 #### How to sync multiplayer
-- For multiplayer synchronization, after downloading [[Multiplay Component]](../MultiplayComponent/), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.   
+- For multiplayer synchronization, after downloading [[Multiplay Component]](../../MultiplayComponent/)), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.   
          <img width="700" alt="image" src="./images/GuideImage4.png">
