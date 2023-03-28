@@ -32,10 +32,9 @@
 - [Mannequin](./Release/Mannequin/)
 - [Product](./Release/Product/)
 - [Localization](./Release/Localization/)
-<br>
-     > **Note**: Module Importer 를 사용하지 않고, Release 폴더내의 각 모듈 폴더에서 최신 버전의 .unitypackage 파일을 직접 다운로드하여 적용 할 수 있습니다.      
+   >**Note** : Module Importer 를 사용하지 않고, Release 폴더내의 각 모듈 폴더에서 최신 버전의 .unitypackage 파일을 직접 다운로드하여 적용 할 수 있습니다.      
+      <img width="700" alt="image" src="./docs/images/GuideImage9.png">
 
-<img width="700" alt="image" src="./docs/images/GuideImage9.png">
 ## 기여 방법
 Zepeto-Modules는 오픈소스 프로젝트입니다. 여러분의 기여는 이 프로젝트를 더욱 발전시키는 데 큰 도움이 됩니다. 
 
