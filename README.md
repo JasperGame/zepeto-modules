@@ -5,12 +5,12 @@
    <img width="700" alt="image" src="./docs/images/GuideImage1.png">
 
 ## How to download and install
-1. You can download the latest released .unitypackage file from [[link]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1).
+1. You can download the latest released .unitypackage file from [[link]](https://github.com/JasperGame/zepeto-modules/releases/latest).
    <img width="700" alt="image" src="./docs/images/GuideImage2.png">
 2. Open the Unity Zepeto World template, drag the downloaded .unitypackage and click the Import button.
    <img width="700" alt="image" src="./docs/images/GuideImage3.png">
-     > **Note**: If you want to apply it to the ZEPETO template project under construction, you can apply it by selecting .unitypackage from the Assets>Import Package>Custom Package menu.
-     >    <img width="600" alt="image" src="./docs/images/GuideImage4.png">
+     > **Note**: You can also apply it by selecting the .unitypackage in the Assets>Import Package>Custom Package menu.
+
 3. Click the ZEPETO > Module Importer button at the top of the Unity screen.   
    <img width="700" alt="image" src="./docs/images/GuideImage5.png">
 4. The ZEPETO Module Importer window will open and you will see a list of available modules.   
@@ -22,15 +22,19 @@
 
 ## Available modules
 The modules currently available in ZEPETO-Modules are:
-- [Module Importer](./Release/ModuleImporter/docs/README.md)
-- [Multiplay Component](./Release/MultiplayComponent/docs/README.md)
-- [Interaction](./Release/Interaction/docs/README.md)
-- [Gesture](./Release/Gesture/docs/README.md)
-- [ScreenShot](./Release/ScreenShot/docs/README.md)
-- [LeaderBoard](./Release/LeaderBoard/docs/README.md)
-- [Mannequin](./Release/Mannequin/docs/README.md)
-- [Product](./Release/Product/docs/README.md)
-- [Localization](./Release/Localization/docs/README.md)
+- [Module Importer](./Release/ModuleImporter/)
+- [Multiplay Component](./Release/MultiplayComponent/)
+- [Interaction](./Release/Interaction/)
+- [Gesture](./Release/Gesture/)
+- [ScreenShot](./Release/ScreenShot/)
+- [LeaderBoard](./Release/LeaderBoard/)
+- [Mannequin](./Release/Mannequin/)
+- [Product](./Release/Product/)
+- [Localization](./Release/Localization/)
+<br>
+     > **Note**: Without using the Module Importer, you can download the latest version of the .unitypackage file directly from each module folder in the Release directory and apply it to your project.   
+
+<img width="700" alt="image" src="./docs/images/GuideImage9.png">
 
 ## How to contribute
 Zepeto-Modules is an open source project. Your contributions will help us further develop this project.

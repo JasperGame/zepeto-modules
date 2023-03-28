@@ -42,8 +42,8 @@
     },
     {
       "Title": "LeaderBoard",
-      "Description": "This module implements a LeaderBoard UI that displays ranking information and useful management features such as deleting leaderboard data.",
-      "Description_ko": "랭킹 정보를 보여주는 LeaderBoard UI와 리더보드 데이터 삭제 등 유용한 관리 기능을 구현한 모듈입니다.",
+      "Description": "This module implements functionality such as a LeaderBoard UI that displays ranking information, and utilizes a LeaderBoard API.",
+      "Description_ko": "랭킹 정보를 보여주는 LeaderBoard UI와 리더보드 API 활용 등 기능을 구현한 모듈입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/leaderboard",
       "LatestVersion": "1.0.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]

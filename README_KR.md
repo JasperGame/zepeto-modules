@@ -5,12 +5,13 @@
    <img width="700" alt="image" src="./docs/images/GuideImage1.png">
 
 ## 다운로드 및 설치 방법
-1. 다음 [[링크]](https://github.com/JasperGame/zepeto-modules/releases/tag/v1.0.1)에서 최신 릴리즈된 .unitypackage파일을 다운로드 할 수 있습니다. 
+1. 다음 [[링크]](https://github.com/JasperGame/zepeto-modules/releases/latest)에서 최신 릴리즈된 .unitypackage파일을 다운로드 할 수 있습니다. 
    <img width="700" alt="image" src="./docs/images/GuideImage2.png">
+
 2. 유니티 제페토 월드 템플릿을 열고 다운로드 한 .unitypackage를 드래그하고 Import 버튼을 클릭하세요.
    <img width="700" alt="image" src="./docs/images/GuideImage3.png">
-    > **Note**: 만약 제작 중인 제페토 템플릿 프로젝트에 적용하려면 Assets>Import Package>Custom Package 메뉴에서 .unitypackage를 선택하여 적용할 수 있습니다.  
-    >    <img width="600" alt="image" src="./docs/images/GuideImage4.png">
+    > **Note**: 다음 방법으로도 적용할 수 있습니다. Assets>Import Package>Custom Package 메뉴에서 .unitypackage를 선택하세요.
+
 3. 유니티 화면 상단의 ZEPETO > Module Importer 버튼을 클릭하세요.
    <img width="700" alt="image" src="./docs/images/GuideImage5.png">
 4. ZEPETO Module Importer 창이 열리고 사용 가능한 모듈 리스트가 보여질 것입니다.
@@ -22,17 +23,19 @@
 
 ## 사용 가능한 모듈
 현재 ZEPETO-Modules에서 사용 가능한 모듈은 다음과 같습니다.
-- [Module Importer](./Release/ModuleImporter/docs/README_KR.md)
-- [Multiplay Component](./Release/MultiplayComponent/docs/README_KR.md)
-- [Interaction](./Release/Interaction/docs/README_KR.md)
-- [Gesture](./Release/Gesture/docs/README_KR.md)
-- [ScreenShot](./Release/ScreenShot/docs/README_KR.md)
-- [LeaderBoard](./Release/LeaderBoard/docs/README_KR.md)
-- [Mannequin](./Release/Mannequin/docs/README_KR.md)
-- [Product](./Release/Product/docs/README_KR.md)
-- [Localization](./Release/Localization/docs/README_KR.md)
+- [Module Importer](./Release/ModuleImporter/)
+- [Multiplay Component](./Release/MultiplayComponent/)
+- [Interaction](./Release/Interaction/)
+- [Gesture](./Release/Gesture/)
+- [ScreenShot](./Release/ScreenShot/)
+- [LeaderBoard](./Release/LeaderBoard/)
+- [Mannequin](./Release/Mannequin/)
+- [Product](./Release/Product/)
+- [Localization](./Release/Localization/)
+<br>
+     > **Note**: Module Importer 를 사용하지 않고, Release 폴더내의 각 모듈 폴더에서 최신 버전의 .unitypackage 파일을 직접 다운로드하여 적용 할 수 있습니다.      
 
-
+<img width="700" alt="image" src="./docs/images/GuideImage9.png">
 ## 기여 방법
 Zepeto-Modules는 오픈소스 프로젝트입니다. 여러분의 기여는 이 프로젝트를 더욱 발전시키는 데 큰 도움이 됩니다. 
 
