@@ -1,7 +1,7 @@
 import {ZepetoScriptBehaviour} from "ZEPETO.Script";
 import {Room, RoomData} from "ZEPETO.Multiplay";
 import {ZepetoWorldMultiplay} from "ZEPETO.World";
-import {Transform, Vector3, WaitForSeconds, Quaternion, Time, Object, Coroutine, Mathf, WaitUntil} from "UnityEngine";
+import {Transform, Vector3, WaitForSeconds, Quaternion, Time, Object, Coroutine, Mathf, WaitUntil, WaitForEndOfFrame} from "UnityEngine";
 import * as UnityEngine from "UnityEngine";
 import {State, SyncTransform} from "ZEPETO.Multiplay.Schema";
 import SyncIndexManager from "../Common/SyncIndexManager";
@@ -31,23 +31,24 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
     private _room: Room;
     private _multiplay: ZepetoWorldMultiplay;
     private _Id: string;
-    get Id() {
-        return this._Id;
-    }
+    private _isOwner: boolean = false;
+    private _ownerSessionId:string;
+
     set Id(id:string){
         this._Id = id;
     }
-    private _isOwner: boolean = false;
+    get Id() {
+        return this._Id;
+    }
     get isOwner() {
         return this._isOwner;
     }
-    private _ownerSessionId:string;
     get OwnerSessionId(){
         return this._ownerSessionId;
-    }
+    } 
 
     private _sendCoroutine: Coroutine;
-    private _objectStatus:GameObjectStatus;
+    private _objectStatus:GameObjectStatus; // gameObjectStatus {Destroyed, Disable, Enable, Pause}
     private _timeStampCount: number = 0;
     private _positionCache:Vector3;
     private _syncTransform: SyncTransform; // this transform state
@@ -147,7 +148,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         const syncTransform = this._syncTransform;
         const bufferedState = this._bufferedState;
 
-        if (syncTransform.status !== this._objectStatus) {
+        if (syncTransform.status != this._objectStatus) {
             this._objectStatus = syncTransform.status;
             this.ChangeStatus(syncTransform.status);
         }
@@ -167,7 +168,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         };
         bufferedState[0] = interpolState;
 
-        if (this._timeStampCount === 0) {
+        if (this._timeStampCount == 0) {
             bufferedState[1] = interpolState;
         }
 
@@ -180,11 +181,8 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
     }
 
     private ChangeStatus(status:GameObjectStatus){
-        switch(+status){
-            case GameObjectStatus.Destroyed:
-                Object.Destroy(this.gameObject);
-                break;
-        }
+        if(status == GameObjectStatus.Destroyed)
+            Object.Destroy(this.gameObject);
     }
 
     public ForceTarget() {
@@ -201,6 +199,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
     }
 
     private SyncPositionUpdate(){
+        //If the object has a parent, and only the parent is moving, it is more natural to use the local coordinate system to move Lerp.
         if(this.transform.parent != null){
             if(Vector3.Distance(this.newGet().localPosition, this.prevGet().localPosition) < 0.01) {
                 this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, this.newGet().localPosition, this.moveSpeed * Time.fixedDeltaTime);
@@ -208,6 +207,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
             }
         }
 
+        //Teleport the object if it is further than a certain distance.
         if (this.UseHardSnap) {
             if (Vector3.Distance(this.newGet().position, this.transform.position) > this.HardSnapIfDistanceGreaterThan) {
                 this.transform.position = this.newGet().position;
@@ -277,7 +277,14 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
                 break;
         }
     }
-
+    
+    /**
+     * Calculates an extrapolation offset based on the difference between the current and previous positions.
+     * If the extrapolation type is set to Disable, it returns a zero vector.
+     * Calculates the move direction between the current and previous positions, and the latency between the current time and the timestamp of the current position.
+     * Uses a switch statement to determine the type of extrapolation to be used and calculates the extrapolation offset accordingly.
+     * Returns the extrapolation offset calculated.
+     */
     private GetExtraPolationOffset() {
         if (this.ExtrapolationType == PositionExtrapolationType.Disable) {
             return Vector3.zero;
@@ -315,18 +322,22 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         this._objectStatus = GameObjectStatus.Enable;
 
         while (true) {
+            // Check if position has changed
             if (this.SyncPosition && pastPos != this.transform.localPosition) {
                 pastPos = this.transform.localPosition;
                 syncNowFrame = true;
             }
-            if (this.SyncRotation && pastRot != this.transform.rotation) {
+            // Check if rotation has changed
+            if (this.SyncRotation && pastRot != this.transform.localRotation) {
                 pastRot = this.transform.localRotation;
                 syncNowFrame = true;
             }
+            // Check if scale has changed
             if (this.SyncScale && pastScale != this.transform.localScale) {
                 pastScale = this.transform.localScale;
                 syncNowFrame = true;
             }
+            
             //Transmit any values that have changed values.
             if (syncNowFrame) {
                 this.SendTransform();
@@ -379,6 +390,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
 
         data.Add("sendTime", MultiplayManager.instance.GetServerTime());
 
+        // Send data to server
         this._room.Send(MESSAGE.SyncTransform, data.GetObject());
 
     }
@@ -428,7 +440,6 @@ interface SyncState {
     rotation: Quaternion;
     scale: Vector3;
 }
-
 
 enum MESSAGE {
     SyncTransform = "SyncTransform",

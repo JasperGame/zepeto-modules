@@ -2,7 +2,7 @@ import {ZepetoScriptBehaviour} from 'ZEPETO.Script'
 import {RoomBase, RoomData} from 'ZEPETO.Multiplay';
 import {ZepetoWorldMultiplay} from "ZEPETO.World";
 import {CharacterJumpState, CharacterMoveState, CharacterState, ZepetoPlayer} from 'ZEPETO.Character.Controller';
-import { RuntimeAnimatorController, Object, Animator, AnimatorClipInfo, Resources,CharacterController, AnimationClip, WaitForSeconds, AnimatorOverrideController, Mathf} from 'UnityEngine';
+import { RuntimeAnimatorController, Object, Animator, AnimatorClipInfo, Resources,CharacterController, AnimationClip, WaitForSeconds, AnimatorOverrideController, Mathf, WaitForEndOfFrame} from 'UnityEngine';
 import {Player} from 'ZEPETO.Multiplay.Schema';
 import MultiplayManager from '../Common/MultiplayManager';
 import TransformSyncHelper from '../Transform/TransformSyncHelper';
@@ -82,7 +82,7 @@ export default class PlayerSync extends ZepetoScriptBehaviour {
         }
         
         if(animationParam.State == CharacterState.Teleport){
-            this.tfHelper.ForceTarget();
+            this.StartCoroutine(this.WaitTeleport(5));
         }
 
         const playerAdditionalValue = this.player.playerAdditionalValue;
@@ -109,6 +109,13 @@ export default class PlayerSync extends ZepetoScriptBehaviour {
             
             this.tfHelper.moveSpeed = xzSpeed+ySpeed;
         }
+    }
+    
+    //The character's animation synchronization and location synchronization do not occur at the same time, so teleport is executed after a certain frame.
+    private * WaitTeleport(waitFrame:number){
+        for(let i=0; i<waitFrame; i++)
+            yield new WaitForEndOfFrame();
+        this.tfHelper.ForceTarget();
     }
 
     //isLocal(When it's my character)
