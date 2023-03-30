@@ -1,7 +1,7 @@
 import {ZepetoScriptBehaviour} from "ZEPETO.Script";
 import {Room, RoomData} from "ZEPETO.Multiplay";
 import {ZepetoWorldMultiplay} from "ZEPETO.World";
-import {Transform, Vector3, WaitForSeconds, Quaternion, Time, Object, Coroutine, Mathf, WaitUntil, WaitForEndOfFrame} from "UnityEngine";
+import {Transform, Vector3, WaitForSeconds, Quaternion, Time, Object, Coroutine, Mathf, WaitUntil} from "UnityEngine";
 import * as UnityEngine from "UnityEngine";
 import {State, SyncTransform} from "ZEPETO.Multiplay.Schema";
 import SyncIndexManager from "../Common/SyncIndexManager";

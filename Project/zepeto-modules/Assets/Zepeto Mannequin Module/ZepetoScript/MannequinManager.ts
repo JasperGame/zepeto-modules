@@ -55,7 +55,7 @@ export default class MannequinManager extends ZepetoScriptBehaviour {
             this.ClosedShopUI()
         });
         Mannequin.OnSelectedItem.AddListener((itemcontent:ItemContent,select:boolean)=>{
-            //아이템이 선택되었을 때 행동
+            // When an item is selected, perform an action
         });
 
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {

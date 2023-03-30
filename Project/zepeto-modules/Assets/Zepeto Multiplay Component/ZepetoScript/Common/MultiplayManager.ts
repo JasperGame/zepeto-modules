@@ -149,7 +149,8 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
 
         this.room.Send(MESSAGE.Instantiate, data.GetObject());
     }
-
+    
+    // When the application is paused (e.g. when the screen is closed or the home screen is opened)
     private bPaused: boolean = false;
     private OnApplicationPause(pause: boolean) {
         if (pause && !this.bPaused) {
@@ -166,6 +167,7 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
         this.bPaused = true;
         this._pingCheckCount = 0;
         this._tfHelpers = Object.FindObjectsOfType<TransformSyncHelper>();
+        // While paused, no information is received.
         this._tfHelpers?.forEach((tf)=> {
             if(tf.UpdateOwnerType === UpdateOwner.Master) {
                 tf.ChangeOwner(null);
@@ -194,7 +196,7 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
         });
     }
 
-    /** Ping every 1 second to check latency with the server */
+    // Ping every 1 second to check latency with the server *
     private *SendPing(){
         let RequestTime = Number(+new Date());
         let ResponseTime = Number(+new Date());
@@ -219,12 +221,14 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
         }
     }
 
+    // After checking the connection with the server once, request the master information.
     private * WaitPingCheck(){
         if(this.pingCheckCount == 0)
             yield new WaitUntil(()=> this.pingCheckCount > 0)
         this.room.Send(MESSAGE.CheckMaster);
     }
 
+    //Returns the current server time.
     public GetServerTime(){
         return this._diffServerTime + Number(+new Date());
     }

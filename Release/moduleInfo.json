@@ -70,7 +70,7 @@
       "Title": "Localization",
       "Description": "This is a sample module that provides multilingual management functionality.\nYou can manage the local key and translation using Google Spreadsheets, and export them as CSV to incorporate into your project.",
       "Description_ko": "다국어 관리 기능을 제공하는 샘플 모듈입니다.\n로컬키와 번역문은 구글스프레드시트를 이용하여 관리하며, csv로 export하여 프로젝트에 반영할 수 있습니다.",
-      "DocsUrl": "https://github.com/JasperGame/zepeto-modules/tree/main/project/zepeto-modules/Assets/Zepeto%20Localization%20Module",
+      "DocsUrl": "https://github.com/JasperGame/zepeto-modules/tree/main/Project/zepeto-modules/Assets/Zepeto%20Localization%20Module",
       "LatestVersion": "1.0.0",
       "Dependencies": ["nothing"]
     }

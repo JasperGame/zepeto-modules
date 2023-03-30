@@ -10,11 +10,11 @@ export default class MannequinModule extends IModule {
         this.ChangedItems = new Map<string, Map<string, string>>();
 
         this.server.onMessage<CharacterItem[]>(MESSAGE.OnChangedItem, (client, message) => {
-            //덮어쓰기 및 새로운부위 set
+            // Update or add new items
             if(this.ChangedItems.has(client.userId)){
                 const changedItemMap = this.ChangedItems.get(client.userId);
                 for (const characterItem of message) {
-                    //드레스(22)인 경우 상의(19)와 하의(20)를 제거
+                    // If dress (22) is updated, remove top (19) and bottom (20)
                     if(characterItem.property == Cloth.DRESS){
                         if(changedItemMap?.has(Cloth.TOP))
                         {
@@ -24,7 +24,7 @@ export default class MannequinModule extends IModule {
                             changedItemMap.delete(Cloth.BOTTOM);
                         }
                     }
-                    //상의(19) 또는 하의(20)인 경우  드레스를 제거
+                    // If top (19) or bottom (20) is updated, remove dress (22)
                     else if(characterItem.property ==Cloth.TOP || characterItem.property == Cloth.BOTTOM){
                         if(changedItemMap?.has(Cloth.DRESS))
                         {
@@ -36,7 +36,7 @@ export default class MannequinModule extends IModule {
                     console.log(`OnChangedItem old ${client.userId} : ${characterItem.property} // ${characterItem.id}`);
                 }
             }
-            //최초등록
+            // First registration
             else {
                 let changedItemMap:Map<string,string> = new Map<string, string>();
                 for (const characterItem of message) {
