@@ -43,7 +43,6 @@ export default class LeaderboardManager extends ZepetoScriptBehaviour {
         this.SendScore(0);
 
         this.openBtn.onClick.AddListener(() => {
-            console.log("CLick");
             this._loadCoroutine = this.StartCoroutine(this.LoadLeaderboard());
         });
         this.closeBtn.onClick.AddListener(() => {

@@ -18,7 +18,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
     public InterpolationType: PositionInterpolationType = PositionInterpolationType.Estimate;
     public ExtrapolationType: PositionExtrapolationType = PositionExtrapolationType.Disable;
     @Tooltip("The creditworthiness of the offset figure of the extrapolation.") public extraMultipler: number = 1;
-    @Tooltip("This is the given speed for lerp/movetoward/fixedspeed options.")public moveSpeed: number = 10;
+    @Tooltip("This is the given speed for lerp / movetoward / fixedspeed options.")public moveSpeed: number = 10;
     @Header("Rotation")
     public SyncRotation: boolean = true;
     public RotationInterpolationType: RotationInterpolationType = RotationInterpolationType.Lerp;
@@ -105,6 +105,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         }
     }
 
+    // Access the entire server schema at first startup and connect the sync Id schema.
     private OnStateChange(state: State, isFirst: boolean) {
         if (null == this._syncTransform) {
             this._syncTransform = state.SyncTransforms.get_Item(this._Id);
@@ -142,7 +143,9 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         }
     }
 
-    private OnChangeTransform(): void {
+    // when isOwner === false, Receives changed information from the server.
+    // Called when there is a change in the server schema.
+    private OnChangeTransform() {
         if (this._isOwner) return;
 
         const syncTransform = this._syncTransform;
@@ -309,7 +312,7 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
         return extraPolationOffSet;
     }
 
-    //isOwner
+    // when isOwner, Sends information to the server.
     private* CheckChangeTransform(tick: number) {
         const syncNextFrameMax: number = 10;
         let syncNextFrameCount: number = 0;

@@ -4,6 +4,7 @@ import {ZepetoWorldMultiplay} from "ZEPETO.World";
 import {Room, RoomData} from "ZEPETO.Multiplay";
 import TransformSyncHelper, { UpdateOwner } from '../Transform/TransformSyncHelper';
 import DOTWeenSyncHelper from '../DOTween/DOTWeenSyncHelper';
+import AnimatorSyncHelper from '../Transform/AnimatorSyncHelper';
 
 export default class MultiplayManager extends ZepetoScriptBehaviour {
     public multiplay: ZepetoWorldMultiplay;
@@ -17,6 +18,7 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
     private _masterSessionId:string;
     private _tfHelpers: TransformSyncHelper[] = [];
     private _dtHelpers: DOTWeenSyncHelper[] = [];
+    private _animHelper: AnimatorSyncHelper[] = [];
     
     private readonly pingInterval:number = 1;
     
@@ -54,6 +56,7 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
             this.GetInstantiate();
         }
         this._dtHelpers = Object.FindObjectsOfType<DOTWeenSyncHelper>();
+        this._animHelper = Object.FindObjectsOfType<AnimatorSyncHelper>();
     }
 
     /**Util**/
@@ -70,6 +73,9 @@ export default class MultiplayManager extends ZepetoScriptBehaviour {
             });
             this._dtHelpers.forEach((dt)=>{
                 dt.ChangeOwner(this._masterSessionId);
+            });
+            this._animHelper.forEach((anim)=>{
+                anim.ChangeOwner(this._masterSessionId);
             });
         });
     }
