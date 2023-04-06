@@ -13,7 +13,7 @@
       "Description": "This component is designed to facilitate easy synchronization of players and objects in ZEPETO multiplayer implementation.\nIt is attached to objects to be synchronized in the form of a component and provides useful sample code for developing multiplayer worlds.",
       "Description_ko": "ZEPETO 멀티플레이 구현시, 플레이어와 오브젝트를 손쉽게 동기화할 수 있게 해주는 컴포넌트입니다. 컴포넌트 형태로 동기화할 오브젝트에 부착해서 사용하며 멀티플레이 월드 개발에 유용한 샘플 코드를 제공합니다.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
-      "LatestVersion": "1.0.4",
+      "LatestVersion": "1.1.0",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
