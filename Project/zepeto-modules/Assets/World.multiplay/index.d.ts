@@ -765,7 +765,7 @@ declare module "ZEPETO.Multiplay" {
         onTick?(deltaTime: number): void;
         onMessage<T = any>(messageType: '*' | string | number, callback: (client: SandboxPlayer, message: T) => void): void;
         broadcast(type: string | number, message?: any, options?: IBroadcastOptions): void;
-        loadPlayer?(sessionId: string): SandboxPlayer;
+        loadPlayer(sessionId: string): SandboxPlayer | undefined;
         setPrivate(isPrivate: boolean): Promise<void>;
         kick(client: SandboxPlayer, reason?: string): Promise<void>;
     }
