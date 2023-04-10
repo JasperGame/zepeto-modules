@@ -6,7 +6,7 @@
 1. Import the latest version of the screenshot module into your project.
 2. Drag Zepeto ScreenShot Module/Prefab/ZepetoScreenShot_Horizontal.prefab into Scene.
          <img width="700" alt="image" src="./images/GuideImage1.png">
-3. After adding the ZepetoPlayers component to the scene and implementing the character creation script, you can test the gesture function by pressing the [▶︎(play)] button.
+3. After adding the ZepetoPlayers component to the scene and implementing the character creation script, you can test the screenshot function by pressing the [▶︎(play)] button.
 
 ## Use Tips
 #### You can adjust the position of BTN_ScreenShot inside the prefab.
