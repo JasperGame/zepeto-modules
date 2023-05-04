@@ -44,7 +44,7 @@ Already back ? Good! Now make sure that your imported Unity package follows our 
 - In the same Assets folder, create another folder named Version and add a `*.cs` file with the following code:
 
     ```csharp
-    public class {moduleName} Version
+    public class {moduleName}Version
     {
         public static readonly string VERSION = "1.0.1";
     }
