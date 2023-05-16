@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 127f6780c76aa6f42965f4b79b5d43e2
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\n//A function to initialize the button
+    when it is created: messageItemGameObject is the game object on which we will
+    add the click listener, messageItemText is the string we will use to change the
+    content on the button and message if is the message id we will use to call the
+    send the message to the server\r\nclass QuickMessageListItem extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Init(messageItemGameObject, messageItemText, messageItemId) {\r\n       
+    //Check if the message text exist and update the button text\r\n        if (messageItemText)
+    {\r\n            this.GetComponentInChildren($typeof(UnityEngine_UI_1.Text)).text
+    = messageItemText;\r\n        }\r\n        // Send the message to the server
+    when the button is clicked and print the message on the server.\r\n        messageItemGameObject.GetComponent($typeof(UnityEngine_UI_1.Button)).onClick.AddListener(()
+    => {\r\n            ZEPETO_World_1.WorldMultiplayChatContent.instance.SendQuickMessage(messageItemId);\r\n           
+    console.log(`${messageItemText} was sent`);\r\n        });\r\n    }\r\n}\r\nexports.default
+    = QuickMessageListItem;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUXVpY2tNZXNzYWdlTGlzdEl0ZW0uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJRdWlja01lc3NhZ2VMaXN0SXRlbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1EQUE4QztBQUM5QyxpREFBc0Q7QUFDdEQsK0NBQXdEO0FBQ3hELDZDQUF5QztBQUd6QyxpVEFBaVQ7QUFDalQsTUFBcUIsb0JBQXFCLFNBQVEscUNBQXFCO0lBRW5FLElBQUksQ0FBQyxxQkFBaUMsRUFBRSxlQUFzQixFQUFFLGFBQW9CO1FBR2hGLDREQUE0RDtRQUM1RCxJQUFHLGVBQWUsRUFBRTtZQUFDLElBQUksQ0FBQyxzQkFBc0IsU0FBQyxxQkFBSSxHQUFJLElBQUksR0FBRyxlQUFlLENBQUE7U0FBQztRQUVoRixpR0FBaUc7UUFDakcscUJBQXFCLENBQUMsWUFBWSxTQUFDLHVCQUFNLEdBQUksT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDbEUsd0NBQXlCLENBQUMsUUFBUSxDQUFDLGdCQUFnQixDQUFDLGFBQWEsQ0FBQyxDQUFBO1lBQ2xFLE9BQU8sQ0FBQyxHQUFHLENBQUMsR0FBSSxlQUFnQixXQUFXLENBQUMsQ0FBQTtRQUNoRCxDQUFDLENBQUMsQ0FBQTtJQUVOLENBQUM7Q0FDSjtBQWZELHVDQWVDIn0=","assetPath":"Assets/Zepeto
+    QuickChat Module/ZepetoScript/QuickMessageListItem.ts","manifest":{"properties":[],"name":"QuickMessageListItem","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 1d58dfa2a18974b562fdab798af1d6d3
+  onlyWriteTrigger: 0
