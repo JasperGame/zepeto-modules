@@ -50,10 +50,11 @@ Already back ? Good! Now make sure that your imported Unity package follows our 
     }
     ```
 
-- From the root directory, open the following the `Release` folder and modify the `moduleInfo.json` file with the following content:
+- From the root directory, modify the `moduleInfo.json` file by adding the following content with the following content:
 
     ```json
     {
+        ...
          "Title": "moduleName",
          "Description": "A brief description of the English version",
          "Description_ko": "A brief description of the Korean version",
@@ -64,7 +65,7 @@ Already back ? Good! Now make sure that your imported Unity package follows our 
     ```
 
 - Inside the same `Release` folder, create a new folder name after your ***moduleName*** E.g *QuickChat.* Within that same folder, add a **preview image** of your module.
-- Within the same folder, create a **docs** folder where you can add any `README.md` file for the module documentation if there is any. If you have translated version of your `.md` file, make sure to name them as follow: `README_{language}.md`. E.g: README_KR.md.
+- Within the ***moduleName*** folder, create a **docs** folder where you can add any `README.md` file for the module documentation if there is any. If you have translated version of your `.md` file, make sure to name them as follow: `README_{language}.md`. E.g: README_KR.md.
 - Within the **docs** folder, you can also add an **images** folder which could be used for the visual explanation of your application.
 
 ## 8. **Finally Adding your unity package to the Zepeto Module Importer**
