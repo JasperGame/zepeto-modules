@@ -1,0 +1,49 @@
+fileFormatVersion: 2
+guid: 4072426a902698e47812c97f1ce2458a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst QuickMessageListItem_1 = require(\"./QuickMessageListItem\");\r\nclass
+    QuickChatLoader extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        //Messages list is an array of QuickMessages
+    retrieved from Zepeto''s DB.\r\n        this.messagesList = [];\r\n    }\r\n   
+    Start() {\r\n        this.ReceiveChatList();\r\n    }\r\n    Update() {\r\n       
+    // Hide the QuickChat button when the parent content''s parent panel is visible\r\n       
+    if (this.panelParent.activeSelf === true) {\r\n            this.openButton.SetActive(false);\r\n       
+    }\r\n        // Unhide the QuickChat button when the parent panel is hidden\r\n       
+    else {\r\n            this.openButton.SetActive(true);\r\n        }\r\n    }\r\n   
+    //A method to load all the quickChat messages preset from Zepeto''s DB.\r\n   
+    ReceiveChatList() {\r\n        ZEPETO_World_1.ZepetoWorldContent.GetQuickMessageList(quickMessageList
+    => {\r\n            quickMessageList.forEach((quickMessage, index, array) =>
+    {\r\n                this.CreateMessage(quickMessage);\r\n            });\r\n       
+    }, err => {\r\n            //log an error message if there is an error while
+    trying to retrieve the message.\r\n            console.log(`QuickMessage Error:
+    ${err}`);\r\n        });\r\n    }\r\n    // A method to create individual message
+    GameObjects (with text and button)\r\n    CreateMessage(quickMessageItem) {\r\n       
+    // Add the created QuickMessageItem to the messageLists\r\n        this.messagesList.push(quickMessageItem);\r\n       
+    // Create an instance of the messageItemPrefab\r\n        const newMessage =
+    UnityEngine_1.GameObject.Instantiate(this.messageItemPrefab, this._contentsParent);\r\n       
+    // Initialize the messageItem\r\n        const messageItem = newMessage.GetComponent($typeof(QuickMessageListItem_1.default));\r\n       
+    messageItem.Init(newMessage, quickMessageItem.message, quickMessageItem.id);\r\n   
+    }\r\n}\r\nexports.default = QuickChatLoader;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUXVpY2tDaGF0TG9hZGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiUXVpY2tDaGF0TG9hZGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsbURBQThDO0FBQzlDLGlEQUFzRDtBQUN0RCwrQ0FBaUg7QUFFakgsNkNBQXlEO0FBQ3pELGlFQUEwRDtBQUcxRCxNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQUFsRTs7UUFHSSx3RUFBd0U7UUFDOUMsaUJBQVksR0FBa0IsRUFBRSxDQUFDO0lBdUQvRCxDQUFDO0lBNUNHLEtBQUs7UUFFRCxJQUFJLENBQUMsZUFBZSxFQUFFLENBQUM7SUFDM0IsQ0FBQztJQUVELE1BQU07UUFDRiw4RUFBOEU7UUFDOUUsSUFBSSxJQUFJLENBQUMsV0FBVyxDQUFDLFVBQVUsS0FBSyxJQUFJLEVBQUU7WUFBRSxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQTtTQUFDO1FBRTdFLDhEQUE4RDthQUMxRDtZQUNBLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFBO1NBQ2xDO0lBQ0wsQ0FBQztJQUVELHNFQUFzRTtJQUM5RCxlQUFlO1FBRW5CLGlDQUFrQixDQUFDLG1CQUFtQixDQUFDLGdCQUFnQixDQUFDLEVBQUU7WUFDdEQsZ0JBQWdCLENBQUMsT0FBTyxDQUFDLENBQUMsWUFBMEIsRUFBRSxLQUFhLEVBQUUsS0FBcUIsRUFBRSxFQUFFO2dCQUMxRixJQUFJLENBQUMsYUFBYSxDQUFDLFlBQVksQ0FBQyxDQUFBO1lBQ3BDLENBQUMsQ0FBQyxDQUFDO1FBQ1AsQ0FBQyxFQUFFLEdBQUcsQ0FBQyxFQUFFO1lBQ0wsaUZBQWlGO1lBQ2pGLE9BQU8sQ0FBQyxHQUFHLENBQUMsdUJBQXVCLEdBQUcsRUFBRSxDQUFDLENBQUM7UUFDOUMsQ0FBQyxDQUFDLENBQUM7SUFFUCxDQUFDO0lBRUQsMkVBQTJFO0lBQ25FLGFBQWEsQ0FBQyxnQkFBNkI7UUFFL0MsdURBQXVEO1FBQ3ZELElBQUksQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLGdCQUFnQixDQUFDLENBQUE7UUFHeEMsOENBQThDO1FBQzlDLE1BQU0sVUFBVSxHQUFlLHdCQUFVLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxpQkFBaUIsRUFBRSxJQUFJLENBQUMsZUFBZSxDQUFlLENBQUM7UUFFbEgsNkJBQTZCO1FBQzdCLE1BQU0sV0FBVyxHQUF5QixVQUFVLENBQUMsWUFBWSxTQUFDLDhCQUFvQixFQUFHLENBQUM7UUFDMUYsV0FBVyxDQUFDLElBQUksQ0FBQyxVQUFVLEVBQUUsZ0JBQWdCLENBQUMsT0FBTyxFQUFFLGdCQUFnQixDQUFDLEVBQUUsQ0FBQyxDQUFBO0lBQy9FLENBQUM7Q0FFSjtBQTNERCxrQ0EyREMifQ==","assetPath":"Assets/Zepeto
+    QuickChat Module/ZepetoScript/QuickChatLoader.ts","manifest":{"properties":[{"assembly":"ZEPETO.World","name":"messagesList","type":"ZEPETO.World.QuickMessage[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"HideInInspector","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"messageItemPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"_contentsParent","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"openButton","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"panelParent","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"QuickChatLoader","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 4a403e95d4832f6e90194203e14ef777
+  onlyWriteTrigger: 0
