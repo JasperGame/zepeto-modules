@@ -2,7 +2,7 @@
 
 A **Zepeto module** is a *UnityPackage (*.unitypackage)* that is imported directly to your Zepeto project to help you speed up your project by abstracting some tasks.
 
-In this documentation, you will learn how to make a Zepeto module and add it to the Zepeto Module importer, an Open Source Project. Are you new to Open source projects ? [This guide](https://opensource.guide) is for you.
+In this documentation, you will learn how to make a Zepeto module and add it to the Zepeto Module importer, an Open Source Project. Are you new to Open source projects ? [This guide](https://opensource.guide/how-to-contribute/) is for you.
 
 **Prerequisites:**
 
@@ -11,10 +11,10 @@ In this documentation, you will learn how to make a Zepeto module and add it to 
 
 ## 1. **Create your Unity Zepeto Project:** 
     
-You can read more about how to create your Zepeto project by reading the following [guide](https://docs.zepeto.me/studio-world/lang-ko/docs/welcome_zepeto_developers).
+You can read more about how to create your Zepeto project by reading the following [guide](https://docs.zepeto.me/studio-world/docs/welcome_zepeto_developers).
     
 ## 2. **Add the multiplay feature to your world (optional)**
-You can read more about **ZepetoMultiplay** [here](https://docs.zepeto.me/studio-world/lang-ko/docs/multiplay_tutorial).
+You can read more about **ZepetoMultiplay** [here](https://docs.zepeto.me/studio-world/docs/multiplay_tutorial).
 
 Some module/features might require your world to be multiplayer. You will need to add the multiplay component from the Zepeto Module Importer. Click [here](https://github.com/JasperGame/zepeto-modules) to learn how to do that. For this tutorial you don't need to add the Multiplay Component.
 
@@ -30,9 +30,9 @@ As this is a Zepeto Project, make sure to create your script the Zepeto-way: **R
 
 ## 5. **Exporting your Unity Package**
     
-If you have never exported a Unity Package, Check out this [article](https://docs.unity3d.com/2018.1/Documentation/Manual/HOWTO-exportpackage.html) and come back later.
+If you have never exported a Unity Package before, Check out this [article](https://docs.unity3d.com/2018.1/Documentation/Manual/HOWTO-exportpackage.html) and come back later.
     
-Already back ? Good! Now make sure that your imported Unity package follows our naming convention v[versionNumber].unitypackage. *(e.g v1.0.1.unitypackage).* If not, don’t worry it;s not too late, you can just rename it. Remember where you save that UnityPackage it will serve us later on this tutorial.
+Already back ? Good! Now make sure that your imported Unity package follows our naming convention v[versionNumber].unitypackage. *(e.g v1.0.1.unitypackage).* If not, don’t worry it's not too late, you can just rename it. **Note:** remember where you save that UnityPackage as it will serve us later on in this tutorial.
     
 ## 6. **Download the Zepeto Module importer repo locally**
 - Fork [this repository](https://github.com/JasperGame/zepeto-modules) into your Github account.
@@ -73,6 +73,8 @@ Already back ? Good! Now make sure that your imported Unity package follows our 
 Remember the the Unity Package (**.unitypackage)* you made in step 5 ? Copy and paste it in the `Release > moduleName` folder.
    
 ## 9. **Push to your github**
+
+If this is your first time using git and you don't even know what a `push` is, make sure to check [this](https://docs.github.com/en/get-started/getting-started-with-git) out before moving on.
  
 Before doing the magic push to github, make sure that your module and its elements respect all the naming convention I told you about in this guide. If everything looks, feel free to push to you github. You know how it works right ? `git add .` , `git commit -m "[insert your commit message here]` and finally `git push`.
    
