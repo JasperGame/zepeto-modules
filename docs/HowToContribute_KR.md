@@ -38,28 +38,5 @@ ZEPETO 월드 개발에 도움을 주는 ZEPETO Modules 제작에 기여해주�
 5. 변경 사항을 귀하의 GitHub 포크에 푸시합니다.
 6. 변경 사항을 우리 레포지토리에 병합하는 풀 리퀘스트를 엽니다.
 
-**모듈을 추가하는 방법은 다음과 같습니다.**
+**모듈을 추가하려면 이 [가이드](HowToAddModule.md) 확인 부탁드립니다.**
  
-1. 기존 모듈들을 참고하여 형식을 맞춰 제작해주세요.
-2. Assets 폴더 내부에 (공백이 제거된 Title명) Module 폴더를 추가합니다.
-3. Assets/Version폴더를 만들고 폴더 내에 다음을 추가합니다.
-    ``` cs
-        public class (공백이 제거된 Title명)Version
-        {
-            public static readonly string VERSION = "1.0.0";
-        }
-    ```
-4. Release폴더의 moduleInfo.json을 엽니다. 아래에 다음을 추가합니다.
-     ``` json
-        {
-          "Title": "당신의 모듈 이름",
-          "Description": "영어버전의 간략한 설명",
-          "Description_ko": "한국어 버전의 간략한 설명",
-          "DocsUrl": "사용한 API의 제페토 공식 Docs url, 없는경우 비워두세요",
-          "LatestVersion": "1.0.0",
-          "Dependencies": ["nothing"]
-        },
-    ```
-5. Release 폴더 내에 공백이 제거 된 Title 폴더를 추가합니다.
-6. Preview.png 이미지를 추가합니다.
-7. 제작한 모듈을 export해 v[버전숫자].unitypackage로 저장합니다. (예: v1.0.1.unitypackage)
