@@ -2,7 +2,7 @@
 
 The QuickChat module is the is used for sending in game predefined messages in a Zepeto Multiplayer world. 
 
-In this documentation, you will learn how to add a QuickChat module in your existing zepeto Project. If you are just getting started as a developer in Zepeto, we suggest you to  check out our [beginner guide](https://docs.zepeto.me/studio-item/lang-ko/docs) first. 
+In this documentation, you will learn how to add a QuickChat module in your existing zepeto Project. If you are just getting started as a developer in Zepeto, we suggest you to  check out our [beginner guide](https://docs.zepeto.me/studio-world/docs/welcome_zepeto_developers) first. 
 
 
 ## Adding the QuickChat Module into my project
