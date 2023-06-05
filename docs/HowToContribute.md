@@ -3,7 +3,7 @@
 [English](./HowToContribute.md) | [Korean](./HowToContribute_KR.md)
 
 ## ZEPETO Modules Project contributions are welcome!
-Thank you so much for contributing to the creation of ZEPETO Modules that help develop ZEPETO World.
+Thank you so much for contributing to the creation of ZEPETO Modules that help develop amazing ZEPETO Worlds.
 
 You can contribute to:
 
@@ -11,9 +11,11 @@ You can contribute to:
 - Feature suggestions
 - Add module
 
+You have never contributed to [open source](https://opensource.guide/how-to-contribute/) project before and done know how to fork and clone a repo? Check this [helpful article](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) from github.
+
 
 ## Report a bug
-Please let me know if you find any bugs or problems in the project! You can report bugs by filing an issue in our GitHub repository. When reporting a bug, please provide as much information as possible.
+Please let us know if you find any bugs or problems in the project! You can report bugs by filing an issue in our GitHub repository. When reporting a bug, please provide as much information as possible.
 
 - Clear description of the bug
 - Steps to reproduce the bug
@@ -38,4 +40,4 @@ Please suggest new features or improvements! You can submit a feature request by
 5. Push your changes to your GitHub fork.
 6. Open a pull request to merge your changes into our repo.
 
-**If you would like to add a Module to the Zepeto Module importer, check out Guide on** [How to Add a Module](HowToAddModule.md)
+**If you would like to add a Module to the Zepeto Module importer, check out the Guide on** [How to Add a Module](HowToAddModule.md).
