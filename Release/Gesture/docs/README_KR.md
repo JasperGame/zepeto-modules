@@ -16,7 +16,10 @@
 #### 제스쳐 로드 개수를 변경하는 방법
 - ZepetoGesture_Horizontal.prefab 내부의 GestureLoader스크립트의 Load Contents Count 수를 조절해 노출될 제스쳐의 개수를 조절할 수 있습니다.   
         <img width="700" alt="image" src="./images/GuideImage3.png">   
-
+#### 제스처를 반복 재생 하기
+- 제스처의 반복 설정을 활성화/비활성화할 수 있습니다.
+- 제스처가 다시 반복 재생되기까지의 대기 시간을 설정할 수 있습니다.
+- <img width="700" alt="image" src="./images/GuideImage5.png">
 #### 멀티플레이 동기화 하는 방법
 - 멀티플레이 동기화를 위해서는 [[Multiplay Component]](../../MultiplayComponent/)를 다운로드 한 후, 씬에 배치한 ZepetoPlayersManager의 **Use Zepeto Gesture API**를 체크합니다.   
         <img width="700" alt="image" src="./images/GuideImage4.png">   
