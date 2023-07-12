@@ -68,7 +68,7 @@ export default class UIController extends ZepetoScriptBehaviour {
       
     private StopGesture() {
         //If the coroutine stop it.
-        if(this._gestureLoader.gestureLoop && this._gestureLoader.isLooping)
+        if(this._gestureLoader.gestureLoop)
         {
             this._gestureLoader.StopCoroutine(this._gestureLoader.gestureLoop);
         }

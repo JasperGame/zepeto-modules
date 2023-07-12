@@ -16,12 +16,12 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
     @SerializeField() private _contentsParent: Transform;
     @SerializeField() private _prefThumb: GameObject;
 
-    private _myCharacter: ZepetoCharacter ;
+    private _myCharacter: ZepetoCharacter;
     
     // Loop setting
     @Header("Looping Setting") 
-    @Tooltip("Activate/Deactivate the looping feature") public isLooping: boolean;
-    @Tooltip("Waiting time until you run the gesture again") @SerializeField() private _waitTimeBeforeRepeat: number; // Waiting time before repeating a loop
+    @Tooltip("Activate/Deactivate the looping feature") public isGestureLooping: boolean;
+    @Tooltip("Waiting time in seconds before playing") @SerializeField() private _repeatInterval: number; // Waiting time in seconds before playing the gesture again.
 
     Start() {
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
@@ -55,7 +55,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         newThumb.GetComponent<Thumbnail>().content = content;
 
         // Button Listener for each thumbnail
-        newThumb.GetComponent<Button>().onClick.AddListener(() => {  
+        newThumb.GetComponent<Button>().onClick.AddListener(() => {
             this.LoadAnimation(content);
         });
         this.thumbnails.push(newThumb);
@@ -85,21 +85,23 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         }
         this._myCharacter.CancelGesture()
 
-        // check if isLooping is true and it is not a pose
-        if(this.isLooping === true && this._checkIfGestureIsPose(type) === false)
+        // check if isGestureLooping is true and it is not a pose
+        if(this.isGestureLooping && this._isRepeatableContentType(type))
         {            
             this.gestureLoop = this.StartCoroutine(this.setGestureLoop(animation))
         }
-        //When the isLooping is false
+        //When the isGestureLooping is false
         else{
             //If there is another animation running, cancel it
             this._myCharacter.SetGesture(animation)
         }   
     }
 
-    private _checkIfGestureIsPose(type: OfficialContentType[])
+
+    //This function check if the gesture repeatable and return true, if it's not, it returns false.
+    private _isRepeatableContentType(type: OfficialContentType[])
     {
-        return type.some( item => item === OfficialContentType.Pose || item === OfficialContentType.GesturePose )
+        return type.every( item => item !== OfficialContentType.Pose && item !== OfficialContentType.GesturePose )
     }
 
     // A coroutine for running the Gesture in loop
@@ -110,7 +112,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
             if(this._myCharacter.CurrentState === CharacterState.Idle && animation)
             {
                 this._myCharacter.SetGesture(animation)
-                yield new WaitForSeconds(animation.length + this._waitTimeBeforeRepeat)
+                yield new WaitForSeconds(animation.length + this._repeatInterval)
             }
             else{
                 yield null;
