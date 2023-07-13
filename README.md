@@ -31,6 +31,7 @@ The modules currently available in ZEPETO-Modules are:
 - [Mannequin](./Release/Mannequin/)
 - [Product](./Release/Product/)
 - [Localization](./Release/Localization/)
+- [QuickChat](./Release/QuickChat/)
    > **Note**: Without using the Module Importer, you can download the latest version of the .unitypackage file directly from each module folder in the Release directory and apply it to your project.   
       <img width="700" alt="image" src="./docs/images/GuideImage9.png">
 

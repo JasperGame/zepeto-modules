@@ -17,6 +17,13 @@
 - You can control the number of gestures to be exposed by adjusting the number of Load Contents Count in the GestureLoader script inside ZepetoGesture_Horizontal.prefab.   
          <img width="700" alt="image" src="./images/GuideImage3.png">
 
+#### Playing the gesture on loop
+- You can activate/deactivate the looping setting for your gesture.
+- You can set a wait time until the gesture start looping again.
+  
+<img width="700" alt="image" src="./images/GuideImage5.png">
+
+
 #### How to sync multiplayer
 - For multiplayer synchronization, after downloading [[Multiplay Component]](../../MultiplayComponent/)), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.   
          <img width="700" alt="image" src="./images/GuideImage4.png">
