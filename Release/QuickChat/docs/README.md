@@ -19,7 +19,8 @@ In this documentation, you will learn how to add a QuickChat module in your exis
 
   
 - Drag and drop the **ZepetoQuickChat_Horizontal** prefab located at "*Zepeto QuickChat Module > UI > Prefabs*" into your scene. 
-![Drag and drop ZepetoQuickChat_Horizontal](https://github.com/naverz-LeGrandMAG/zepeto-modules/assets/131629767/5f52e476-ff23-42f8-9a18-7efe3fe4320b)
+  <img width="700" alt="image" src="./images/GuideImage1.png">   
+
 
 Feel free to customize the QuickChat Component/UI depending on your requirements.
 
