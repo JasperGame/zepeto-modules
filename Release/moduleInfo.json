@@ -79,7 +79,7 @@
       "Description": "This is a module that provides QuickChat functionalities.",
       "Description_ko": "QuickChat 기능을 제공하는 모듈입니다",
       "DocsUrl": "https://github.com/JasperGame/zepeto-modules/tree/main/Project/zepeto-modules/Assets/Zepeto%20QuickChat%20Module",
-      "LatestVersion": "1.0.0",
+      "LatestVersion": "1.0.1",
       "Dependencies": ["ZEPETO.World : 1.3.0+"]
     }
   ]

@@ -1,8 +1,6 @@
-import { Button, Text } from 'UnityEngine.UI';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
-import { ZepetoWorldContent, WorldMultiplayChatContent, QuickMessage, ZepetoWorldMultiplay } from 'ZEPETO.World';
-import {Room} from "ZEPETO.Multiplay";
-import {GameObject, Object, Transform} from 'UnityEngine'
+import { ZepetoWorldContent, QuickMessage } from 'ZEPETO.World';
+import {GameObject, Transform} from 'UnityEngine'
 import QuickMessageListItem from './QuickMessageListItem';
 
 
