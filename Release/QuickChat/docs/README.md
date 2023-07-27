@@ -12,7 +12,7 @@ In this documentation, you will learn how to add a QuickChat module in your exis
   
 - Select the quick chat module in the list of module on the left tap of the module importer
 - Click Import  to import the QuickChat Module. 
-- If you did not set up the multiplay feature, make sure to set up the multiplay component first. In case you already have a multiplay or you are planning to add one on your own, feel free to uncheck the `Zepeto Multiplay Component` and the `World.multiplay` before clicking the import button at the bottom.
+- If you did not set up the multiplay feature, make sure to set up the multiplay component first.
 
 ![Import the QuickChat file](https://github.com/naverz-LeGrandMAG/zepeto-modules/assets/131629767/a5466575-a0d6-4db0-bf53-fb415e9e8e89)
 
