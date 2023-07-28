@@ -18,7 +18,7 @@ In this documentation, you will learn how to add a QuickChat module in your exis
 
 
   
-- Drag and drop the **ZepetoQuickChat_Horizontal** prefab located at "*Zepeto QuickChat Module > UI > Prefabs*" into your scene. 
+- Go to "*Zepeto QuickChat Module > UI > Prefabs*" and drag and drop the **QuickChat_Canvas_Horizontal** prefab into your scene if the world you are building has an horizontal orientation. Or use the **QuickChat_Canvas_Vertical** prefab if your world orientation is vertical.
   <img width="700" alt="image" src="./images/GuideImage1.png">   
 
 
