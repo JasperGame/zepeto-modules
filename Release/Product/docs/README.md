@@ -9,8 +9,8 @@
 
 ### Import Guide
 1. Import the latest version of the Product module into your project.
-2. Add the following to World.multiplay > Index.ts file.
-     > **Note**: You may have more modules than the image below if you have added other modules.
+2. If they do not exist yet, add the following lines to `World.multiplay` > Index.ts file.
+     > **Note**: You may have more modules than the image below if you have added other modules (make sure that the `this._modules.push([new moduleName(this)])` you add comes before the for loop).
      >    <img width="700" alt="image" src="./images/GuideImage1.png"> 
 3. Drag ZepetoProductModule/Prefab/ZepetoProductCanvas.prefab into Scene.
      <img width="700" alt="image" src="./images/GuideImage2.png">
