@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 1705569050049574375}
   - component: {fileID: 1705569050049574374}
   m_Layer: 0
-  m_Name: ZepetoQuickChat_Horizontal
+  m_Name: QuickChat_Canvas_Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1705569050291401922}
   m_HandleRect: {fileID: 1705569050291401923}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
