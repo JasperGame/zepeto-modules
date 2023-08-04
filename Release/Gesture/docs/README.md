@@ -15,7 +15,7 @@
          <img width="700" alt="image" src="./images/GuideImage2.png">
 
 #### How to change the number of gesture loads
-- You can control the number of gestures to be exposed by adjusting the value of Load Contents Count in the GestureLoader script inside ZepetoGesture_Horizontal.prefab (the default value being 100).   
+- You can control the number of gestures to be exposed by adjusting the value of Load Contents Count in the GestureLoader script inside Gesture_Canvas_Horizontal.prefab (the default value being 100).   
          <img width="700" alt="image" src="./images/GuideImage3.png">
 
 #### Playing the gesture on loop
