@@ -93,7 +93,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         // In case the gesture is not a pose.
         if(this._isNotAPose(gestureType))
         {
-            //check if the looping feature is enable for the gestures that are not poses and start a coroutine.
+            //checks if the looping feature is enable for the gestures that are not poses and start a coroutine.
             if(this.loopEnabled)
             {
                 this.gestureLoop = this.StartCoroutine(this.setGestureLoop(animation))
@@ -105,18 +105,16 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
             }  
         }
         // In case the gesture is a pose
-        else if(!this._isNotAPose(gestureType))
+        else
         {
             //activate the pose
             this._poseIsRunning = true;
             this.gestureLoop = this.StartCoroutine(this.setPose(animation))
         }         
     }
-
-    //This function check if the selected gesture is not a pose. It returns if it is not a pose and false if it is a pose.
+    //This function checks if the selected gesture is not a pose.
     private _isNotAPose(gestureType: OfficialContentType[]):bool
     {
-        //return true if it is not a pose and false if it is a pose
         return gestureType.every( item => item !== OfficialContentType.Pose && item !== OfficialContentType.GesturePose )
     }
 
@@ -134,12 +132,12 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
             }
         }
     }
-    // Run the Gesture Pose 
+    // This function runs the Gesture Pose 
     public *setPose(animation: AnimationClip)
     {
         while(true)
         {
-            //Check if the pose is activated
+            //Checks if the pose is activated
             if(this._poseIsRunning)
             {
                 // Run the animation
