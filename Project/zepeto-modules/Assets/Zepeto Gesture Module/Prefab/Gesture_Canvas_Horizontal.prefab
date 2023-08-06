@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1280291680355949900}
   m_Layer: 0
-  m_Name: ZepetoGestureTool_Horizontal
+  m_Name: Gesture_Canvas_Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,8 +68,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210.5, y: -15}
-  m_SizeDelta: {x: 61, y: 30}
+  m_AnchoredPosition: {x: 221.80554, y: -14.236111}
+  m_SizeDelta: {x: 62.499996, y: 28.472221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1280291680463050652
 CanvasRenderer:
@@ -233,8 +233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 304.5, y: -15}
-  m_SizeDelta: {x: 77, y: 30}
+  m_AnchoredPosition: {x: 317.29166, y: -14.236111}
+  m_SizeDelta: {x: 78.47222, y: 28.472221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1280291680656966742
 CanvasRenderer:
@@ -405,19 +405,29 @@ MonoBehaviour:
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyRootMotion: 0
   script:
     keys:
     - _contentsParent
     - _prefThumb
     - _loadContentsCount
+    - _loopInterval
+    - loopEnabled
+    - _duration
     unityValues:
     - {fileID: 1280291681600826429}
     - {fileID: 5726397593310087170, guid: be4c5779411af4ba19478deb1f57d7f1, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     values:
     - 
     - 
     - '{"type":"System.Single, mscorlib","value":"100"}'
+    - '{"type":"System.Single, mscorlib","value":"0"}'
+    - '{"type":"System.Boolean, mscorlib","value":"False"}'
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 956de2558fee74a0fa08a9adb2f63a37, type: 3}
@@ -1882,8 +1892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 106.5, y: -15}
-  m_SizeDelta: {x: 97, y: 30}
+  m_AnchoredPosition: {x: 116.59721, y: -14.236111}
+  m_SizeDelta: {x: 97.916664, y: 28.472221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1280291681700482356
 CanvasRenderer:
@@ -2110,11 +2120,11 @@ RectTransform:
   m_Father: {fileID: 1280291680861260795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -40}
-  m_SizeDelta: {x: 448, y: 588}
-  m_Pivot: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 450, y: 620}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &1280291681784816746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2574,8 +2584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16.5, y: -15}
-  m_SizeDelta: {x: 33, y: 30}
+  m_AnchoredPosition: {x: 26.319445, y: -14.236111}
+  m_SizeDelta: {x: 32.63889, y: 28.472221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1280291681924750827
 CanvasRenderer:
@@ -2800,6 +2810,7 @@ MonoBehaviour:
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyRootMotion: 0
   script:
     keys:
     - _typeToggleGroup
@@ -2859,7 +2870,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0.000007723657, y: 0}
-  m_SizeDelta: {x: 343, y: 0}
+  m_SizeDelta: {x: 356.52777, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1280291682408965338
 MonoBehaviour:
@@ -2874,7 +2885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 10
     m_Right: 0
     m_Top: 0
     m_Bottom: 0

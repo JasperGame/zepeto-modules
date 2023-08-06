@@ -12,14 +12,18 @@ In this documentation, you will learn how to add a QuickChat module in your exis
   
 - Select the quick chat module in the list of module on the left tap of the module importer
 - Click Import  to import the QuickChat Module. 
-- If you did not set up the multiplay feature, make sure that while importing the module you also import the `Zepeto Multiplay Component` and the `World.multiplay` (note the QuickChat feature works only in a multiplay world). In case you already have a multiplay or you are planning to add one on your own, feel free to uncheck the `Zepeto Multiplay Component` and the `World.multiplay` before clicking the import button at the bottom.
+- If you did not set up the multiplay feature, make sure to set up the multiplay component first.
 
 ![Import the QuickChat file](https://github.com/naverz-LeGrandMAG/zepeto-modules/assets/131629767/a5466575-a0d6-4db0-bf53-fb415e9e8e89)
 
-![Uncheck the Zepeto Multiplay Component & World.Multiplay](https://github.com/naverz-LeGrandMAG/zepeto-modules/assets/131629767/0d544f6d-8313-4cc6-8509-34ff53389839)
+
   
-- Drag and drop the **QuickChat Canvas** prefab located at "*Zepeto QuickChat Module > UI > Prefabs*" into your scene. 
-![Drag and drop QuickChat Canvas](https://github.com/naverz-LeGrandMAG/zepeto-modules/assets/131629767/5f52e476-ff23-42f8-9a18-7efe3fe4320b)
+- Go to "*Zepeto QuickChat Module > UI > Prefabs*" and drag and drop the **QuickChat_Canvas_Horizontal** prefab into your scene if the world you are building has an horizontal orientation. Or use the **QuickChat_Canvas_Vertical** prefab if your world orientation is vertical.
+  <img width="700" alt="image" src="./images/GuideImage1.png">   
+
+- If your device has a big or smaller screen and the UI is not displayed properly in your world, You can adjust it size by tweaking the **reference resolution** within the Canvas scaler.
+  
+<img width="700" alt="image" src="./images/GuideImage2.png"> 
 
 Feel free to customize the QuickChat Component/UI depending on your requirements.
 
