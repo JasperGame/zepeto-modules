@@ -9,7 +9,8 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
 
     @HideInInspector() public contents: Content[] = [];
     @HideInInspector() public thumbnails: GameObject[] = [];
-    @HideInInspector() public gestureLoop: Coroutine;
+    @HideInInspector() public gestureCoroutine: Coroutine;
+    @HideInInspector() public poseCoroutine: Coroutine;
     @HideInInspector() public animation: AnimationClip = null;
 
     @SerializeField() private _loadContentsCount: number = 100;
@@ -83,10 +84,14 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
     // A function to run an animation, 
     private runAnimation(animation: AnimationClip, gestureType: OfficialContentType[] )
     {        
-        //if there is another gesture running, stop the coroutine and cancel the gesture
-        if(this.gestureLoop)
+        //if there is another gesture/pose coroutine running, stop the coroutine and cancel the gesture/pose
+        if(this.gestureCoroutine)
         {
-            this.StopCoroutine(this.gestureLoop)
+            this.StopCoroutine(this.gestureCoroutine);
+        }
+        if(this.poseCoroutine)
+        {
+            this.StopCoroutine(this.poseCoroutine);
         }
         this._myCharacter.CancelGesture()
 
@@ -96,7 +101,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
             //checks if the looping feature is enable for the gestures that are not poses and start a coroutine.
             if(this.loopEnabled)
             {
-                this.gestureLoop = this.StartCoroutine(this.setGestureLoop(animation))
+                this.gestureCoroutine = this.StartCoroutine(this.setGestureLoop(animation))
             }
             // When the looping is not enabled
             else
@@ -109,7 +114,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         {
             //activate the pose
             this._poseIsRunning = true;
-            this.gestureLoop = this.StartCoroutine(this.setPose(animation))
+            this.poseCoroutine = this.StartCoroutine(this.setPose(animation))
         }         
     }
     //This function checks if the selected gesture is not a pose.
