@@ -67,10 +67,17 @@ export default class UIController extends ZepetoScriptBehaviour {
     }
       
     private StopGesture() {
-        //If the coroutine stop it.
-        if(this._gestureLoader.gestureLoop)
+
+        //If there is a gesture coroutine stop it.
+        if(this._gestureLoader.gestureCoroutine)
         {
-            this._gestureLoader.StopCoroutine(this._gestureLoader.gestureLoop);
+            this._gestureLoader.StopCoroutine(this._gestureLoader.gestureCoroutine);
+        }
+        //If there is a pose coroutine stop it and reinitialize the Animator speed to 1.
+        if(this._gestureLoader.poseCoroutine)
+        {
+            this._gestureLoader.StopCoroutine(this._gestureLoader.poseCoroutine);
+            this._myCharacter.ZepetoAnimator.speed = 1;
         }
         this._myCharacter.CancelGesture();
     }

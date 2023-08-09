@@ -29,7 +29,7 @@
       "Description": "This module implements gesture features provided by ZEPETO. When a thumbnail is clicked, it allows users to perform specific gestures/poses.",
       "Description_ko": "ZEPETO에서 제공하는 제스쳐 기능을 구현한 모듈입니다. 썸네일을 클릭했을 때 특정 제스쳐/포즈를 취하게 할 수 있습니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/gesture",      
-      "LatestVersion": "1.0.2",
+      "LatestVersion": "1.0.3",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
