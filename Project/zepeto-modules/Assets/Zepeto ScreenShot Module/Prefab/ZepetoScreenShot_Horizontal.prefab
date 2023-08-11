@@ -609,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyRootMotion: 0
   script:
     keys:
     - screenShotController
@@ -638,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyRootMotion: 0
   script:
     keys:
     - feedMessage
@@ -1129,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -26, y: -32}
+  m_AnchoredPosition: {x: -70, y: -50}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &8911402761342042370
@@ -1411,6 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyRootMotion: 0
   script:
     keys:
     - screenShotPanel
@@ -1710,7 +1713,7 @@ RectTransform:
   - {fileID: 8911402761535741500}
   - {fileID: 8911402760247482178}
   - {fileID: 8911402761342042368}
-  m_Father: {fileID: 8911402762172078131}
+  m_Father: {fileID: 8911402762088534265}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2067,6 +2070,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8911402762172078131}
+  - {fileID: 8911402761728444914}
   m_Father: {fileID: 8911402760493274129}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2250,7 +2254,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8911402762186530122}
-  - {fileID: 8911402761728444914}
   m_Father: {fileID: 8911402762088534265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

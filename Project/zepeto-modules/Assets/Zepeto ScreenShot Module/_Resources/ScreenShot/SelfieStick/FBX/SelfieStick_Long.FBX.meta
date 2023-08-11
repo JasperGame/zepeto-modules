@@ -1,24 +1,56 @@
 fileFormatVersion: 2
 guid: 14bf89cfb636da742801e591a574d7fa
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: SelfieStick_Long
-    100004: SelfieStick_LongCamera
-    400000: //RootNode
-    400002: SelfieStick_Long
-    400004: SelfieStick_LongCamera
-    2100000: 14 - Default
-    2300000: //RootNode
-    2300002: SelfieStick_Long
-    2300004: SelfieStick_LongCamera
-    3300000: //RootNode
-    3300002: SelfieStick_Long
-    3300004: SelfieStick_LongCamera
-    4300000: SelfieStick_Long
-    4300002: SelfieStick_LongCamera
-    2186277476908879412: ImportLogs
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: SelfieStick_Long
+  - first:
+      1: 100004
+    second: SelfieStick_LongCamera
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: SelfieStick_Long
+  - first:
+      4: 400004
+    second: SelfieStick_LongCamera
+  - first:
+      21: 2100000
+    second: 14 - Default
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: SelfieStick_Long
+  - first:
+      23: 2300004
+    second: SelfieStick_LongCamera
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: SelfieStick_Long
+  - first:
+      33: 3300004
+    second: SelfieStick_LongCamera
+  - first:
+      43: 4300000
+    second: SelfieStick_Long
+  - first:
+      43: 4300002
+    second: SelfieStick_LongCamera
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -26,7 +58,7 @@ ModelImporter:
       name: 14 - Default
     second: {fileID: 2100000, guid: 6dd07da24f2e8454681970250471c5c7, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -59,25 +91,32 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: 1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -86,10 +125,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -99,13 +138,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
