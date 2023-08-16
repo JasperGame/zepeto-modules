@@ -94,6 +94,9 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
             this.StopCoroutine(this.poseCoroutine);
         }
         this._myCharacter.CancelGesture()
+        
+        //Reset the animator speed to 1
+        this._myCharacter.ZepetoAnimator.speed = 1;
 
         // In case the gesture is not a pose.
         if(this._isNotAPose(gestureType))
@@ -151,8 +154,6 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
                 this._myCharacter.ZepetoAnimator.speed = 0;
                 yield new WaitForSeconds(this._duration)
                 this._myCharacter.CancelGesture()
-                //Reset the animator speed to 1
-                this._myCharacter.ZepetoAnimator.speed = 1;
                 this._poseIsRunning = false;
             }
             else
