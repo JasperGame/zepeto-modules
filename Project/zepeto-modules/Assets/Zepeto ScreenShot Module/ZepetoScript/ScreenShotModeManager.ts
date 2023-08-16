@@ -1,5 +1,5 @@
-import {Animator, Camera, GameObject, HumanBodyBones, Quaternion, Renderer, Transform, Vector3} from 'UnityEngine';
-import {ZepetoPlayer, ZepetoPlayers} from 'ZEPETO.Character.Controller';
+import {Animator, Camera, GameObject, Object, HumanBodyBones, Quaternion, Renderer, Transform, Vector3} from 'UnityEngine';
+import { ZepetoPlayer, ZepetoPlayers, ZepetoCharacter } from 'ZEPETO.Character.Controller';
 import {ZepetoScriptBehaviour} from 'ZEPETO.Script'
 import IKController from './IKController';
 import ScreenShotController from './ScreenShotController';
@@ -19,6 +19,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
 
     public selfieStickPrefab: GameObject;
     private selfieStick: GameObject;
+    public myCharacter: ZepetoCharacter;
 
     // Data
     private playerLayer: number = 21;
@@ -30,6 +31,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             this.localPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
             this.zepetoCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;
+            this.myCharacter = Object.FindObjectOfType<ZepetoCharacter>();
 
             if(this.localPlayer.character.gameObject.layer != this.playerLayer) {
                 this.localPlayer.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
