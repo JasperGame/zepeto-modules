@@ -1,6 +1,8 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Vector3, Transform, Mathf, Time, Quaternion, HideFlags, GameObject, Input, Application } from 'UnityEngine'
+import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application } from 'UnityEngine'
 import { EventSystem } from 'UnityEngine.EventSystems';
+import ScreenShotModeManager from './ScreenShotModeManager';
+
 export default class SelfieCamera extends ZepetoScriptBehaviour {
     
     public rightOffset: number = 0.25;
@@ -21,6 +23,8 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     private xMaxLimit: number = 180;
     private rotateX: number = 0;
     private rotateY: number = 0;
+    private _screenShotModeManager: ScreenShotModeManager;
+    private _myCharacterScaleX: number; // The scale (X) of the Zepeto Character;
 
     public GetGripObject() :GameObject {
         return this.grip;
@@ -99,6 +103,8 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
 
         this.rotateY = this.currentTarget.eulerAngles.x;
         this.rotateX = this.currentTarget.eulerAngles.y;
+
+        this.AdjustSelfieCamera();
     }
 
     CameraInput() {
@@ -125,12 +131,31 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     }
 
     LateUpdate() {
-
-
         if (this.currentTarget == null || this.targetLookAt == null)
             return;
 
         //this.CameraInput();
         this.CameraMovement();
+    }
+    
+    // A function to adjust the selfie camera;
+    AdjustSelfieCamera()
+    {
+        this._screenShotModeManager = Object.FindObjectOfType<ScreenShotModeManager>();
+        this._myCharacterScaleX = this._screenShotModeManager.myCharacter.GetComponent<Transform>().localScale.x;
+        
+        if(this._myCharacterScaleX != null && this._myCharacterScaleX != 0)
+        {
+            // This update the distance according to the Character height and the selfie camera height ratio
+            this.distance = this.distance / this.height  * this._myCharacterScaleX 
+            this.height =  this.height * this._myCharacterScaleX; 
+        }
+        else if(this._myCharacterScaleX == 0)
+        {
+            console.log(`Zepeto Character scale CANNOT BE ${this._myCharacterScaleX}`)
+        }
+        else{
+            console.log(`Zepeto character scale CANNOT BE ${this._myCharacterScaleX}`)
+        }
     }
 }

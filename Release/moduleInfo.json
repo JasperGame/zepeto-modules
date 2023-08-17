@@ -37,7 +37,7 @@
       "Description": "This module implements screenshot UI and features provided by ZEPETO.",
       "Description_ko": "ZEPETO에서 제공하는 스크린샷 UI 및 기능을 구현한 모듈입니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/screenshot",
-      "LatestVersion": "1.0.1",
+      "LatestVersion": "1.0.2",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
