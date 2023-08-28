@@ -150,10 +150,6 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
             this.distance = this.distance / this.height  * this._myCharacterScaleX 
             this.height =  this.height * this._myCharacterScaleX; 
         }
-        else if(this._myCharacterScaleX == 0)
-        {
-            console.log(`Zepeto Character scale CANNOT BE ${this._myCharacterScaleX}`)
-        }
         else{
             console.log(`Zepeto character scale CANNOT BE ${this._myCharacterScaleX}`)
         }

@@ -19,7 +19,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
 
     public selfieStickPrefab: GameObject;
     private selfieStick: GameObject;
-    public myCharacter: ZepetoCharacter;
+    @HideInInspector() public myCharacter: ZepetoCharacter;
 
     // Data
     private playerLayer: number = 21;
@@ -31,7 +31,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             this.localPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
             this.zepetoCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;
-            this.myCharacter = Object.FindObjectOfType<ZepetoCharacter>();
+            this.myCharacter = this.localPlayer.character;
 
             if(this.localPlayer.character.gameObject.layer != this.playerLayer) {
                 this.localPlayer.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
