@@ -4,13 +4,13 @@ import { OfficialContentType, ZepetoWorldContent, Content } from 'ZEPETO.World';
 import { Button } from 'UnityEngine.UI';
 import { Object, GameObject, Transform, AnimationClip, WaitForSeconds, Coroutine} from 'UnityEngine';
 import Thumbnail from './Thumbnail';
+import UIController from './UIController';
 
 export default class GestureLoader extends ZepetoScriptBehaviour {
 
     @HideInInspector() public contents: Content[] = [];
     @HideInInspector() public thumbnails: GameObject[] = [];
     @HideInInspector() public gestureCoroutine: Coroutine;
-    @HideInInspector() public poseCoroutine: Coroutine;
     @HideInInspector() public animation: AnimationClip = null;
 
     @SerializeField() private _loadContentsCount: number = 100;
@@ -19,6 +19,8 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
 
     private _myCharacter: ZepetoCharacter;
     private _poseIsRunning: bool;
+    public vPadHorizontal: GameObject;
+    public vPadVertical: GameObject;
     
     // Loop setting
     @Header("Playback Settings")
@@ -89,14 +91,10 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         {
             this.StopCoroutine(this.gestureCoroutine);
         }
-        if(this.poseCoroutine)
-        {
-            this.StopCoroutine(this.poseCoroutine);
-        }
-        this._myCharacter.CancelGesture()
-        
         //Reset the animator speed to 1
         this._myCharacter.ZepetoAnimator.speed = 1;
+        this._myCharacter.CancelGesture()
+        
 
         // In case the gesture is not a pose.
         if(this._isNotAPose(gestureType))
@@ -117,7 +115,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
         {
             //activate the pose
             this._poseIsRunning = true;
-            this.poseCoroutine = this.StartCoroutine(this.setPose(animation))
+            this.gestureCoroutine = this.StartCoroutine(this.setPose(animation))
         }         
     }
     //This function checks if the selected gesture is not a pose.
@@ -153,8 +151,9 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
                 //Stop the animation and wait for a few seconds ( the number of seconds to wait is set by posingInterval)
                 this._myCharacter.ZepetoAnimator.speed = 0;
                 yield new WaitForSeconds(this._duration)
-                this._myCharacter.CancelGesture()
                 this._poseIsRunning = false;
+                this._myCharacter.ZepetoAnimator.speed = 1;
+                this._myCharacter.CancelGesture()
             }
             else
             {

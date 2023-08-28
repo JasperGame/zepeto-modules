@@ -414,6 +414,8 @@ MonoBehaviour:
     - _loopInterval
     - loopEnabled
     - _duration
+    - vPadHorizontal
+    - vPadVertical
     unityValues:
     - {fileID: 1280291681600826429}
     - {fileID: 5726397593310087170, guid: be4c5779411af4ba19478deb1f57d7f1, type: 3}
@@ -421,6 +423,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 1280291680355949901}
+    - {fileID: 1280291680355949901, guid: 983578afae44d459d92e89fe01392623, type: 3}
     values:
     - 
     - 
@@ -428,6 +432,8 @@ MonoBehaviour:
     - '{"type":"System.Single, mscorlib","value":"0"}'
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
+    - 
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 956de2558fee74a0fa08a9adb2f63a37, type: 3}
