@@ -7,18 +7,18 @@ import SelfieCamera from './SelfieCamera';
 
 export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     
-    private localPlayer: ZepetoPlayer;
     private iKController: IKController;
-
+    
     public screenShotController: GameObject;
     private screenShot: ScreenShotController;
-
+    
     public selfieCameraPrefab: GameObject;
     private selfieCamera: Camera;
     private zepetoCamera: Camera;
-
+    
     public selfieStickPrefab: GameObject;
     private selfieStick: GameObject;
+    @HideInInspector() public localPlayer: ZepetoPlayer;
     @HideInInspector() public myCharacter: ZepetoCharacter;
 
     // Data

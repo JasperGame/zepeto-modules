@@ -1,7 +1,8 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application } from 'UnityEngine'
+import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application, HumanBodyBones } from 'UnityEngine';
 import { EventSystem } from 'UnityEngine.EventSystems';
 import ScreenShotModeManager from './ScreenShotModeManager';
+import { ZepetoPlayer} from 'ZEPETO.Character.Controller';
 
 export default class SelfieCamera extends ZepetoScriptBehaviour {
     
@@ -147,11 +148,19 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
         if(this._myCharacterScaleX != null && this._myCharacterScaleX != 0)
         {
             // This update the distance according to the Character height and the selfie camera height ratio
-            this.distance = this.distance / this.height  * this._myCharacterScaleX 
-            this.height =  this.height * this._myCharacterScaleX; 
+            this.height = this.setCameraHeight(this._screenShotModeManager.localPlayer)
+            this. distance = this.distance / this.height;
         }
         else{
             console.log(`Zepeto character scale CANNOT BE ${this._myCharacterScaleX}`)
         }
     }
+
+    // This function returns the camera height following the chest position;
+    private setCameraHeight(localPlayer:ZepetoPlayer){
+        
+        const eyePosition = localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.LeftEye).position;  
+        return eyePosition.y;   
+    }
+
 }
