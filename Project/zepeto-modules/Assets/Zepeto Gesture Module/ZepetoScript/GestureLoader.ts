@@ -19,9 +19,7 @@ export default class GestureLoader extends ZepetoScriptBehaviour {
 
     private _myCharacter: ZepetoCharacter;
     private _poseIsRunning: bool;
-    public vPadHorizontal: GameObject;
-    public vPadVertical: GameObject;
-    
+        
     // Loop setting
     @Header("Playback Settings")
     @Header("Gesture") 
