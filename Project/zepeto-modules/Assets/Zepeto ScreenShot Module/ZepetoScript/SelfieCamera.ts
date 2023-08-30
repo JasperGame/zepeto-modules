@@ -143,24 +143,25 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     AdjustSelfieCamera()
     {
         this._screenShotModeManager = Object.FindObjectOfType<ScreenShotModeManager>();
-        this._myCharacterScaleX = this._screenShotModeManager.myCharacter.GetComponent<Transform>().localScale.x;
+        const initialHeight = this.height;
+        this.height = this.setCameraHeight(this._screenShotModeManager.localPlayer)
         
-        if(this._myCharacterScaleX != null && this._myCharacterScaleX != 0)
+        // Check if the character is too tall and adjust the camera distance accordingly
+        if(this.height > 0.9)
         {
-            // This update the distance according to the Character height and the selfie camera height ratio
-            this.height = this.setCameraHeight(this._screenShotModeManager.localPlayer)
-            this. distance = this.distance / this.height;
+            this.distance = this.distance / this.height;
         }
-        else{
-            console.log(`Zepeto character scale CANNOT BE ${this._myCharacterScaleX}`)
+        else
+        {
+            this.distance = this.distance / (this.height * initialHeight);
         }
     }
 
-    // This function returns the camera height following the chest position;
-    private setCameraHeight(localPlayer:ZepetoPlayer){
+    // This function returns the camera height following the head position;
+    private setCameraHeight(localPlayer:ZepetoPlayer): number {
         
         const eyePosition = localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.LeftEye).position;  
-        return eyePosition.y;   
+        return eyePosition.y;
     }
 
 }
