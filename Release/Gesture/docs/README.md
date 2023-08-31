@@ -32,9 +32,9 @@
   
   <img width="700" alt="image" src="./images/GuideImage6.png">
 
-#### If you have a screen rotation feature in your world
-- If you have a screen rotation button in your world, make sure to use the Custom Touchpad Controller located in the **ZepetoGesture > Prefab > Custom Touchpad Controller**.
--  All you have to do is drag and drop those prefabs to replace the prefabs in the Zepeto Player Script located in the ZepetoPlayers gameObject.
+#### If you have a screen rotation feature in your World
+- If your World includes a screen rotation feature, use the Custom Touchpad Controller the Gesture Module provides. (**ZepetoGesture > Prefab > Custom Touchpad Controller**) This custom prefab allows you to cancel Gestures initiated before screen rotation with the Touchpad after the screen rotation.
+- All you have to do is drag and drop those prefabs to replace the prefabs in the Zepeto Player Script located in the ZepetoPlayers gameObject.
 -  <img width="700" alt="image" src="./images/GuideImage7.png">
    
 #### How to sync multiplayer
