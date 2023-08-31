@@ -2,10 +2,9 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application, HumanBodyBones } from 'UnityEngine';
 import { EventSystem } from 'UnityEngine.EventSystems';
 import ScreenShotModeManager from './ScreenShotModeManager';
-import { ZepetoPlayer} from 'ZEPETO.Character.Controller';
+import { KnowSockets, ZepetoPlayer} from 'ZEPETO.Character.Controller';
 
 export default class SelfieCamera extends ZepetoScriptBehaviour {
-    
     public rightOffset: number = 0.25;
     public distance: number = 0.7;
     public height: number = 0.893;
@@ -25,7 +24,6 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     private rotateX: number = 0;
     private rotateY: number = 0;
     private _screenShotModeManager: ScreenShotModeManager;
-    private _myCharacterScaleX: number; // The scale (X) of the Zepeto Character;
 
     public GetGripObject() :GameObject {
         return this.grip;
@@ -57,7 +55,6 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     private CameraMovement() {
         if (this.currentTarget == null)
             return;
-
         let newRot: Quaternion = Quaternion.Euler(this.rotateY, this.rotateX, 0);
         this.targetLookAt.rotation = Quaternion.Slerp(this.targetLookAt.rotation, newRot, this.smoothCameraRotation * Time.deltaTime);
 
@@ -144,7 +141,7 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     {
         this._screenShotModeManager = Object.FindObjectOfType<ScreenShotModeManager>();
         const initialHeight = this.height;
-        this.height = this.setCameraHeight(this._screenShotModeManager.localPlayer)
+        this.height = this.getSelfieCameraHeight(this._screenShotModeManager.localPlayer)
         
         // Check if the character is too tall and adjust the camera distance accordingly
         if(this.height > 0.9)
@@ -158,10 +155,12 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     }
 
     // This function returns the camera height following the head position;
-    private setCameraHeight(localPlayer:ZepetoPlayer): number {
+    private getSelfieCameraHeight(localPlayer:ZepetoPlayer): number {
         
+        const footPosition = localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.LeftFoot).position;
         const eyePosition = localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.LeftEye).position;  
-        return eyePosition.y;
+        const zepetoHeight = Vector3.Distance(eyePosition, footPosition);
+        return zepetoHeight;
     }
 
 }
