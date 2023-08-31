@@ -31,6 +31,12 @@
 - This feature only works for gesture that are pose.
   
   <img width="700" alt="image" src="./images/GuideImage6.png">
+
+#### If you have a screen rotation feature in your World
+- If your World includes a screen rotation feature, use the Custom Touchpad Controller the Gesture Module provides. (**ZepetoGesture > Prefab > Custom Touchpad Controller**) This custom prefab allows you to cancel Gestures initiated before screen rotation with the Touchpad after the screen rotation.
+- All you have to do is drag and drop those prefabs to replace the prefabs in the Zepeto Player Script located in the ZepetoPlayers gameObject.
+-  <img width="700" alt="image" src="./images/GuideImage7.png">
+   
 #### How to sync multiplayer
 - For multiplayer synchronization, after downloading [[Multiplay Component]](../../MultiplayComponent/), check **Use Zepeto Gesture API** of ZepetoPlayersManager placed in the scene.   
          <img width="700" alt="image" src="./images/GuideImage4.png">
