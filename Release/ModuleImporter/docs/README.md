@@ -9,4 +9,8 @@
 
 ### Use Tips
 - Feel free to send and participate in PR for more diverse modules and upgraded usability. Please open your modules and projects to ZEPETO World Creator users :)
-     > **Note**: [[How to contribute]](../../../docs/HowToContribute.md)
+
+     > **Note**: [[How to contribute]](../../../docs/HowToContribute.md).
+
+- You can also [report issue or make a feature request](https://github.com/JasperGame/zepeto-modules/issues/new/choose) .
+  
