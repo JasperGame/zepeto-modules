@@ -2,7 +2,7 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application, HumanBodyBones } from 'UnityEngine';
 import { EventSystem } from 'UnityEngine.EventSystems';
 import ScreenShotModeManager from './ScreenShotModeManager';
-~import { ZepetoPlayer } from 'ZEPETO.Character.Controller';
+import { ZepetoPlayer } from 'ZEPETO.Character.Controller';
 
 export default class SelfieCamera extends ZepetoScriptBehaviour {
     public rightOffset: number = 0.25;
