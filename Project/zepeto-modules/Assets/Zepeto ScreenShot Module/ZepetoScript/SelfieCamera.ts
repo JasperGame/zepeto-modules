@@ -2,7 +2,7 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application, HumanBodyBones } from 'UnityEngine';
 import { EventSystem } from 'UnityEngine.EventSystems';
 import ScreenShotModeManager from './ScreenShotModeManager';
-import { KnowSockets, ZepetoPlayer} from 'ZEPETO.Character.Controller';
+~import { ZepetoPlayer } from 'ZEPETO.Character.Controller';
 
 export default class SelfieCamera extends ZepetoScriptBehaviour {
     public rightOffset: number = 0.25;
@@ -141,7 +141,7 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     {
         this._screenShotModeManager = Object.FindObjectOfType<ScreenShotModeManager>();
         const initialHeight = this.height;
-        this.height = this.getSelfieCameraHeight(this._screenShotModeManager.localPlayer)
+        this.height = this.calculateSelfieCameraHeight(this._screenShotModeManager.localPlayer)
         
         // Check if the character is too tall and adjust the camera distance accordingly
         if(this.height > 0.9)
@@ -155,7 +155,7 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     }
 
     // This function returns the camera height following the head position;
-    private getSelfieCameraHeight(localPlayer:ZepetoPlayer): number {
+    private calculateSelfieCameraHeight(localPlayer:ZepetoPlayer): number {
         
         const footPosition = localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.LeftFoot).position;
         const eyePosition = localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.LeftEye).position;  
