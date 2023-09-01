@@ -1,5 +1,5 @@
-import {Animator, Camera, GameObject, HumanBodyBones, Quaternion, Renderer, Transform, Vector3} from 'UnityEngine';
-import {ZepetoPlayer, ZepetoPlayers} from 'ZEPETO.Character.Controller';
+import {Animator, Camera, GameObject, Object, HumanBodyBones, Quaternion, Renderer, Transform, Vector3} from 'UnityEngine';
+import { ZepetoPlayer, ZepetoPlayers, ZepetoCharacter } from 'ZEPETO.Character.Controller';
 import {ZepetoScriptBehaviour} from 'ZEPETO.Script'
 import IKController from './IKController';
 import ScreenShotController from './ScreenShotController';
@@ -7,18 +7,19 @@ import SelfieCamera from './SelfieCamera';
 
 export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     
-    private localPlayer: ZepetoPlayer;
     private iKController: IKController;
-
+    
     public screenShotController: GameObject;
     private screenShot: ScreenShotController;
-
+    
     public selfieCameraPrefab: GameObject;
     private selfieCamera: Camera;
     private zepetoCamera: Camera;
-
+    
     public selfieStickPrefab: GameObject;
     private selfieStick: GameObject;
+    @HideInInspector() public localPlayer: ZepetoPlayer;
+    @HideInInspector() public myCharacter: ZepetoCharacter;
 
     // Data
     private playerLayer: number = 21;
@@ -30,6 +31,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             this.localPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
             this.zepetoCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;
+            this.myCharacter = this.localPlayer.character;
 
             if(this.localPlayer.character.gameObject.layer != this.playerLayer) {
                 this.localPlayer.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
