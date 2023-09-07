@@ -14,12 +14,12 @@
          <img width="700" alt="image" src="./images/GuideImage2.png">
 
 #### 제스쳐 로드 개수를 변경하는 방법
-- ZepetoGesture_Horizontal.prefab 내부의 GestureLoader스크립트의 Load Contents Count 수를 조절해 노출될 제스쳐의 개수를 조절할 수 있습니다.   
+- ZepetoGesture_Horizontal.prefab 내부의 GestureLoader스크립트의 Load Contents Count 수를 조절해 노출될 제스쳐의 개수를 조절할 수 있습니다.( Load Contents Count의 디폴트 값은 100입니다.)   
         <img width="700" alt="image" src="./images/GuideImage3.png">   
-#### 제스처를 반복 재생 하기
+#### 제스처 반복 재생 하기
 - 제스처의 반복 설정을 활성화/비활성화할 수 있습니다.
 - 제스처가 다시 반복 재생되기까지의 대기 시간을 설정할 수 있습니다.
-- 포즈 아닌 제스처에만 반복 설정 가능합니다.
+- 포즈가 아닌 제스처에만 반복 설정 가능합니다.
 
 - <img width="700" alt="image" src="./images/GuideImage5.png">
 
@@ -33,6 +33,7 @@
 #### 화면 회전 기능이 있는 경우
 - 만약 화면 회전 기능이 있는 경우, 제스처 모듈이 제공하는 Custom Touchpad Controller를 사용하세요. (**ZepetoGesture > Prefab > Custom Touchpad Controller**). 이 Custom Prefab은 화면 회전 후에 터치패드를 사용하여 제스처를 취소할 수 있게 해줍니다.
 - 해야 할 일은 이러한 프리팹을 ZepetoPlayers 게임 오브젝트 내에 있는 Zepeto Player 스크립트를 대체하기 위해 끌어다 놓는 것뿐입니다.
+- Custom Touchpad Controller를 사용하려면 해당 프리팹을 ZepetoPlayers의 Default V-Pad Controller로 드래그하여 기존의 Touchpad Controller를 대체해야 합니다.
 -  <img width="700" alt="image" src="./images/GuideImage7.png">
    
 #### 멀티플레이 동기화 하는 방법
