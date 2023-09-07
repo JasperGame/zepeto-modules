@@ -5966,7 +5966,7 @@ MonoBehaviour:
     unityValues:
     - {fileID: 0}
     values:
-    - '{"type":"System.String, mscorlib","value":"Balloon(TransformSync)"}'
+    - '{"type":"System.String, mscorlib","value":"Prefabs/Balloon(TransformSync)"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7f8029d1df5b7474eadb3b4720b3ca19, type: 3}
@@ -12132,7 +12132,7 @@ MonoBehaviour:
     unityValues:
     - {fileID: 0}
     values:
-    - '{"type":"System.String, mscorlib","value":"Ghost(TransformSync)"}'
+    - '{"type":"System.String, mscorlib","value":"Prefabs/Ghost(TransformSync)"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 7f8029d1df5b7474eadb3b4720b3ca19, type: 3}
