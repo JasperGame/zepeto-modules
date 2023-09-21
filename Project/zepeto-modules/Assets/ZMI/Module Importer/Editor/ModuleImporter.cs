@@ -199,9 +199,15 @@ namespace zmi
                         ModulePath.README_PATH);
                     OpenLocalizeURL(url);
                 }
-
                 
-                ImportButtonGUI();
+                if (GUILayout.Button(ModuleStrings.UI_BUTTON_IMPORT + _selectedData.LatestVersion, GUILayout.Height(20),
+                        GUILayout.ExpandWidth(false)))
+                {
+                    string title = StringUtil.GetRemoveSpace(_selectedData.Title);
+                    string version = "v" + _selectedData.LatestVersion;
+                    EditorCoroutineUtility.StartCoroutine(ModuleInstaller.ImportModule(title, version), this);
+                }
+
                 RemoveButtonGUI();
 
                 GUILayout.EndHorizontal();
@@ -209,44 +215,15 @@ namespace zmi
                 GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(3));
             }
 
-            private void ImportButtonGUI()
-            {
-                string downloadedVersion = VersionHandler.VersionCheck(StringUtil.GetRemoveSpace(_selectedData.Title));
-                string UIImportButton = ModuleStrings.UI_BUTTON_IMPORT;
-                bool moduleIsImportable = true;
-                if(downloadedVersion != ModuleStrings.UNKNOWN_VERSION)
-                {
-                    UIImportButton = ModuleStrings.UI_BUTTON_UPDATE;
-                    moduleIsImportable = ModuleInstaller.isUpdatable(downloadedVersion, _selectedData.LatestVersion);
-                }
-                EditorGUI.BeginDisabledGroup(!moduleIsImportable);
-                if (GUILayout.Button(UIImportButton + _selectedData.LatestVersion, GUILayout.Height(20),
-                        GUILayout.ExpandWidth(false)))
-                {
-                    string title = StringUtil.GetRemoveSpace(_selectedData.Title);
-                    string version = "v" + _selectedData.LatestVersion;
-
-                    if (UIImportButton == ModuleStrings.UI_BUTTON_UPDATE)
-                    {
-                        ModuleInstaller.UpdateModule(_selectedData.Title, version, this);
-                    }
-                    else
-                    {
-                        EditorCoroutineUtility.StartCoroutine(ModuleInstaller.ImportModule(title, version), this);
-
-                    }
-                }
-                EditorGUI.EndDisabledGroup();
-            }
             private void RemoveButtonGUI()
             {
                 string downloadedVersion = VersionHandler.VersionCheck(StringUtil.GetRemoveSpace(_selectedData.Title));
-                bool moduleIsRemovable = ModuleInstaller.IsRemovable(downloadedVersion, _selectedData.Title);
+                bool moduleIsRemovable = ModuleInstaller.IsRemovable(downloadedVersion, _selectedData);
                 EditorGUI.BeginDisabledGroup(!moduleIsRemovable);
                 if (GUILayout.Button(ModuleStrings.UI_BUTTON_REMOVE, GUILayout.Height(20),
                         GUILayout.ExpandWidth(false)))
                 {
-                    ModuleInstaller.RemoveModule(_selectedData.Title);
+                    ModuleInstaller.RemoveModule(_selectedData.Title, false);
                 }
                 EditorGUI.EndDisabledGroup();
             }
@@ -345,7 +322,7 @@ namespace zmi
             private IEnumerator LoadImageAsync(int i)
             {
                 string url = Path.Combine(ModulePath.DOWNLOAD_PATH, StringUtil.GetRemoveSpace(_contentList.Items[i].Title),
-                    ModulePath.PREVIEW_IMAGE_NAME + ModuleStrings.EXTENSION_PNG);
+                    ModulePath.PREVIEW_IMAGE_NAME);
                 yield return DownloadGithubHandler.GetTextureAsync(url, (texture) =>
                 {
                     if (texture != null)

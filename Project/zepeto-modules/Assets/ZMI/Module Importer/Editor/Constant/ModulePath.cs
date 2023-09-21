@@ -6,8 +6,7 @@ namespace zmi.Constant
         public const string ASSET_DIRECTORY = "Assets/";
         public const string ROOT_DIRECTORY = "Assets/ZMI";
         
-        /* FILE NAME */
-        public const string PREVIEW_IMAGE_NAME = "Preview";
+        public const string PREVIEW_IMAGE_NAME = "Preview.png";
 
         /* Github paths */
         public const string DOWNLOAD_PATH = "https://github.com/JasperGame/zepeto-modules/raw/main/Release/";

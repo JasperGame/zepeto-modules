@@ -12,7 +12,7 @@ namespace zmi.Utilities
         {
             AssetDatabase.DeleteAsset(directoryPath);
         }
-
+        
         public static bool CheckIfDirectoryExist(string moduleName)
         {
             DirectoryPath paths = GenerateFolderPaths(moduleName);
@@ -30,5 +30,6 @@ namespace zmi.Utilities
             return new DirectoryPath(Path.Combine(ModulePath.ASSET_DIRECTORY, oldModuleName),
                 Path.Combine(ModulePath.ROOT_DIRECTORY, moduleName));
         }
+        
     }
 }
