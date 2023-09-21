@@ -26,14 +26,14 @@
 <img width="700" alt="image" src="./images/GuideImage5.png">
 
 #### Setting up the pose duration
-- You can set up how long (in seconds) you want your character to pose when you are using the pose gesture by changing the value of **Duration** in Pose. The default value is 0 seconds. If the pose duration is not set, the pose duration will be the default value of the animation.
+- You can set up how long (in seconds) you want your character to pose when you are using the pose gesture by changing the value of **Duration** in Pose. The default value is 0 seconds. If the pose duration is not set, the pose duration will be the default value.
   
 - This feature only works for gesture that are pose.
   
   <img width="700" alt="image" src="./images/GuideImage6.png">
 
 #### If you have a screen rotation feature in your World
-- If your World includes a screen rotation feature, use the Custom Touchpad Controller the Gesture Module provides. (**ZepetoGesture > Prefab > Custom Touchpad Controller**) This custom prefab allows you to cancel Gestures initiated before screen rotation with the Touchpad after the screen rotation.
+- If your World includes a screen rotation feature, use the Custom Touchpad Controller the Gesture Module provides. (**ZepetoGesture > Prefab > Custom Touchpad Controller**). This custom prefab allows you to cancel Gestures after the screen rotation using the Touchpad.
 - All you have to do is drag and drop those prefabs to replace the prefabs in the Zepeto Player Script located in the ZepetoPlayers gameObject.
 -  <img width="700" alt="image" src="./images/GuideImage7.png">
    

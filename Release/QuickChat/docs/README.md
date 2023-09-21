@@ -27,7 +27,7 @@ In this documentation, you will learn how to add a QuickChat module in your exis
 
 Feel free to customize the QuickChat Component/UI depending on your requirements.
 
-This module works only in a multiplayer world, make sure to check out the multiplay component first before trying.
+This module works only in a multiplayer world, make sure to add the multiplay component before trying it out.
 
 
 ## Getting the list of preset messages
