@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7959484565032610660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3c5d64ac83548c09dd1678b9f6f1cd, type: 3}
+  m_Name: Packed Assets
+  m_EditorClassIdentifier: 
+  m_SchemaObjects:
+  - {fileID: -2835598417381202403}
+  - {fileID: 8274827490509113101}
+  m_Description: Pack assets into asset bundles.
+  m_Settings: {fileID: 11400000}
+--- !u!114 &-6056107727578267416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d21199f5d473f4db36845f2318f180, type: 3}
+  m_Name: BuildScriptFastMode
+  m_EditorClassIdentifier: 
+  instanceProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider
+  sceneProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.SceneProvider
+--- !u!114 &-4666865398500102587
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a189bb168d8d90478a09ea08c2f3d72, type: 3}
+  m_Name: DefaultObject
+  m_EditorClassIdentifier: 
+  m_AddressableAssetSettingsGuid: 5b006f6aa3e2f448aa8db920a6981ca8
+--- !u!114 &-2835598417381202403
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
+  m_Name: BundledAssetGroupSchema
+  m_EditorClassIdentifier: 
+  m_Group: {fileID: 0}
+  m_InternalBundleIdMode: 1
+  m_Compression: 1
+  m_IncludeAddressInCatalog: 1
+  m_IncludeGUIDInCatalog: 1
+  m_IncludeLabelsInCatalog: 1
+  m_InternalIdNamingMode: 0
+  m_CacheClearBehavior: 0
+  m_IncludeInBuild: 1
+  m_BundledAssetProviderType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ForceUniqueProvider: 0
+  m_UseAssetBundleCache: 1
+  m_UseAssetBundleCrc: 1
+  m_UseAssetBundleCrcForCachedBundles: 1
+  m_UseUWRForLocalBundles: 0
+  m_Timeout: 0
+  m_ChunkedTransfer: 0
+  m_RedirectLimit: -1
+  m_RetryCount: 0
+  m_BuildPath:
+    m_Id: db86a63a378534e4d81f499e733b5dad
+  m_LoadPath:
+    m_Id: 9622ab731f66e4742ba0bb5cb1eb32d6
+  m_BundleMode: 0
+  m_AssetBundleProviderType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_BundleNaming: 0
+  m_AssetLoadMode: 0
+--- !u!114 &-2459583584901163159
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2e0ffa088c91d41a086d0b8cb16bdc, type: 3}
+  m_Name: BuildScriptPackedMode
+  m_EditorClassIdentifier: 
+  instanceProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider
+  sceneProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.SceneProvider
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
+  m_Name: AddressableAssetSettings
+  m_EditorClassIdentifier: 
+  m_DefaultGroup: 
+  m_OptimizeCatalogSize: 0
+  m_BuildRemoteCatalog: 1
+  m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
+  m_DisableCatalogUpdateOnStart: 0
+  m_IgnoreUnsupportedFilesInBuild: 0
+  m_UniqueBundleIds: 0
+  m_NonRecursiveBuilding: 0
+  m_CCDEnabled: 0
+  m_maxConcurrentWebRequests: 3
+  m_ContiguousBundles: 0
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
+  m_MonoScriptBundleCustomNaming: 
+  m_RemoteCatalogBuildPath:
+    m_Id: db86a63a378534e4d81f499e733b5dad
+  m_RemoteCatalogLoadPath:
+    m_Id: 9622ab731f66e4742ba0bb5cb1eb32d6
+  m_ContentStateBuildPathProfileVariableName: 
+  m_CustomContentStateBuildPath: Assets/AddressableAssetsData/ContentState/osx
+  m_ContentStateBuildPath: Assets/AddressableAssetsData/ContentState/osx
+  m_BuildAddressablesWithPlayerBuild: 0
+  m_overridePlayerVersion: '[ZEPETO.Script.Build.ZepetoScriptBuildPipeline.ApplicationIdentifier]'
+  m_GroupAssets: []
+  m_BuildSettings:
+    m_CompileScriptsInVirtualMode: 0
+    m_CleanupStreamingAssetsAfterBuilds: 1
+    m_LogResourceManagerExceptions: 1
+    m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
+  m_ProfileSettings:
+    m_Profiles:
+    - m_InheritedParent: 
+      m_Id: 1b8b944d7d14d4ac496b92d73fc4788d
+      m_ProfileName: Default
+      m_Values:
+      - m_Id: 17c86cae3a1ac4286a280d2672c7c9cc
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: db86a63a378534e4d81f499e733b5dad
+        m_Value: '[ZEPETO.Addressables.Editor.ZepetoAddressablesSettings.BuildPath]'
+      - m_Id: 9622ab731f66e4742ba0bb5cb1eb32d6
+        m_Value: '{ZEPETO.Addressables.ZepetoAddressables.Uri}'
+    m_ProfileEntryNames:
+    - m_Id: 17c86cae3a1ac4286a280d2672c7c9cc
+      m_Name: BuildTarget
+      m_InlineUsage: 0
+    - m_Id: db86a63a378534e4d81f499e733b5dad
+      m_Name: Remote.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 9622ab731f66e4742ba0bb5cb1eb32d6
+      m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    m_ProfileVersion: 1
+  m_LabelTable:
+    m_LabelNames:
+    - default
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: -7959484565032610660}
+  m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ActivePlayerDataBuilderIndex: 3
+  m_DataBuilders:
+  - {fileID: -6056107727578267416}
+  - {fileID: 6576508532776798951}
+  - {fileID: 8626591950470380539}
+  - {fileID: -2459583584901163159}
+  m_ActiveProfileId: 1b8b944d7d14d4ac496b92d73fc4788d
+  m_HostingServicesManager:
+    m_HostingServiceInfos: []
+    m_Settings: {fileID: 11400000}
+    m_NextInstanceId: 0
+    m_RegisteredServiceTypeRefs: []
+--- !u!114 &6576508532776798951
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0e4994b34add1409fd8ccaf4a82de5, type: 3}
+  m_Name: BuildScriptVirtualMode
+  m_EditorClassIdentifier: 
+  instanceProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider
+  sceneProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.SceneProvider
+--- !u!114 &8274827490509113101
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: ContentUpdateGroupSchema
+  m_EditorClassIdentifier: 
+  m_Group: {fileID: 0}
+  m_StaticContent: 0
+--- !u!114 &8626591950470380539
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8c280d42ee0ed41a27db23b43dd2bf, type: 3}
+  m_Name: BuildScriptPackedPlayMode
+  m_EditorClassIdentifier: 
+  instanceProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider
+  sceneProviderType:
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.SceneProvider
