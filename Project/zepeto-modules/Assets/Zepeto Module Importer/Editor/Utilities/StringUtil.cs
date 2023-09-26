@@ -12,7 +12,7 @@ namespace zmi.Utilities
 
         internal static string renameModule(string moduleName)
         {
-            if( !moduleName.Contains("Multiplay") && moduleName.Contains("Module"))
+            if( !moduleName.Contains("Multiplay") && !moduleName.Contains("Module"))
             {
                 return "Zepeto " + moduleName + " Module";
             }
