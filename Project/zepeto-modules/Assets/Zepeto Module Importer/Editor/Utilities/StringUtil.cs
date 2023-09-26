@@ -1,5 +1,6 @@
 using zmi.Constant;
 
+using UnityEngine;
 namespace zmi.Utilities
 {
     public class StringUtil 
@@ -10,8 +11,12 @@ namespace zmi.Utilities
         }
 
         internal static string renameModule(string moduleName)
-        { 
-            return "Zepeto " + moduleName + " Module";
+        {
+            if( !moduleName.Contains("Multiplay") && moduleName.Contains("Module"))
+            {
+                return "Zepeto " + moduleName + " Module";
+            }
+            return "Zepeto " + moduleName;
         }
 
         internal static string GenerateDialogMessage(string message, string[] modulePath, bool isList)

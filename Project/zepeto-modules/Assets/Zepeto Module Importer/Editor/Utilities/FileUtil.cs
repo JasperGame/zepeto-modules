@@ -2,7 +2,7 @@ using System.IO;
 using UnityEditor;
 using zmi.Constant;
 using zmi.Internal;
-
+using UnityEngine;
 namespace zmi.Utilities
 {
     public static class FileUtil
@@ -16,6 +16,7 @@ namespace zmi.Utilities
         public static bool CheckIfDirectoryExist(string moduleName)
         {
             DirectoryPath paths = GenerateFolderPaths(moduleName);
+            
             if (Directory.Exists(paths.oldPath) || Directory.Exists(paths.newPath))
             {
                 return true;

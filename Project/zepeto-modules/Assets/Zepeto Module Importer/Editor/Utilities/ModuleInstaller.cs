@@ -67,7 +67,7 @@ namespace zmi.Utilities
             // Remove the Directory if it is located in "Assets/"
             if (Directory.Exists(directoryPaths.oldPath))
             {
-                
+                Debug.Log(directoryPaths.oldPath);
                 if(UiHandler.TryDialog(StringUtil.renameModule(moduleName), StringUtil.GenerateDialogMessage(message, new []{directoryPaths.oldPath},false), ModuleStrings.DIALOG_REMOVE_CONFIRM_BUTTON, ModuleStrings.DIALOG_REMOVE_CANCEL_BUTTON))
                 {
                     FileUtil.DeleteDirectory(directoryPaths.oldPath);
