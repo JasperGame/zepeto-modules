@@ -1,40 +1,42 @@
 
 using System;
 using System.Reflection;
+using zmi.Constant;
 
-public class VersionHandler
+namespace zmi.Utilities
 {
-    public static string VersionCheck(string className)
+    public class VersionHandler
     {
-        string downloadedVersion = "UNKNOWN";
-
-        Type type = GetTypeByName(className);
-
-        if (type != null)
+        public static string VersionCheck(string className)
         {
-            FieldInfo field = type.GetField("VERSION", BindingFlags.Static | BindingFlags.Public);
+            string downloadedVersion = ModuleStrings.UNKNOWN_VERSION;
 
-            if (field != null)
-            {
-                downloadedVersion = (string)field.GetValue(null);
-            }
-        }
+            Type type = GetTypeByName(className + ModuleStrings.VERSION_CAPITAL);
 
-        return downloadedVersion;
-    }
-    
-    private static Type GetTypeByName(string className)
-    {
-        Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        foreach (Assembly assembly in assemblies)
-        {
-            Type type = assembly.GetType(className);
             if (type != null)
             {
-                return type;
+                FieldInfo field = type.GetField(ModuleStrings.VERSION_UPPERCASE, BindingFlags.Static | BindingFlags.Public);
+
+                if (field != null)
+                {
+                    downloadedVersion = (string)field.GetValue(null);
+                }
             }
+            return downloadedVersion;
         }
 
-        return null;
+        private static Type GetTypeByName(string className)
+        {
+            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            foreach (Assembly assembly in assemblies)
+            {
+                Type type = assembly.GetType(className);
+                if (type != null)
+                {
+                    return type;
+                }
+            }
+            return null;
+        }
     }
 }
