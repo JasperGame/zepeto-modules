@@ -1,5 +1,5 @@
 public class MultiplayComponentVersion
 {
-    public static readonly string VERSION = "1.1.2";
+    public static readonly string VERSION = "1.1.3";
 }
     
