@@ -15,9 +15,10 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     public selfieCameraPrefab: GameObject;
     private selfieCamera: Camera;
     private zepetoCamera: Camera;
+
+    public additionalRunSpeedInSelfieMode: number = 0;
+    public additionalWalkSpeedInSelfieMode: number = 0;
     
-    public selfieStickPrefab: GameObject;
-    private selfieStick: GameObject;
     @HideInInspector() public localPlayer: ZepetoPlayer;
     @HideInInspector() public myCharacter: ZepetoCharacter;
 
@@ -53,21 +54,11 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         let selfieCamera: SelfieCamera = target.GetComponent<SelfieCamera>();
         selfieCamera.InitSetting(character.gameObject.transform);
         
-        let grip = selfieCamera.GetGripObject();
         let playerAnimator = this.localPlayer.character.gameObject.GetComponentInChildren<Animator>();
         this.iKController = playerAnimator.gameObject.AddComponent<IKController>();
-        this.iKController.SetTargetAndGrip(target.transform, grip.transform);
+        this.iKController.SetTarget(target.transform);
 
-        // 3. Fix the selfie stick on the character's right hand
-        this.selfieStick = GameObject.Instantiate<GameObject>(this.selfieStickPrefab);
-        
-        const rightHand = this.localPlayer.character.ZepetoAnimator.GetBoneTransform(HumanBodyBones.RightHand);
-        this.selfieStick.transform.parent = rightHand;
-        this.selfieStick.transform.localPosition = Vector3.zero;
-        this.selfieStick.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        this.selfieStick.GetComponentInChildren<Renderer>().gameObject.layer = this.playerLayer;
-        
-        // 4. Initialize the zepetoCamera
+        // 3. Initialize the zepetoCamera
         this.SetZepetoCameraMode();
     }
 
@@ -79,10 +70,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         }
 
         if(!isThirdPersonView) {
-            // Delete the selfie camera
-            // Disable IK Pass
-            this.SetIKPassActive(false);
-            // Activate ZEPETO Camera
+            this.SetIKActive(false);
             this.zepetoCamera.gameObject.SetActive(true);
         }
     }
@@ -105,10 +93,23 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     }
 
     // Decide whether to apply IKPass
-    public SetIKPassActive(active: boolean) {
-        this.iKController.SetIKWeightActive(active);
-        //Selfie stick is enable/disable at the same time IK controller is used in selfie mode. 
-        this.selfieStick.SetActive(active);
+     public SetIKActive(active: boolean) {
+         this.iKController.SetIKWeightActive(active);
+    }
+
+    // Decide whether to use MoveTurn Anim
+    public SetMoveturnActive(active: boolean) {
+        this.myCharacter.MotionV2.useMoveTurn = active;
+    }
+
+    // Increases run speed
+    public AddRunSpeed(addSpeed: number) {
+        this.myCharacter.additionalRunSpeed = addSpeed;
+    }
+
+    // Increases walk speed
+    public AddWalkSpeed(addSpeed: number) {
+        this.myCharacter.additionalWalkSpeed = addSpeed;
     }
 
     // Functions for camera setup
@@ -118,11 +119,14 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         // Enable Selfie Camera
         this.SetSelfieCameraActive(true);
         // Enabling IKPass for Selfie Pose Settings
-        this.SetIKPassActive(true); 
+        this.SetIKActive(true);
+        // Disable Moveturn Animation
+        this.SetMoveturnActive(false);
+        //Add speed
+        this.AddRunSpeed(this.additionalRunSpeedInSelfieMode);
+        this.AddWalkSpeed(this.additionalWalkSpeedInSelfieMode);
         //Change the camera for screenshots to the selfie camera
         this.screenShot.SetScreenShotCamera(this.selfieCamera);
-        // Enable Selfie Stick
-        this.selfieStick.SetActive(true);
     }
 
     SetZepetoCameraMode() {
@@ -131,10 +135,14 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         // Disable Selfie Camera
         this.SetSelfieCameraActive(false);
         //Disable IKPass to stop posing for selfies
-        this.SetIKPassActive(false);
+        this.SetIKActive(false);
+        // Enable Moveturn Animation
+        this.SetMoveturnActive(true);
+        //Add speed
+        this.AddRunSpeed(this.additionalRunSpeedInSelfieMode *(-1));
+        this.AddWalkSpeed(this.additionalWalkSpeedInSelfieMode * (-1));
         //Change the active camera to the ZEPETO camera
         this.screenShot.SetScreenShotCamera(this.zepetoCamera);
-        // Disable the selfie stick
-        this.selfieStick.SetActive(false);
+
     }
 }
