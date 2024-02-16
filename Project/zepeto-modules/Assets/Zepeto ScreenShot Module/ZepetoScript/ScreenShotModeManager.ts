@@ -83,7 +83,6 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
             // Set speed
             this.SetRunSpeed(this.savedRunSpeed);
             this.SetWalkSpeed(this.savedWalkSpeed);
-            console.log(this.myCharacter.RunSpeed);
         }
 
     }
