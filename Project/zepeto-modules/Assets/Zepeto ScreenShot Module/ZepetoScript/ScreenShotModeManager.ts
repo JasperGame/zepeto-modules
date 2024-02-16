@@ -16,9 +16,12 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     private selfieCamera: Camera;
     private zepetoCamera: Camera;
 
-    public additionalRunSpeedInSelfieMode: number = 0;
-    public additionalWalkSpeedInSelfieMode: number = 0;
-    
+    public runSpeedInSelfieMode: number = 2;
+    public walkSpeedInSelfieMode: number = 1;
+    private savedRunSpeed: number;
+    private savedWalkSpeed: number;
+    private savedMoveTurnActive: bool;
+
     @HideInInspector() public localPlayer: ZepetoPlayer;
     @HideInInspector() public myCharacter: ZepetoCharacter;
 
@@ -58,7 +61,10 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         this.iKController = playerAnimator.gameObject.AddComponent<IKController>();
         this.iKController.SetTarget(target.transform);
 
-        // 3. Initialize the zepetoCamera
+        // 3. Save initial Values
+        this.SaveSpeedAndMoveTurnValues();
+
+        // 4. Initialize the zepetoCamera
         this.SetZepetoCameraMode();
     }
 
@@ -72,16 +78,25 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         if(!isThirdPersonView) {
             this.SetIKActive(false);
             this.zepetoCamera.gameObject.SetActive(true);
+            // Revert Moveturn Animation
+            this.SetMoveturnActive(this.savedMoveTurnActive);
+            // Set speed
+            this.SetRunSpeed(this.savedRunSpeed);
+            this.SetWalkSpeed(this.savedWalkSpeed);
+            console.log(this.myCharacter.RunSpeed);
         }
+
     }
 
     public GetPlayerLayer(): number {
         return this.playerLayer;
     }
+
     // Return Selfie Camera
     public GetSelfieCamera(): Camera {
         return this.selfieCamera;
     }
+
     // Return ZEPETO Camera
     public GetZepetoCamera(): Camera {
         return this.zepetoCamera;
@@ -102,18 +117,27 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         this.myCharacter.MotionV2.useMoveTurn = active;
     }
 
-    // Increases run speed
-    public AddRunSpeed(addSpeed: number) {
-        this.myCharacter.additionalRunSpeed = addSpeed;
+    // Set run speed
+    public SetRunSpeed(speed: number) {
+        this.myCharacter.additionalRunSpeed += speed - this.myCharacter.RunSpeed;
     }
 
-    // Increases walk speed
-    public AddWalkSpeed(addSpeed: number) {
-        this.myCharacter.additionalWalkSpeed = addSpeed;
+    // Set walk speed
+    public SetWalkSpeed(speed: number) {
+        this.myCharacter.additionalWalkSpeed += speed - this.myCharacter.WalkSpeed;
+    }
+
+    //Save Values
+    private SaveSpeedAndMoveTurnValues() {
+        this.savedRunSpeed = this.myCharacter.RunSpeed;
+        this.savedWalkSpeed = this.myCharacter.WalkSpeed;
+        this.savedMoveTurnActive = this.myCharacter.MotionV2.useMoveTurn;
     }
 
     // Functions for camera setup
     SetSelfieCameraMode() {
+        // Save Values
+        this.SaveSpeedAndMoveTurnValues();
         //Disable the existing ZEPETO Camera
         this.zepetoCamera.gameObject.SetActive(false);
         // Enable Selfie Camera
@@ -122,9 +146,9 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         this.SetIKActive(true);
         // Disable Moveturn Animation
         this.SetMoveturnActive(false);
-        //Add speed
-        this.AddRunSpeed(this.additionalRunSpeedInSelfieMode);
-        this.AddWalkSpeed(this.additionalWalkSpeedInSelfieMode);
+        // Set speed
+        this.SetRunSpeed(this.runSpeedInSelfieMode);
+        this.SetWalkSpeed(this.walkSpeedInSelfieMode);
         //Change the camera for screenshots to the selfie camera
         this.screenShot.SetScreenShotCamera(this.selfieCamera);
     }
@@ -137,12 +161,11 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         //Disable IKPass to stop posing for selfies
         this.SetIKActive(false);
         // Enable Moveturn Animation
-        this.SetMoveturnActive(true);
-        //Add speed
-        this.AddRunSpeed(this.additionalRunSpeedInSelfieMode *(-1));
-        this.AddWalkSpeed(this.additionalWalkSpeedInSelfieMode * (-1));
+        this.SetMoveturnActive(this.savedMoveTurnActive);
+        // Set speed
+        this.SetRunSpeed(this.savedRunSpeed);
+        this.SetWalkSpeed(this.savedWalkSpeed);
         //Change the active camera to the ZEPETO camera
         this.screenShot.SetScreenShotCamera(this.zepetoCamera);
-
     }
 }
