@@ -34,8 +34,8 @@
     },
     {
       "Title": "ScreenShot",
-      "Description": "This module implements screenshot UI and features provided by ZEPETO.",
-      "Description_ko": "ZEPETO에서 제공하는 스크린샷 UI 및 기능을 구현한 모듈입니다.",
+      "Description": "This module implements screenshot UI and features provided by ZEPETO.\nPlease refer to the Import Guide to make the character's face follow the camera lens in the selfie mode.",
+      "Description_ko": "ZEPETO에서 제공하는 스크린샷 UI 및 기능을 구현한 모듈입니다.\n셀카 모드에서 캐릭터의 얼굴이 카메라 렌즈를 따라가도록 하려면, 가이드를 참조해 주세요.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/screenshot",
       "LatestVersion": "1.0.3",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
