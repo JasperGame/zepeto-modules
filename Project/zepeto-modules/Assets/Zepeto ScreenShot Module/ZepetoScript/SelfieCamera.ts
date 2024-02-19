@@ -1,11 +1,11 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application, HumanBodyBones } from 'UnityEngine';
+import { Vector3, Transform, Mathf, Object, Time, Quaternion, HideFlags, GameObject, Input, Application, HumanBodyBones, Animator } from 'UnityEngine';
 import { EventSystem } from 'UnityEngine.EventSystems';
 import ScreenShotModeManager from './ScreenShotModeManager';
 import { ZepetoPlayer } from 'ZEPETO.Character.Controller';
 
 export default class SelfieCamera extends ZepetoScriptBehaviour {
-    public rightOffset: number = 0.25;
+    public rightOffset: number = 0.0;
     public distance: number = 0.7;
     public height: number = 0.893;
     public xMouseSensitivity: number = 12;
@@ -14,7 +14,6 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     public yMaxLimit: number = 40;
     public smoothCameraRotation: number = 10;
 
-    public grip: GameObject;
     private currentTarget: Transform;
     private targetLookAt: Transform;
     private currentTargetPos: Vector3;
@@ -24,10 +23,6 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
     private rotateX: number = 0;
     private rotateY: number = 0;
     private _screenShotModeManager: ScreenShotModeManager;
-
-    public GetGripObject() :GameObject {
-        return this.grip;
-    }
 
     public RotateCamera(x: number, y: number) {
         this.SetCameraRotation(this.rotateX + x * this.xMouseSensitivity, this.rotateY - y * this.yMouseSensitivity);
@@ -132,8 +127,9 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
         if (this.currentTarget == null || this.targetLookAt == null)
             return;
 
-        //this.CameraInput();
+        this.CameraInput();
         this.CameraMovement();
+
     }
     
     // A function to adjust the selfie camera;

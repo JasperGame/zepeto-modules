@@ -614,18 +614,21 @@ MonoBehaviour:
     keys:
     - screenShotController
     - selfieCameraPrefab
-    - selfieStickPrefab
+    - additionalRunSpeedInSelfieMode
     - myCharacter
+    - additionalWalkSpeedInSelfieMode
     unityValues:
     - {fileID: 8911402760493274124}
     - {fileID: 467963277368399132, guid: 64ed1f4a89b3b184986ebbdab59d0349, type: 3}
-    - {fileID: 1673898582022550, guid: c5793cd47ec51e94e998c5072cc55a03, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     values:
     - 
     - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     - 
-    - 
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 96d23dd00996d474ebe24a05a1a1a1a6, type: 3}
