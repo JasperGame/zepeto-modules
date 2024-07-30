@@ -35,6 +35,76 @@ The modules currently available in ZEPETO-Modules are:
    > **Note**: Without using the Module Importer, you can download the latest version of the .unitypackage file directly from each module folder in the Release directory and apply it to your project.   
       <img width="700" alt="image" src="./docs/images/GuideImage9.png">
 
+## Known Issues
+There is an issue where the multiplayer schema is reset in Unity Editor version 2022.3.34f1 and Zepeto World version 1.22.1. If you find that the schema is empty and encounter an error like 'Screenshot' each time you run the Unity Editor, please follow the steps below to restore the schema:
+
+
+<img width="700" alt="image" src="./docs/images/GuideImage10.png">
+
+1. Open the schemas file located at Assets > World.Multiplay in a script editor.
+2. Copy and paste the code below into the schemas.json file.
+
+```
+{
+    "State": {
+        "players": {
+            "map": "Player"
+        },
+        "SyncTransforms": {
+            "map": "SyncTransform"
+        }
+    },
+    "Player": {
+        "sessionId": "string",
+        "zepetoUserId": "string",
+        "playerAdditionalValue": "PlayerAdditionalValue",
+        "animationParam": "ZepetoAnimationParam",
+        "gestureName": "string"
+    },
+    "sVector3": {
+        "x": "number",
+        "y": "number",
+        "z": "number"
+    },
+    "sQuaternion": {
+        "x": "number",
+        "y": "number",
+        "z": "number",
+        "w": "number"
+    },
+    "SyncTransform": {
+        "Id": "string",
+        "position": "sVector3",
+        "localPosition": "sVector3",
+        "rotation": "sQuaternion",
+        "scale": "sVector3",
+        "status": "number",
+        "sendTime": "float64"
+    },
+    "PlayerAdditionalValue": {
+        "additionalWalkSpeed": "number",
+        "additionalRunSpeed": "number",
+        "additionalJumpPower": "number"
+    },
+    "ZepetoAnimationParam": {
+        "State": "number",
+        "MoveState": "number",
+        "JumpState": "number",
+        "LandingState": "number",
+        "MotionSpeed": "number",
+        "FallSpeed": "number",
+        "Acceleration": "number",
+        "MoveProgress": "number"
+    }
+}
+
+```
+
+
+If the schema is reset every time you run Unity, please follow the same steps to restore the schema.
+
+
+
 ## How to contribute
 Zepeto-Modules is an open source project. Your contributions will help us further develop this project.
 

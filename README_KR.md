@@ -35,6 +35,72 @@
    >**Note** : Module Importer 를 사용하지 않고, Release 폴더내의 각 모듈 폴더에서 최신 버전의 .unitypackage 파일을 직접 다운로드하여 적용 할 수 있습니다.      
       <img width="700" alt="image" src="./docs/images/GuideImage9.png">
 
+## Known Issues
+Unity Editor 2022.3.34f1 버전과 Zepeto World 1.22.1 버전에서 멀티플레이 스키마가 초기화되는 문제가 발생하고 있습니다. 유니티 에디터를 실행했을 때마다 스키마가 비어 있고 '스크린샷'과 같은 에러가 발생한다면, 아래 과정을 따라 스키마를 복원해 주세요:
+
+<img width="700" alt="image" src="./docs/images/GuideImage10.png">
+
+1. Assets > World.Multiplay > schemas 파일을 스크립트 에디터에서 엽니다.
+2. schemas.json 파일에 아래 코드를 복사하여 붙여넣습니다.
+
+```
+{
+    "State": {
+        "players": {
+            "map": "Player"
+        },
+        "SyncTransforms": {
+            "map": "SyncTransform"
+        }
+    },
+    "Player": {
+        "sessionId": "string",
+        "zepetoUserId": "string",
+        "playerAdditionalValue": "PlayerAdditionalValue",
+        "animationParam": "ZepetoAnimationParam",
+        "gestureName": "string"
+    },
+    "sVector3": {
+        "x": "number",
+        "y": "number",
+        "z": "number"
+    },
+    "sQuaternion": {
+        "x": "number",
+        "y": "number",
+        "z": "number",
+        "w": "number"
+    },
+    "SyncTransform": {
+        "Id": "string",
+        "position": "sVector3",
+        "localPosition": "sVector3",
+        "rotation": "sQuaternion",
+        "scale": "sVector3",
+        "status": "number",
+        "sendTime": "float64"
+    },
+    "PlayerAdditionalValue": {
+        "additionalWalkSpeed": "number",
+        "additionalRunSpeed": "number",
+        "additionalJumpPower": "number"
+    },
+    "ZepetoAnimationParam": {
+        "State": "number",
+        "MoveState": "number",
+        "JumpState": "number",
+        "LandingState": "number",
+        "MotionSpeed": "number",
+        "FallSpeed": "number",
+        "Acceleration": "number",
+        "MoveProgress": "number"
+    }
+}
+
+```
+
+유니티를 실행할 때마다 스키마가 초기화 된다면 같은 과정을 진행하여 스키마를 복원해 주세요.
+
 ## 기여 방법
 Zepeto-Modules는 오픈소스 프로젝트입니다. 여러분의 기여는 이 프로젝트를 더욱 발전시키는 데 큰 도움이 됩니다. 
 
