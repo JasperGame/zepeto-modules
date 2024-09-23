@@ -1,102 +1,313 @@
-import { Camera, CameraClearFlags, Color, GameObject, RenderTexture, WaitForEndOfFrame } from 'UnityEngine';
+import { Application, AudioListener, Camera, Coroutine, GameObject, RenderTexture, WaitForEndOfFrame } from 'UnityEngine'
+import { UnityEvent } from 'UnityEngine.Events';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { ZepetoWorldContent } from 'ZEPETO.World';
-import UIController from './UIController';
+import { VideoPlayer } from 'UnityEngine.Video';
+import { VideoResolutions, WorldVideoRecorder, ZepetoWorldContent } from 'ZEPETO.World';
 
-export default class ScreenShotController extends ZepetoScriptBehaviour {
-    
-    // Camera used to take screenshots
-    private camera: Camera;
+export default class ScreenshotController extends ZepetoScriptBehaviour {
 
-    private preClearFlags:CameraClearFlags;
-    private preBackgroundColor:Color
+    @SerializeField() private _screenshotRenderTexture: RenderTexture;
+    @SerializeField() private _videoMaxDuration: number = 60;
+    @SerializeField() private _videoResolutionType: VideoResolutions = VideoResolutions.W720xH1280;
 
-    // Use 1920 x 1080 size set in Render Texture
-    public renderTexture: RenderTexture;
+    private _mainCamera: Camera;
+    private _replicaCamera: Camera;
 
-    // Background canvas for transparent background shooting
-    public backgroundCanvas: GameObject;
-    public uiControllerObject:GameObject;
-    private uiController:UIController;
-    public feedMessage: string;
-    Awake(){
-        this.uiController = this.uiControllerObject.GetComponent<UIController>();
-    }
+    private _onScreenshotDone: UnityEvent;
+    private _onFailEvent: UnityEvent;
+    private _onSuccessEvent: UnityEvent;
+    private _onProgressEvent: UnityEvent;
 
-    // Set the camera used to take a screenshot. 
-    public SetScreenShotCamera(camera: Camera) {
-        this.camera = camera;
-    }
+    private _onVideoRecordingStartEvent: UnityEvent;
+    private _onVideoRecordingStopEvent: UnityEvent;
 
-    // Onclick Function - Take Screenshot Button
-    public TakeScreenShot(isBackgroundOn: boolean) {
-        if (isBackgroundOn) {
-            this.TakeScreenShotWithBackground();
-        } else {
-            this.TakeScreenShotWithoutBackground();
+    private _coRecordVideo: Coroutine;
+
+    LateUpdate() {
+        if (!this.IsValid(this._replicaCamera)) {
+            return;
         }
+        this._replicaCamera.transform.position = this._mainCamera.transform.position;
+        this._replicaCamera.transform.rotation = this._mainCamera.transform.rotation;
     }
 
-    // onClick function - Save button on screenshot result screen
-    public SaveScreenShot() {
-        //Save Screenshot
-        ZepetoWorldContent.SaveToCameraRoll(this.renderTexture, (result: boolean) => { console.log(`${result}`) });
-    }
-    // onClick function - Share button on screenshot result screen
-    public ShareScreenShot() {
-        ZepetoWorldContent.Share(this.renderTexture, (result: boolean) => { console.log(`${result}`) });
+    private IsValid(value: any) {
+        if (value == undefined || value == null) {
+            return false;
+        }
+        return true;
     }
 
-    // onClick function - Create feed button on screenshot result screen
-    public CreateFeedScreenShot() {
-        ZepetoWorldContent.CreateFeed(this.renderTexture, this.feedMessage, (result: boolean) => {
-            this.uiController.ShowCreateFeedResult(result);
+    public SetScreenshotCamera(camera: Camera) {
+        this._mainCamera = camera;
+    }
+
+    public get OnScreenshotDone() {
+        if (!this.IsValid(this._onScreenshotDone)) {
+            this._onScreenshotDone = new UnityEvent();
+        }
+        return this._onScreenshotDone;
+    }
+
+    public get OnFailEvent() {
+        if (!this.IsValid(this._onFailEvent)) {
+            this._onFailEvent = new UnityEvent();
+        }
+        return this._onFailEvent;
+    }
+
+    public get OnSuccessEvent() {
+        if (!this.IsValid(this._onSuccessEvent)) {
+            this._onSuccessEvent = new UnityEvent();
+        }
+        return this._onSuccessEvent;
+    }
+
+    public get OnProgressEvent() {
+        if (!this.IsValid(this._onProgressEvent)) {
+            this._onProgressEvent = new UnityEvent();
+        }
+        return this._onProgressEvent;
+    }
+
+    public get OnVideoRecordingStartEvent() {
+        if (!this.IsValid(this._onVideoRecordingStartEvent)) {
+            this._onVideoRecordingStartEvent = new UnityEvent();
+        }
+        return this._onVideoRecordingStartEvent;
+    }
+
+    public get OnVideoRecordingStopEvent() {
+        if (!this.IsValid(this._onVideoRecordingStopEvent)) {
+            this._onVideoRecordingStopEvent = new UnityEvent();
+        }
+        return this._onVideoRecordingStopEvent;
+    }
+
+    // returns {RenderTexture}
+    public get ScreenshotRenderTexture() {
+        if (!this.IsValid(this._screenshotRenderTexture)) {
+            console.error("Invalid screenshot RenderTexture for recording");
+            return null;
+        }
+        return this._screenshotRenderTexture;
+    }
+
+    /* PhotoFunction */
+    public StartTakePhotoScreenshot(isVideo?: boolean) {
+        // Use as a screenshot camera after replicating the main camera.
+        let screenshotCamera = (GameObject.Instantiate(this._mainCamera) as GameObject).GetComponent<Camera>();
+        GameObject.Destroy(screenshotCamera.GetComponent<AudioListener>());
+        screenshotCamera.gameObject.name = "ScreenshotCamera";
+        screenshotCamera.targetTexture = this._screenshotRenderTexture;
+        this.StartCoroutine(this.CoTakePhotoScreenshot(screenshotCamera, isVideo));
+    }
+
+    private *CoTakePhotoScreenshot(camera: Camera, isVideo?: boolean) {
+        let waitForEndOfFrame = new WaitForEndOfFrame();
+        yield waitForEndOfFrame;
+        camera.transform.position = this._mainCamera.transform.position;
+        camera.transform.rotation = this._mainCamera.transform.rotation;
+        camera.Render();
+        camera.targetTexture = null;
+        yield waitForEndOfFrame;
+
+        if (!this.IsValid(isVideo)) {
+            if (this.IsValid(this._onScreenshotDone)) {
+                this._onScreenshotDone.Invoke();
+            }
+        }
+
+        GameObject.Destroy(camera.gameObject);
+    }
+
+    public PhotoPostToFeed(feedMessage: string) {
+        if (Application.isEditor) {
+            this._onFailEvent.Invoke();
+        }
+
+        if (this.IsValid(this._onProgressEvent)) { 
+            this._onProgressEvent.Invoke();
+        }
+
+        ZepetoWorldContent.CreateFeed(this._screenshotRenderTexture, feedMessage, (result: boolean) => {
+            if (result && this.IsValid(this._onSuccessEvent)) {
+                this._onSuccessEvent.Invoke();
+            }
+
+            if (!result && this.IsValid(this._onFailEvent)) {
+                this._onFailEvent.Invoke();
+            }
         });
     }
 
-    *RenderTargetTextureWithBackground()
-    {
-        yield new WaitForEndOfFrame();
-        this.camera.Render();
-        this.camera.targetTexture = null;
+    public PhotoSave() {
+        if (Application.isEditor) {
+            this._onFailEvent.Invoke();
+        }
+
+        if (this.IsValid(this._onProgressEvent)) {
+            this._onProgressEvent.Invoke();
+        }
+
+        ZepetoWorldContent.SaveToCameraRoll(this._screenshotRenderTexture, (result: boolean) => {
+            if (result) {
+                if (result && this.IsValid(this._onSuccessEvent)) {
+                    this._onSuccessEvent.Invoke();
+                }
+
+                if (!result && this.IsValid(this._onFailEvent)) {
+                    this._onFailEvent.Invoke();
+                }
+            }
+        });
     }
 
-    *RenderTargetTextureWithoutBackground()
-    {
-        yield new WaitForEndOfFrame();
-        this.camera.Render();
-
-        // 4. Revert existing settings 
-        this.camera.targetTexture = null;
-        this.camera.backgroundColor = this.preBackgroundColor;
-        this.camera.clearFlags = this.preClearFlags;
-
-        // 5. Reactivate the background canvas while taking a screenshot
-        this.backgroundCanvas.gameObject.SetActive(true);
+    public PhotoShare() {
+        ZepetoWorldContent.Share(this._screenshotRenderTexture, (result: boolean) => {
+            if (!result && this.IsValid(this._onFailEvent)) {
+                this._onFailEvent.Invoke();
+            }
+        });
     }
 
-    private TakeScreenShotWithBackground() {
-        // Specify the target texture and render the camera
-        this.camera.targetTexture = this.renderTexture;
-        this.StartCoroutine(this.RenderTargetTextureWithBackground());
+    /* VideoFunction */
+    public ResetVideoRecordingEvent() {
+        if (!this.IsValid(this._onVideoRecordingStartEvent)) {
+            this._onVideoRecordingStartEvent = new UnityEvent();
+        }
+        else {
+            this._onVideoRecordingStartEvent.RemoveAllListeners();
+        }
 
+        if (!this.IsValid(this._onVideoRecordingStopEvent)) {
+            this._onVideoRecordingStopEvent = new UnityEvent();
+        }
+        else {
+            this._onVideoRecordingStopEvent.RemoveAllListeners();
+        }
     }
 
-    private TakeScreenShotWithoutBackground() {
-        // Disable background canvas while taking screenshots
-        this.backgroundCanvas.gameObject.SetActive(false);
-
-        // 1. Specify the target texture and save the camera flag/color values before the screenshot
-        this.camera.targetTexture = this.renderTexture;
-        this.preClearFlags = this.camera.clearFlags;
-        this.preBackgroundColor = this.camera.backgroundColor;
-
-        // 2. Fill the background of the camera with a solid color and make the background color transparent. 
-        this.camera.clearFlags = CameraClearFlags.SolidColor;
-        this.camera.backgroundColor = new Color(0, 0, 0, 0);
-
-        // 3. Camera Render
-        this.StartCoroutine(this.RenderTargetTextureWithoutBackground());
-
+    public RecordVideo() {
+        if (WorldVideoRecorder.IsRecording()) {
+            this.StopCoroutine(this._coRecordVideo);
+            this.RecordingDone();
+        } else {
+            this._coRecordVideo = this.StartCoroutine(this.CoRecordVideo());
+        }
     }
+
+    private *CoRecordVideo() {
+        this._replicaCamera = (GameObject.Instantiate(this._mainCamera) as GameObject).GetComponent<Camera>();
+        GameObject.Destroy(this._replicaCamera.GetComponent<AudioListener>());
+        this._replicaCamera.gameObject.name = "ScreenshotCamera";
+
+        let startRecording = WorldVideoRecorder.StartRecording(this._replicaCamera, this._videoResolutionType, this._videoMaxDuration);
+
+        // startRecording
+        if (!startRecording) {
+            if (this.IsValid(this._onFailEvent)) {
+                this._onFailEvent.Invoke();
+            }
+        } else {
+            if (this.IsValid(this._onVideoRecordingStartEvent)) {
+                this._onVideoRecordingStartEvent.Invoke();
+            }
+        }
+
+        // IsRecording
+        if (startRecording && !WorldVideoRecorder.IsRecording()) {
+            if (this.IsValid(this._onFailEvent)) {
+                this._onFailEvent.Invoke();
+            }
+            return;
+        }
+
+        while (WorldVideoRecorder.IsRecording()) {
+            yield null;
+        }
+
+        // RecordingDone
+        this.RecordingDone();
+    }
+
+    private RecordingDone() {
+        if (this.IsValid(this._onVideoRecordingStopEvent)) {
+            this._onVideoRecordingStopEvent.Invoke();
+        }
+        WorldVideoRecorder.StopRecording();
+        GameObject.Destroy(this._replicaCamera.gameObject);
+        this._replicaCamera = null;
+    }
+
+    public VideoPostToFeed(feedMessage: string) {
+        if (Application.isEditor) {
+            this._onFailEvent.Invoke();
+        }
+
+        if (this.IsValid(this._onProgressEvent)) {
+            this._onProgressEvent.Invoke();
+        }
+
+        WorldVideoRecorder.CreateFeed(feedMessage, (result) => {
+            if (result && this.IsValid(this._onSuccessEvent)) {
+                this._onSuccessEvent.Invoke();
+            }
+
+            if (!result && this.IsValid(this._onFailEvent)) {
+                this._onFailEvent.Invoke();
+            }
+
+        });
+    }
+
+    public VideoSave() {
+        if (Application.isEditor) {
+            this._onFailEvent.Invoke();
+        }
+
+        if (this.IsValid(this._onProgressEvent)) {
+            this._onProgressEvent.Invoke();
+        }
+
+        WorldVideoRecorder.SaveToCameraRoll((result) => {
+            if (result) {
+                if (result && this.IsValid(this._onSuccessEvent)) {
+                    this._onSuccessEvent.Invoke();
+                }
+
+                if (!result && this.IsValid(this._onFailEvent)) {
+                    this._onFailEvent.Invoke();
+                }
+            }
+        });
+    }
+
+    public VideoShare() {
+        WorldVideoRecorder.Share((result) => {
+            if (result) {
+                if (!result && this.IsValid(this._onFailEvent)) {
+                    this._onFailEvent.Invoke();
+                }
+            }
+        });
+    }
+
+    public DestroyVideoPlayerComponent(playerObject: GameObject) {
+        let existingVideoPlayer = playerObject.GetComponent<VideoPlayer>();
+        if (existingVideoPlayer != null) {
+            existingVideoPlayer.Stop();
+            GameObject.Destroy(existingVideoPlayer);
+        }
+    }
+
+    public PlayPreviewVideo(playerObject: GameObject, width: number, height: number) {
+       let videoPlayer = WorldVideoRecorder.AddVideoPlayerComponent(playerObject, width, height);
+        if (videoPlayer == null) {
+           return;
+       }
+        videoPlayer.isLooping = true;
+        videoPlayer.Play();
+    }
+
 }
