@@ -4,14 +4,12 @@ import { OfficialContentType, ZepetoWorldContent, Content } from 'ZEPETO.World';
 import { Button } from 'UnityEngine.UI';
 import { Object, GameObject, Transform, AnimationClip, WaitForSeconds, Coroutine} from 'UnityEngine';
 import Thumbnail from './Thumbnail';
-import UIController from './UIController';
 
 export default class GestureLoader extends ZepetoScriptBehaviour {
 
     @HideInInspector() public contents: Content[] = [];
     @HideInInspector() public thumbnails: GameObject[] = [];
     @HideInInspector() public gestureCoroutine: Coroutine;
-    @HideInInspector() public animation: AnimationClip = null;
 
     @SerializeField() private _loadContentsCount: number = 100;
     @SerializeField() private _contentsParent: Transform;
