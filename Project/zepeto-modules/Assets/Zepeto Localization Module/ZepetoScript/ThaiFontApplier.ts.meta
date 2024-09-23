@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 89878a09782884a0094997adb9c63115
-importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: 89072204048b7087d871d10c191cb608
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -24,7 +28,7 @@ ScriptedImporter:
     ThaiFontApplier extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start()
     {\r\n        this.gameObject.GetComponent($typeof(UnityEngine_UI_1.Text)).font
     = Localization_1.default.instance.GetDefaultThaiFont();\r\n    }\r\n}\r\nexports.default
-    = ThaiFontApplier;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGhhaUZvbnRBcHBsaWVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGhhaUZvbnRBcHBsaWVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsbURBQXNDO0FBQ3RDLGlEQUFzRDtBQUN0RCxpREFBMEM7QUFFMUMsTUFBcUIsZUFBZ0IsU0FBUSxxQ0FBcUI7SUFDOUQsS0FBSztRQUNELElBQUksQ0FBQyxVQUFVLENBQUMsWUFBWSxTQUFDLHFCQUFJLEdBQUksSUFBSSxHQUFHLHNCQUFZLENBQUMsUUFBUSxDQUFDLGtCQUFrQixFQUFFLENBQUM7SUFDM0YsQ0FBQztDQUNKO0FBSkQsa0NBSUMifQ==","assetPath":"Assets/Zepeto
-    Localization Module/ZepetoScript/ThaiFontApplier.ts","manifest":{"properties":[],"name":"ThaiFontApplier","description":""},"isCompiled":true}'
+    = ThaiFontApplier;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGhhaUZvbnRBcHBsaWVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGhhaUZvbnRBcHBsaWVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsbURBQXNDO0FBQ3RDLGlEQUFzRDtBQUN0RCxpREFBMEM7QUFFMUMsTUFBcUIsZUFBZ0IsU0FBUSxxQ0FBcUI7SUFDOUQsS0FBSztRQUNELElBQUksQ0FBQyxVQUFVLENBQUMsWUFBWSxTQUFDLHFCQUFJLEVBQUcsQ0FBQyxJQUFJLEdBQUcsc0JBQVksQ0FBQyxRQUFRLENBQUMsa0JBQWtCLEVBQUUsQ0FBQztJQUMzRixDQUFDO0NBQ0o7QUFKRCxrQ0FJQyJ9","assetPath":"Assets/Zepeto
+    Localization Module/ZepetoScript/ThaiFontApplier.ts","manifest":{"properties":[],"name":"ThaiFontApplier","description":"","hasAnimatorMove":false},"isCompiled":true}'
   typescriptHash: 8af414724baf5ac5491929a670725249
   onlyWriteTrigger: 0

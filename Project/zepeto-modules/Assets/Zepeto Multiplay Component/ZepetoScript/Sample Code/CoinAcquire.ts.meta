@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 30a496b905f754e009f6760ebc36182d
-importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: 89072204048b7087d871d10c191cb608
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,6 +47,6 @@ ScriptedImporter:
     1, this.GetRandomInt(10));\r\n    }\r\n    DestroyCoin() {\r\n        MultiplayManager_1.default.instance.Destroy(this.gameObject);\r\n   
     }\r\n    GetRandomInt(max) {\r\n        return Math.floor(Math.random() * max);\r\n   
     }\r\n}\r\nexports.default = CoinAcquire;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29pbkFjcXVpcmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJDb2luQWNxdWlyZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2Q0FBNkU7QUFDN0UsNkVBQXdFO0FBQ3hFLCtDQUFrRDtBQUNsRCx1REFBc0M7QUFDdEMsMEVBQW1FO0FBQ25FLGlFQUEwRDtBQUUxRCxNQUFxQixXQUFZLFNBQVEscUNBQXFCO0lBQTlEO1FBQ0ksK0dBQStHOztRQUVyRix5QkFBb0IsR0FBVyxJQUFJLENBQUM7SUF1Q2xFLENBQUM7SUFsQ1csS0FBSztRQUNULElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLFlBQVksU0FBQyw2QkFBbUIsRUFBRyxDQUFDO1FBQzFELElBQUksQ0FBQyxVQUFVLEdBQUcsb0JBQU0sQ0FBQyxnQkFBZ0IsU0FBQyxtQ0FBb0IsRUFBRyxDQUFDO1FBQ2xFLElBQUksQ0FBQyxVQUFVLGdCQUFlLENBQUMsSUFBVSxFQUFFLEVBQUU7WUFDekMsSUFBSSxDQUFDLEtBQUssR0FBRSxJQUFJLENBQUM7WUFDakIsSUFBSSxDQUFDLEtBQUssQ0FBQyxpQkFBaUIsQ0FBQyxjQUFjLEdBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxpQkFBd0IsRUFBRSxFQUFFO2dCQUN4RixJQUFHLElBQUksQ0FBQyxvQkFBb0I7b0JBQ3hCLElBQUksQ0FBQyxvQkFBb0IsRUFBRSxDQUFDOztvQkFFNUIsSUFBSSxDQUFDLFdBQVcsRUFBRSxDQUFDO1lBQzNCLENBQUMsQ0FBQyxDQUFDO1FBQ1AsQ0FBQyxFQUFBO0lBQ0wsQ0FBQztJQUVPLGNBQWMsQ0FBQyxJQUFjO1FBQ2pDLElBQUcsSUFBSSxJQUFJLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxZQUFZLEVBQUUsU0FBUyxDQUFDLFlBQVksU0FBQyxzQkFBUSxFQUFHLEVBQUM7WUFDNUYsT0FBTztTQUNWO1FBRUQsd0hBQXdIO1FBQ3hILElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxjQUFjLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUNqRSxDQUFDO0lBRU8sb0JBQW9CO1FBQ3hCLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUkscUJBQU8sQ0FBQyxJQUFJLENBQUMsWUFBWSxDQUFDLEVBQUUsQ0FBQyxFQUFDLENBQUMsRUFBQyxJQUFJLENBQUMsWUFBWSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFDekYsQ0FBQztJQUVPLFdBQVc7UUFDZiwwQkFBZ0IsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUN2RCxDQUFDO0lBRU8sWUFBWSxDQUFDLEdBQVc7UUFDNUIsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxNQUFNLEVBQUUsR0FBRyxHQUFHLENBQUMsQ0FBQztJQUMzQyxDQUFDO0NBQ0o7QUExQ0QsOEJBMENDIn0=","assetPath":"Assets/Zepeto
-    Multiplay Component/ZepetoScript/Sample Code/CoinAcquire.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"useCoinRandomRespawn","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"CoinAcquire","description":""},"isCompiled":true}'
+    Multiplay Component/ZepetoScript/Sample Code/CoinAcquire.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"useCoinRandomRespawn","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"CoinAcquire","description":"","hasAnimatorMove":false},"isCompiled":true}'
   typescriptHash: 2c8ed5cee195babdf6b9b07f7bf45b68
   onlyWriteTrigger: 0

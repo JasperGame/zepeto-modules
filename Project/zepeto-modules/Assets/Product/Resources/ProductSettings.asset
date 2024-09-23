@@ -13,28 +13,34 @@ MonoBehaviour:
   m_Name: ProductSettings
   m_EditorClassIdentifier: 
   productTextureInfo:
-  - targetId: energy1
+  - targetId: highjump
     targetAssetPath: 
-  - targetId: energy2
+  - targetId: resurrection_star
     targetAssetPath: 
-  - targetId: energy3
+  - targetId: resurrection_zem
     targetAssetPath: 
-  - targetId: energy4
+  - targetId: shield
     targetAssetPath: 
-  - targetId: note1
+  - targetId: star100
     targetAssetPath: 
-  - targetId: potion_package
+  - targetId: star12000
     targetAssetPath: 
-  - targetId: potion1
+  - targetId: star2750
     targetAssetPath: 
-  - targetId: potion2
+  - targetId: star420
     targetAssetPath: 
-  - targetId: potion3
+  - targetId: tip
     targetAssetPath: 
-  - targetId: potion4
+  - targetId: trail_
+    targetAssetPath: 
+  - targetId: trail_1
+    targetAssetPath: 
+  - targetId: trail_2
+    targetAssetPath: 
+  - targetId: trail_3
+    targetAssetPath: 
+  - targetId: trail_4
     targetAssetPath: 
   currencyTextureInfo:
-  - targetId: energy
-    targetAssetPath: 
   - targetId: star
     targetAssetPath: 
