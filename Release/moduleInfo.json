@@ -5,7 +5,7 @@
       "Description": "The installation of various modules required for ZEPETO world development is a straightforward process.\nPlease ensure that the correct ZEPETO world package version is supported for each module in Dependencies, as using an unsupported version may result in improper functioning.\nTo install each module, refer to the View Import Guide for instructions.\nFurthermore, instructions for utilizing each feature can be found in the API Doc.",
       "Description_ko": "ZEPETO 월드 개발에 필요한 다양한 모듈을 쉽게 설치할 수 있습니다.\n각 모듈 별로 지원하는 ZEPETO 월드 패키지 버전을 Dependencies에서 확인하여 주세요.\n지원하는 버전이 아닐 경우 올바르게 실행되지 않습니다.\n각 모듈의 설치 사용법은 View Import Guide를, 각 기능의 사용법은 API Doc를 참고하여 주세요.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-modules",
-      "LatestVersion": "1.0.3",
+      "LatestVersion": "1.0.4",
       "Dependencies": ["nothing"]
     },
     {
@@ -13,8 +13,8 @@
       "Description": "This component is designed to facilitate easy synchronization of players and objects in ZEPETO multiplayer implementation.\nIt is attached to objects to be synchronized in the form of a component and provides useful sample code for developing multiplayer worlds.",
       "Description_ko": "ZEPETO 멀티플레이 구현시, 플레이어와 오브젝트를 손쉽게 동기화할 수 있게 해주는 컴포넌트입니다. 컴포넌트 형태로 동기화할 오브젝트에 부착해서 사용하며 멀티플레이 월드 개발에 유용한 샘플 코드를 제공합니다.",
       "DocsUrl": "https://github.com/JasperGame/zepeto-world-sync-component",
-      "LatestVersion": "1.1.3",
-      "Dependencies": ["ZEPETO.World : 1.8.0+"]
+      "LatestVersion": "1.1.4",
+      "Dependencies": ["ZEPETO.World : 1.22.3+"]
     },
     {
       "Title": "Interaction",
@@ -29,7 +29,7 @@
       "Description": "This module implements gesture features provided by ZEPETO. When a thumbnail is clicked, it allows users to perform specific gestures/poses.",
       "Description_ko": "ZEPETO에서 제공하는 제스쳐 기능을 구현한 모듈입니다. 썸네일을 클릭했을 때 특정 제스쳐/포즈를 취하게 할 수 있습니다.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/gesture",      
-      "LatestVersion": "1.0.5",
+      "LatestVersion": "1.0.6",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
@@ -37,7 +37,7 @@
       "Description": "This module implements screenshot UI and features provided by ZEPETO.\nPlease refer to the Import Guide to make the character's face follow the camera lens in the selfie mode.",
       "Description_ko": "ZEPETO에서 제공하는 스크린샷 UI 및 기능을 구현한 모듈입니다.\n셀카 모드에서 캐릭터의 얼굴이 카메라 렌즈를 따라가도록 하려면, 가이드를 참조해 주세요.",
       "DocsUrl": "https://naverz-group.readme.io/studio-world/lang-en/docs/screenshot",
-      "LatestVersion": "1.0.3",
+      "LatestVersion": "1.0.4",
       "Dependencies": ["ZEPETO.World : 1.8.0+"]
     },
     {
