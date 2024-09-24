@@ -1,23 +1,13 @@
+
 fileFormatVersion: 2
-guid: 3a33b564ff7f4311b32e498539008275
-importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
-ScriptedImporter:
-  internalIDToNameTable: []
+guid: cf4e7a4b181c4545beeb79425003127b
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: 89072204048b7087d871d10c191cb608
+DefaultImporter:
   externalObjects: {}
-  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
-  isAssemblyDeclarations: 0
-  assembly: 
-  generateAllTypes: 1
-  types: []
-  generateWrapper: 0
-  overrideWrapperTypes: 0
-  wrapperTypes: []
-  WrapperFilters: []
-  wrapperOutputDirectory: Generated
-  compiledResult: 
-  typescriptHash: 
-  onlyWriteTrigger: 0

@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 25c0fe0afef9949fd8c792feb371adc8
-importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: 89072204048b7087d871d10c191cb608
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,6 +47,6 @@ ScriptedImporter:
     = false;\r\n        }\r\n        const localizedText = Localization_1.default.instance.GetLocalizedText(this.localizationKey);\r\n       
     this._inputField.text = localizedText;\r\n        this._localizedText = localizedText;\r\n   
     }\r\n}\r\nexports.default = InputFieldLocalizer;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW5wdXRGaWVsZExvY2FsaXplci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIklucHV0RmllbGRMb2NhbGl6ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxtREFBa0Q7QUFDbEQsaURBQXNEO0FBQ3RELGlEQUE4RDtBQUU5RCxNQUFxQixtQkFBb0IsU0FBUSxxQ0FBcUI7SUFBdEU7O1FBSVksbUJBQWMsR0FBWSxLQUFLLENBQUM7SUF5RDVDLENBQUM7SUFwREcsSUFBVyxhQUFhO1FBQ3BCLElBQUksQ0FBQyxJQUFJLENBQUMsY0FBYyxFQUFFO1lBQ3RCLElBQUksQ0FBQyxjQUFjLEdBQUcsbUJBQW1CLENBQUM7U0FDN0M7UUFDRCxPQUFPLElBQUksQ0FBQyxjQUFjLENBQUM7SUFDL0IsQ0FBQztJQUVELEtBQUs7UUFDRCxJQUFJLENBQUMsV0FBVyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsWUFBWSxTQUFDLDJCQUFVLEVBQUcsQ0FBQztRQUM5RCxJQUFJLENBQUMsT0FBTyxHQUFHLElBQUksQ0FBQyxXQUFXLENBQUMsYUFBYSxDQUFDO0lBQ2xELENBQUM7SUFFRCxRQUFRO1FBQ0osSUFBSSxJQUFJLENBQUMsY0FBYyxFQUFFO1lBQ3JCLElBQUksQ0FBQywyQkFBMkIsRUFBRSxDQUFDO1NBQ3RDO0lBQ0wsQ0FBQztJQUVELEtBQUs7UUFDRCxJQUFJLENBQUMsSUFBSSxDQUFDLGVBQWUsSUFBSSxJQUFJLENBQUMsZUFBZSxJQUFJLEVBQUUsRUFBRTtZQUNyRCxJQUFJLENBQUMsY0FBYyxHQUFHLEtBQUssQ0FBQztZQUM1QixPQUFPLENBQUMsS0FBSyxDQUFDLG9GQUFvRixJQUFJLENBQUMsVUFBVSxDQUFDLElBQUksR0FBRyxDQUFDLENBQUM7WUFDM0gsT0FBTztTQUNWO2FBQU07WUFDSCxJQUFJLENBQUMsY0FBYyxHQUFHLElBQUksQ0FBQztTQUM5QjtRQUVELDZCQUE2QjtRQUM3QixJQUFJLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxZQUFZLFNBQUMsMkJBQVUsRUFBRyxFQUFFO1lBQzdDLE9BQU8sQ0FBQyxLQUFLLENBQUMsaUZBQWlGLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxHQUFHLENBQUMsQ0FBQztZQUN4SCxPQUFPO1NBQ1Y7UUFFRCxJQUFJLENBQUMsMkJBQTJCLEVBQUUsQ0FBQztRQUNuQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxxQkFBcUIsQ0FBQyxXQUFXLENBQUMsR0FBRSxFQUFFO1lBQ3hELElBQUksQ0FBQywyQkFBMkIsRUFBRSxDQUFDO1FBQ3ZDLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVPLDJCQUEyQjtRQUMvQixJQUFJLHNCQUFZLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxFQUFFO1lBQ25DLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxHQUFHLHNCQUFZLENBQUMsUUFBUSxDQUFDLGtCQUFrQixFQUFFLENBQUM7U0FDbEU7UUFFRCxJQUFJLElBQUksQ0FBQyxlQUFlLEVBQUU7WUFDdEIsSUFBSSxDQUFDLE9BQU8sQ0FBQyxlQUFlLEdBQUcsS0FBSyxDQUFDO1NBQ3hDO1FBRUQsTUFBTSxhQUFhLEdBQVcsc0JBQVksQ0FBQyxRQUFRLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxDQUFDO1FBQzNGLElBQUksQ0FBQyxXQUFXLENBQUMsSUFBSSxHQUFHLGFBQWEsQ0FBQztRQUN0QyxJQUFJLENBQUMsY0FBYyxHQUFHLGFBQWEsQ0FBQztJQUN4QyxDQUFDO0NBQ0o7QUE3REQsc0NBNkRDIn0=","assetPath":"Assets/Zepeto
-    Localization Module/ZepetoScript/InputFieldLocalizer.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"localizationKey","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"disableRichText","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"InputFieldLocalizer","description":""},"isCompiled":true}'
+    Localization Module/ZepetoScript/InputFieldLocalizer.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"localizationKey","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"disableRichText","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"InputFieldLocalizer","description":"","hasAnimatorMove":false},"isCompiled":true}'
   typescriptHash: 7f9fb869a51a83598d94dceb04598fa8
   onlyWriteTrigger: 0

@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 7f8029d1df5b7474eadb3b4720b3ca19
-importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: 89072204048b7087d871d10c191cb608
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
