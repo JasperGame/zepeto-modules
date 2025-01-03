@@ -1,6 +1,14 @@
 {
   "Items": [
     {
+      "Title": "Buildit Template",
+      "Description": "Core module for Buildit Template",
+      "Description_ko": "",
+      "DocsUrl": "https://github.com/Zepeto-TechEvangelist/zepeto_buildit_template",
+      "LatestVersion": "1.0.0",
+      "Dependencies": ["nothing"]
+    },
+    {
       "Title": "Module Importer",
       "Description": "The installation of various modules required for ZEPETO world development is a straightforward process.\nPlease ensure that the correct ZEPETO world package version is supported for each module in Dependencies, as using an unsupported version may result in improper functioning.\nTo install each module, refer to the View Import Guide for instructions.\nFurthermore, instructions for utilizing each feature can be found in the API Doc.",
       "Description_ko": "ZEPETO 월드 개발에 필요한 다양한 모듈을 쉽게 설치할 수 있습니다.\n각 모듈 별로 지원하는 ZEPETO 월드 패키지 버전을 Dependencies에서 확인하여 주세요.\n지원하는 버전이 아닐 경우 올바르게 실행되지 않습니다.\n각 모듈의 설치 사용법은 View Import Guide를, 각 기능의 사용법은 API Doc를 참고하여 주세요.",
